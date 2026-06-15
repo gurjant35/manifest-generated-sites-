@@ -4,1328 +4,1136 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gujarat Auto - Trusted Auto Repair in Brampton, Ontario</title>
-<meta name="description" content="Gujarat Auto - Trusted auto repair and maintenance in Brampton, Ontario. Brake repair, diagnostics, oil change, tire services. Call 647-527-2988.">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --blue: #1a56db;
-    --blue-dark: #1341b0;
-    --blue-light: #e8f0fe;
-    --green: #16a34a;
-    --green-dark: #15803d;
-    --grey-bg: #f8f9fa;
-    --grey-soft: #e9ecef;
-    --text-dark: #1a1a2e;
-    --text-mid: #4a5568;
-    --text-light: #718096;
-    --white: #ffffff;
-    --shadow: 0 2px 16px rgba(26,86,219,0.08);
-    --shadow-hover: 0 6px 32px rgba(26,86,219,0.16);
-    --radius: 12px;
-  }
-
   html { scroll-behavior: smooth; }
-
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
-    background: var(--grey-bg);
-    color: var(--text-dark);
-    line-height: 1.6;
-    font-size: 16px;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0a0a0c;
+    color: #e0e0e0;
+    overflow-x: hidden;
+  }
+  :root {
+    --blue: #1a8fff;
+    --blue-bright: #3dabff;
+    --blue-dark: #0d6bc4;
+    --bg-dark: #0a0a0c;
+    --bg-card: #111318;
+    --bg-card2: #16191f;
+    --text-white: #ffffff;
+    --text-gray: #a0a8b8;
+    --border: #1e2330;
   }
 
   /* NAV */
   nav {
-    background: var(--white);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 0; left: 0; right: 0;
     z-index: 1000;
-    padding: 0 20px;
-  }
-
-  .nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
+    background: rgba(10,10,12,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    height: 68px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
-    gap: 12px;
   }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  .nav-logo {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-white);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     text-decoration: none;
   }
-
-  .logo-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--blue);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo-icon svg { width: 24px; height: 24px; fill: white; }
-
-  .logo-text { font-size: 1.25rem; font-weight: 700; color: var(--blue); line-height: 1.1; }
-  .logo-sub { font-size: 0.7rem; color: var(--text-light); font-weight: 500; }
-
+  .nav-logo span { color: var(--blue); }
   .nav-links {
     display: flex;
-    gap: 24px;
+    gap: 2rem;
     list-style: none;
   }
-
   .nav-links a {
+    color: var(--text-gray);
     text-decoration: none;
-    color: var(--text-mid);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     transition: color 0.2s;
   }
-
-  .nav-links a:hover { color: var(--blue); }
-
+  .nav-links a:hover { color: var(--blue-bright); }
   .nav-cta {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .btn-call {
-    background: var(--green);
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: background 0.2s, transform 0.1s;
-    white-space: nowrap;
-  }
-
-  .btn-call:hover { background: var(--green-dark); transform: translateY(-1px); }
-
-  .btn-quote {
     background: var(--blue);
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-size: 0.9rem;
+    color: #fff;
+    padding: 0.5rem 1.4rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
     font-weight: 700;
-    cursor: pointer;
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: background 0.2s, transform 0.1s;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: background 0.2s, box-shadow 0.2s;
     white-space: nowrap;
   }
-
-  .btn-quote:hover { background: var(--blue-dark); transform: translateY(-1px); }
-
+  .nav-cta:hover { background: var(--blue-bright); box-shadow: 0 0 18px rgba(26,143,255,0.5); }
   .hamburger {
     display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
     flex-direction: column;
     gap: 5px;
+    cursor: pointer;
+    padding: 4px;
   }
-
   .hamburger span {
     display: block;
     width: 24px;
-    height: 2.5px;
-    background: var(--text-dark);
+    height: 2px;
+    background: #fff;
     border-radius: 2px;
     transition: all 0.3s;
   }
-
   .mobile-menu {
     display: none;
-    background: var(--white);
-    border-top: 1px solid var(--grey-soft);
-    padding: 16px 20px;
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: rgba(10,10,12,0.98);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 5%;
+    z-index: 999;
     flex-direction: column;
-    gap: 12px;
+    gap: 1rem;
   }
-
   .mobile-menu.open { display: flex; }
-
   .mobile-menu a {
+    color: var(--text-gray);
     text-decoration: none;
-    color: var(--text-mid);
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--grey-soft);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
   }
+  .mobile-menu a:hover { color: var(--blue-bright); }
 
-  .mobile-menu .btn-call, .mobile-menu .btn-quote {
-    justify-content: center;
-    padding: 12px;
-    font-size: 1rem;
+  /* BUTTONS */
+  .btn-blue {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    padding: 0.85rem 2.2rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+  .btn-blue:hover {
+    background: var(--blue-bright);
+    box-shadow: 0 0 28px rgba(26,143,255,0.55);
+    transform: translateY(-1px);
+  }
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--blue-bright);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 2px solid var(--blue);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover {
+    background: var(--blue);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(26,143,255,0.4);
   }
 
   /* HERO */
   .hero {
-    background: linear-gradient(135deg, #1a56db 0%, #0f3a8c 100%);
-    color: white;
-    padding: 60px 20px 50px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
-    background: rgba(255,255,255,0.04);
-    border-radius: 50%;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    background: rgba(255,255,255,0.03);
-    border-radius: 50%;
-  }
-
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    min-height: 100vh;
+    display: flex;
     align-items: center;
     position: relative;
-    z-index: 1;
+    overflow: hidden;
+    padding: 120px 5% 80px;
   }
-
+  .hero-glow {
+    position: absolute;
+    right: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 65%;
+    height: 130%;
+    background: radial-gradient(ellipse at center, rgba(26,143,255,0.18) 0%, rgba(26,143,255,0.06) 40%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-glow2 {
+    position: absolute;
+    left: -10%; top: 20%;
+    width: 40%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(26,143,255,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
   .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 100px;
-    padding: 6px 14px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-
-  .hero h1 {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-
-  .hero h1 span { color: #93c5fd; }
-
-  .hero p {
-    font-size: 1.05rem;
-    opacity: 0.9;
-    margin-bottom: 28px;
-    max-width: 480px;
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .btn-hero-call {
-    background: var(--green);
-    color: white;
-    padding: 14px 28px;
-    border-radius: 10px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s;
-    box-shadow: 0 4px 16px rgba(22,163,74,0.4);
-  }
-
-  .btn-hero-call:hover { background: var(--green-dark); transform: translateY(-2px); }
-
-  .btn-hero-quote {
-    background: rgba(255,255,255,0.15);
-    color: white;
-    padding: 14px 28px;
-    border-radius: 10px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 2px solid rgba(255,255,255,0.4);
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-
-  .btn-hero-quote:hover { background: rgba(255,255,255,0.25); }
-
-  .hero-stats {
-    display: flex;
-    gap: 24px;
-    margin-top: 32px;
-    flex-wrap: wrap;
-  }
-
-  .stat { text-align: center; }
-  .stat-num { font-size: 1.8rem; font-weight: 800; color: #93c5fd; }
-  .stat-label { font-size: 0.75rem; opacity: 0.8; }
-
-  .hero-card {
-    background: white;
-    border-radius: 16px;
-    padding: 24px;
-    color: var(--text-dark);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-  }
-
-  .hero-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--blue); margin-bottom: 16px; }
-
-  .hours-list { list-style: none; }
-
-  .hours-list li {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--grey-soft);
-    font-size: 0.9rem;
-  }
-
-  .hours-list li:last-child { border-bottom: none; }
-
-  .hours-list .day { font-weight: 600; color: var(--text-mid); }
-  .hours-list .time { color: var(--blue); font-weight: 700; }
-  .hours-list .closed { color: #ef4444; font-weight: 700; }
-
-  .open-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #dcfce7;
-    color: var(--green);
-    border-radius: 100px;
-    padding: 4px 12px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-
-  .open-badge .dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    animation: pulse 1.5s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  .hero-card .address {
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--grey-soft);
-    font-size: 0.85rem;
-    color: var(--text-mid);
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  /* TRUST BAR */
-  .trust-bar {
-    background: var(--white);
-    padding: 20px;
-    border-bottom: 1px solid var(--grey-soft);
-  }
-
-  .trust-bar-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-mid);
-  }
-
-  .trust-item svg { width: 20px; height: 20px; flex-shrink: 0; }
-
-  /* SECTION */
-  section { padding: 64px 20px; }
-
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-
-  .section-tag {
-    display: inline-block;
-    background: var(--blue-light);
-    color: var(--blue);
+    gap: 0.5rem;
+    background: rgba(26,143,255,0.12);
+    border: 1px solid rgba(26,143,255,0.3);
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
     font-size: 0.78rem;
     font-weight: 700;
+    color: var(--blue-bright);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 100px;
-    margin-bottom: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-badge::before { content: "●"; font-size: 0.6rem; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    color: var(--text-white);
+    text-transform: uppercase;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
+  }
+  .hero-title .accent { color: var(--blue); }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-bottom: 2.2rem;
+    max-width: 480px;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .hero-phone {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .hero-phone:hover { color: var(--blue-bright); }
+  .hero-phone .ph-icon { font-size: 1.1rem; }
+  .hero-image-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-img-glow {
+    position: absolute;
+    inset: -30px;
+    background: radial-gradient(ellipse at center, rgba(26,143,255,0.3) 0%, rgba(26,143,255,0.1) 45%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(20px);
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+  @keyframes glowPulse { 0%,100%{opacity:0.7;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+  .hero-car-placeholder {
+    width: 100%;
+    max-width: 520px;
+    height: 320px;
+    background: linear-gradient(135deg, #111318 0%, #16191f 50%, #111318 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(26,143,255,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(26,143,255,0.15);
+  }
+  .hero-car-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(26,143,255,0.12) 0%, transparent 65%);
+  }
+  .car-svg { font-size: 5rem; opacity: 0.6; position: relative; z-index: 1; }
+  .car-label {
+    color: var(--text-gray);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--text-white);
+    display: block;
+    line-height: 1;
+  }
+  .stat-num span { color: var(--blue); }
+  .stat-lbl {
+    font-size: 0.72rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.2rem;
+    display: block;
   }
 
+  /* SECTION COMMON */
+  section { padding: 90px 5%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    background: rgba(26,143,255,0.1);
+    color: var(--blue-bright);
+    border: 1px solid rgba(26,143,255,0.25);
+    border-radius: 50px;
+    padding: 0.3rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
   .section-title {
-    font-size: clamp(1.5rem, 3vw, 2.1rem);
-    font-weight: 800;
-    margin-bottom: 12px;
-    color: var(--text-dark);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: var(--text-white);
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+    max-width: 580px;
   }
 
-  .section-sub {
-    color: var(--text-mid);
-    font-size: 1rem;
-    max-width: 560px;
-    margin-bottom: 40px;
+  /* INTRO */
+  .intro { background: #0d0f14; }
+  .intro-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .intro-img-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .intro-img-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(ellipse, rgba(26,143,255,0.2) 0%, transparent 65%);
+    filter: blur(15px);
+  }
+  .intro-placeholder {
+    width: 100%;
+    height: 380px;
+    background: linear-gradient(135deg, #111318, #16191f);
+    border-radius: 18px;
+    border: 1px solid rgba(26,143,255,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 40px rgba(26,143,255,0.1);
+  }
+  .intro-placeholder::before {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(26,143,255,0.06), transparent);
+  }
+  .intro-icon { font-size: 4rem; opacity: 0.55; }
+  .intro-placeholder-label {
+    color: var(--text-gray);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+  }
+  .intro-text .section-sub { max-width: 100%; margin-bottom: 1.2rem; }
+  .intro-text .section-sub:last-of-type { margin-bottom: 2rem; }
+  .feature-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0; }
+  .pill {
+    background: rgba(26,143,255,0.1);
+    border: 1px solid rgba(26,143,255,0.2);
+    color: var(--blue-bright);
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
   }
 
   /* SERVICES */
-  .services-bg { background: var(--grey-bg); }
-
+  .services { background: var(--bg-dark); }
+  .services-header { text-align: center; margin-bottom: 3rem; }
+  .services-header .section-sub { margin: 0 auto; }
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
-  }
-
-  .service-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 24px;
-    box-shadow: var(--shadow);
-    transition: all 0.25s;
-    border: 2px solid transparent;
-    cursor: default;
-  }
-
-  .service-card:hover {
-    box-shadow: var(--shadow-hover);
-    border-color: var(--blue);
-    transform: translateY(-3px);
-  }
-
-  .service-icon {
-    width: 52px;
-    height: 52px;
-    background: var(--blue-light);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 14px;
-  }
-
-  .service-icon svg { width: 28px; height: 28px; }
-
-  .service-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-  .service-card p { font-size: 0.85rem; color: var(--text-mid); margin-bottom: 14px; }
-
-  .price-hint {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: #fef3c7;
-    color: #92400e;
-    font-size: 0.78rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 100px;
-  }
-
-  /* BEFORE AFTER */
-  .ba-bg { background: var(--white); }
-
-  .ba-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-  }
-
-  .ba-card {
-    background: var(--grey-bg);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-
-  .ba-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-  }
-
-  .ba-img {
-    height: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    position: relative;
-  }
-
-  .ba-img.before { background: linear-gradient(135deg, #fca5a5, #f87171); }
-  .ba-img.after { background: linear-gradient(135deg, #86efac, #4ade80); }
-
-  .ba-label {
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    background: rgba(0,0,0,0.6);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-
-  .ba-divider {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    z-index: 2;
-  }
-
-  .ba-arrow {
-    background: white;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    font-size: 1rem;
-  }
-
-  .ba-info { padding: 16px; }
-  .ba-info h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-  .ba-info p { font-size: 0.82rem; color: var(--text-mid); }
-
-  /* WORKSHOP */
-  .workshop-bg { background: var(--grey-bg); }
-
-  .workshop-grid {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 1.5rem;
   }
-
-  .ws-img {
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .service-card:hover {
+    border-color: rgba(26,143,255,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(26,143,255,0.12);
+  }
+  .service-img-placeholder {
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(135deg, #16191f, #1c2030);
     border-radius: 10px;
-    overflow: hidden;
-    aspect-ratio: 4/3;
+    border: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
     position: relative;
+    overflow: hidden;
   }
-
-  .ws-img:first-child { grid-column: span 2; aspect-ratio: unset; min-height: 200px; }
-
-  .ws-img.c1 { background: linear-gradient(135deg, #dbeafe, #93c5fd); }
-  .ws-img.c2 { background: linear-gradient(135deg, #e0f2fe, #7dd3fc); }
-  .ws-img.c3 { background: linear-gradient(135deg, #ede9fe, #c4b5fd); }
-  .ws-img.c4 { background: linear-gradient(135deg, #dcfce7, #86efac); }
-
-  .ws-overlay {
+  .service-img-placeholder::before {
+    content: "";
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.5));
-    color: white;
-    padding: 16px 12px 10px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: radial-gradient(ellipse at bottom, rgba(26,143,255,0.08), transparent);
   }
-
-  /* REVIEWS */
-  .reviews-bg { background: var(--white); }
-
-  .stars { color: #f59e0b; font-size: 1rem; letter-spacing: 2px; }
-
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-  }
-
-  .review-card {
-    background: var(--grey-bg);
-    border-radius: var(--radius);
-    padding: 20px;
-    border-left: 4px solid var(--blue);
-    box-shadow: var(--shadow);
-    transition: transform 0.2s;
-  }
-
-  .review-card:hover { transform: translateY(-2px); }
-
-  .review-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-
-  .avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
+  .service-name {
+    font-size: 1rem;
     font-weight: 700;
-    color: white;
-    flex-shrink: 0;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
-
-  .av1 { background: #1a56db; }
-  .av2 { background: #16a34a; }
-  .av3 { background: #9333ea; }
-  .av4 { background: #ea580c; }
-  .av5 { background: #0891b2; }
-
-  .reviewer-name { font-weight: 700; font-size: 0.95rem; }
-  .review-date { font-size: 0.75rem; color: var(--text-light); }
-
-  .review-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; margin-top: 8px; }
-
-  .google-badge {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 10px;
-    font-size: 0.75rem;
-    color: var(--text-light);
-  }
-
-  .overall-rating {
+  .service-desc { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; }
+  .service-card.highlight {
     background: var(--blue);
-    color: white;
-    border-radius: var(--radius);
-    padding: 28px;
-    text-align: center;
-    margin-bottom: 32px;
+    border-color: var(--blue-bright);
+    position: relative;
+    overflow: hidden;
   }
-
-  .rating-num { font-size: 3rem; font-weight: 800; }
-  .rating-stars { font-size: 1.5rem; letter-spacing: 4px; color: #fbbf24; }
-  .rating-label { opacity: 0.9; font-size: 0.9rem; margin-top: 4px; }
+  .service-card.highlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top left, rgba(255,255,255,0.12), transparent 60%);
+  }
+  .service-card.highlight .service-name { color: #fff; font-size: 1.2rem; }
+  .service-card.highlight .service-desc { color: rgba(255,255,255,0.85); }
+  .service-card.highlight .btn-outline {
+    border-color: rgba(255,255,255,0.7);
+    color: #fff;
+  }
+  .service-card.highlight .btn-outline:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    box-shadow: none;
+  }
+  .highlight-icon { font-size: 2.5rem; margin-bottom: 0.5rem; position: relative; z-index: 1; }
+  .service-card.highlight .service-name, .service-card.highlight .service-desc { position: relative; z-index: 1; }
+  .service-card.highlight .btn-outline { position: relative; z-index: 1; margin-top: auto; }
 
   /* WHY US */
-  .why-bg { background: var(--grey-bg); }
-
-  .why-grid {
+  .why { background: #0d0f14; }
+  .why-inner {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
   }
-
-  .why-card {
-    background: white;
-    border-radius: var(--radius);
-    padding: 24px 20px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: all 0.2s;
-  }
-
-  .why-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
-
-  .why-icon {
+  .why-left .section-sub { margin-top: 1rem; margin-bottom: 2rem; max-width: 100%; }
+  .why-divider {
     width: 60px;
-    height: 60px;
-    background: var(--blue-light);
-    border-radius: 50%;
+    height: 3px;
+    background: var(--blue);
+    border-radius: 3px;
+    margin: 1.5rem 0;
+    box-shadow: 0 0 12px rgba(26,143,255,0.5);
+  }
+  .why-right { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .why-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .why-box:hover {
+    border-color: rgba(26,143,255,0.4);
+    transform: translateY(-3px);
+  }
+  .why-box-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.7rem;
+    display: block;
+  }
+  .why-box-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .why-box-desc { font-size: 0.82rem; color: var(--text-gray); line-height: 1.6; }
+
+  /* REVIEWS */
+  .reviews { background: var(--bg-dark); }
+  .reviews-header { text-align: center; margin-bottom: 3rem; }
+  .reviews-rating-big {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 14px;
-    font-size: 1.6rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
   }
-
-  .why-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
-  .why-card p { font-size: 0.82rem; color: var(--text-mid); }
+  .rating-number {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--text-white);
+    line-height: 1;
+  }
+  .rating-details { text-align: left; }
+  .stars-row { display: flex; gap: 4px; margin-bottom: 0.3rem; }
+  .star { color: #f5c518; font-size: 1.6rem; }
+  .star.half { position: relative; }
+  .reviews-count { color: var(--text-gray); font-size: 0.9rem; font-weight: 600; }
+  .google-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(26,143,255,0.08);
+    border: 1px solid rgba(26,143,255,0.2);
+    border-radius: 8px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--blue-bright);
+    margin-top: 0.5rem;
+  }
+  .reviews-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .review-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.8rem;
+    transition: border-color 0.25s;
+  }
+  .review-card:hover { border-color: rgba(26,143,255,0.3); }
+  .review-stars { display: flex; gap: 3px; margin-bottom: 1rem; }
+  .review-stars .star { font-size: 1rem; }
+  .review-text { font-size: 0.9rem; color: var(--text-gray); line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+  .review-author { font-size: 0.88rem; font-weight: 700; color: var(--text-white); }
+  .review-date { font-size: 0.78rem; color: var(--text-gray); margin-top: 0.2rem; }
 
   /* CTA */
   .cta-section {
-    background: linear-gradient(135deg, #1a56db 0%, #0f3a8c 100%);
-    padding: 64px 20px;
+    background: linear-gradient(135deg, #0d1520 0%, #0a0a0c 50%, #0d1520 100%);
     text-align: center;
-    color: white;
+    position: relative;
+    overflow: hidden;
   }
-
-  .cta-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 12px; }
-  .cta-section p { font-size: 1rem; opacity: 0.9; margin-bottom: 32px; max-width: 540px; margin-left: auto; margin-right: auto; }
-
-  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
-  .btn-lg-call {
-    background: var(--green);
-    color: white;
-    padding: 16px 36px;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(22,163,74,0.4);
+  .cta-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(26,143,255,0.12) 0%, transparent 65%);
+    pointer-events: none;
   }
-
-  .btn-lg-call:hover { background: var(--green-dark); transform: translateY(-2px); }
-
-  .btn-lg-quote {
-    background: transparent;
-    color: white;
-    padding: 16px 36px;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    border: 2px solid rgba(255,255,255,0.5);
-    transition: all 0.2s;
-    cursor: pointer;
-    background-color: transparent;
-  }
-
-  .btn-lg-quote:hover { background: rgba(255,255,255,0.12); }
+  .cta-section .section-inner { position: relative; z-index: 2; }
+  .cta-section .section-title { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 1rem; }
+  .cta-section .section-sub { margin: 0 auto 2.5rem; }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
   /* CONTACT */
-  .contact-bg { background: var(--white); }
-
-  .contact-grid {
+  .contact { background: #0d0f14; }
+  .contact-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
     align-items: start;
   }
-
-  .contact-info h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
-
+  .contact-info { }
   .contact-item {
     display: flex;
-    gap: 14px;
     align-items: flex-start;
-    margin-bottom: 20px;
+    gap: 1rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
   }
-
+  .contact-item:last-child { border-bottom: none; }
   .contact-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--blue-light);
+    width: 42px;
+    height: 42px;
+    background: rgba(26,143,255,0.1);
+    border: 1px solid rgba(26,143,255,0.2);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.1rem;
     flex-shrink: 0;
+    color: var(--blue-bright);
   }
-
-  .contact-icon svg { width: 22px; height: 22px; }
-
-  .contact-item h4 { font-size: 0.85rem; color: var(--text-light); font-weight: 600; margin-bottom: 2px; }
-  .contact-item p, .contact-item a { font-size: 1rem; font-weight: 700; color: var(--text-dark); text-decoration: none; }
-  .contact-item a:hover { color: var(--blue); }
-
-  .quote-form {
-    background: var(--grey-bg);
-    border-radius: var(--radius);
-    padding: 28px;
-    box-shadow: var(--shadow);
+  .contact-item-title { font-size: 0.75rem; font-weight: 700; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+  .contact-item-val { font-size: 0.95rem; font-weight: 600; color: var(--text-white); }
+  .contact-item-val a { color: var(--blue-bright); text-decoration: none; }
+  .contact-item-val a:hover { text-decoration: underline; }
+  .contact-form-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
   }
-
-  .quote-form h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: var(--blue); }
-
-  .form-group { margin-bottom: 14px; }
-  .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 5px; color: var(--text-mid); }
-
+  .form-title { font-size: 1.3rem; font-weight: 800; color: var(--text-white); text-transform: uppercase; margin-bottom: 0.4rem; }
+  .form-sub { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.78rem; font-weight: 600; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.06em; }
   .form-group input,
   .form-group select,
   .form-group textarea {
-    width: 100%;
-    padding: 10px 14px;
-    border: 1.5px solid var(--grey-soft);
-    border-radius: 8px;
+    background: #0d0f14;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
     font-size: 0.9rem;
+    color: var(--text-white);
     font-family: inherit;
-    background: white;
-    color: var(--text-dark);
-    transition: border-color 0.2s;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    appearance: none;
   }
-
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: #4a5068; }
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus {
-    outline: none;
     border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(26,143,255,0.12);
   }
-
-  .form-group textarea { resize: vertical; min-height: 80px; }
-
-  .btn-submit {
-    width: 100%;
-    background: var(--green);
-    color: white;
-    border: none;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  .form-group select { cursor: pointer; }
+  .form-group select option { background: #16191f; color: var(--text-white); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit { width: 100%; padding: 1rem; font-size: 1rem; margin-top: 0.5rem; }
+  .form-success {
+    display: none;
+    background: rgba(26,143,255,0.1);
+    border: 1px solid rgba(26,143,255,0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    color: var(--blue-bright);
+    font-weight: 600;
+    margin-top: 1rem;
+    font-size: 0.9rem;
   }
-
-  .btn-submit:hover { background: var(--green-dark); transform: translateY(-1px); }
 
   /* FOOTER */
   footer {
-    background: var(--text-dark);
-    color: rgba(255,255,255,0.8);
-    padding: 40px 20px 20px;
+    background: #060608;
+    border-top: 1px solid var(--border);
+    padding: 60px 5% 30px;
   }
-
   .footer-inner {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
+  }
+  .footer-top {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 32px;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
   }
-
-  .footer-brand h3 { color: white; font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
-  .footer-brand p { font-size: 0.85rem; line-height: 1.7; }
-
-  .footer-col h4 { color: white; font-size: 0.9rem; font-weight: 700; margin-bottom: 14px; }
-
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 8px; }
-  .footer-col ul li a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.85rem; transition: color 0.2s; }
-  .footer-col ul li a:hover { color: white; }
-  .footer-col ul li span { font-size: 0.82rem; color: rgba(255,255,255,0.7); }
-
-  .footer-bottom {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    display: flex;
-    justify-content: space-between;
+  .footer-brand-name {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.8rem;
+  }
+  .footer-brand-name span { color: var(--blue); }
+  .footer-brand-desc { font-size: 0.85rem; color: var(--text-gray); line-height: 1.7; margin-bottom: 1.2rem; }
+  .footer-phone-link {
+    display: inline-flex;
     align-items: center;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.5);
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  /* MODAL */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-
-  .modal-overlay.open { display: flex; }
-
-  .modal {
-    background: white;
-    border-radius: 16px;
-    padding: 32px;
-    max-width: 480px;
-    width: 100%;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    position: relative;
-    animation: slideUp 0.3s ease;
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: var(--grey-soft);
-    border: none;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-  }
-
-  .modal-close:hover { background: #d1d5db; }
-
-  .modal h3 { font-size: 1.3rem; font-weight: 800; color: var(--blue); margin-bottom: 6px; }
-  .modal p { font-size: 0.9rem; color: var(--text-mid); margin-bottom: 20px; }
-
-  .success-msg {
-    display: none;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .success-msg.show { display: block; }
-  .success-icon { font-size: 3rem; margin-bottom: 12px; }
-  .success-msg h4 { font-size: 1.1rem; font-weight: 700; color: var(--green); margin-bottom: 6px; }
-  .success-msg p { color: var(--text-mid); }
-
-  /* STICKY PHONE */
-  .sticky-phone {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
-    display: none;
-  }
-
-  .sticky-phone a {
-    background: var(--green);
-    color: white;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 20px rgba(22,163,74,0.5);
+    gap: 0.5rem;
+    color: var(--blue-bright);
     text-decoration: none;
-    animation: bounce 2s infinite;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.2s;
   }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+  .footer-phone-link:hover { color: #fff; }
+  .footer-col-title {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2rem;
   }
-
-  .sticky-phone svg { width: 26px; height: 26px; fill: white; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a { color: var(--text-gray); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--blue-bright); }
+  .footer-hours { display: flex; flex-direction: column; gap: 0.5rem; }
+  .hours-row { display: flex; justify-content: space-between; font-size: 0.85rem; gap: 1rem; }
+  .hours-day { color: var(--text-gray); }
+  .hours-time { color: var(--text-white); font-weight: 600; }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-copy { font-size: 0.8rem; color: var(--text-gray); }
+  .footer-loc { font-size: 0.8rem; color: var(--text-gray); display: flex; align-items: center; gap: 0.4rem; }
 
   /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta { display: none; }
     .hamburger { display: flex; }
-
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-card { display: none; }
-    .hero { padding: 40px 20px 36px; }
-
-    .workshop-grid { grid-template-columns: 1fr 1fr; }
-    .ws-img:first-child { grid-column: span 2; }
-
-    .contact-grid { grid-template-columns: 1fr; }
-
-    .footer-inner { grid-template-columns: 1fr; gap: 24px; }
-
-    .sticky-phone { display: block; }
-
-    section { padding: 48px 20px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-image-wrap { order: -1; }
+    .hero-car-placeholder { height: 240px; }
+    .intro-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .intro-img-wrap { order: -1; }
+    .intro-placeholder { height: 260px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .why-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .reviews-cards { grid-template-columns: 1fr 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 60px 5%; }
+    .services-grid { grid-template-columns: 1fr; }
+    .reviews-cards { grid-template-columns: 1fr; }
+    .why-right { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.2rem; }
+    .stat-num { font-size: 1.4rem; }
   }
 
-  @media (max-width: 480px) {
-    .workshop-grid { grid-template-columns: 1fr; }
-    .ws-img:first-child { grid-column: span 1; }
-    .hero-buttons { flex-direction: column; }
-    .btn-hero-call, .btn-hero-quote { justify-content: center; }
-    .hero-stats { gap: 16px; }
-    .trust-bar-inner { gap: 16px; }
-  }
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-dark); }
+  ::-webkit-scrollbar-thumb { background: rgba(26,143,255,0.35); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--blue); }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-inner">
-    <a href="#" class="logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
-      </div>
-      <div>
-        <div class="logo-text">Gujarat Auto</div>
-        <div class="logo-sub">Brampton, Ontario</div>
-      </div>
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#why-us">Why Us</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <div class="nav-cta">
-      <a href="tel:6475272988" class="btn-call">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-        647-527-2988
-      </a>
-      <button class="btn-quote" onclick="openModal()">Get Free Quote</button>
-    </div>
-
-    <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#services" onclick="closeMobileMenu()">Services</a>
-    <a href="#why-us" onclick="closeMobileMenu()">Why Us</a>
-    <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
-    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-    <a href="tel:6475272988" class="btn-call">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-      Call Now: 647-527-2988
-    </a>
-    <button class="btn-quote" onclick="openModal(); closeMobileMenu()">Get Free Quote</button>
+  <a href="#hero" class="nav-logo">Gujarat <span>Auto</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:6475272988" class="nav-cta">📞 647-527-2988</a>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburgerBtn">
+    <span></span><span></span><span></span>
   </div>
 </nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="#93c5fd"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-        Trusted Auto Repair in Brampton
-      </div>
-      <h1>Honest Auto Repair<br>You Can <span>Rely On</span></h1>
-      <p>No surprise bills. No upsells. Just transparent, quality auto care from certified technicians who treat your car like their own.</p>
-      <div class="hero-buttons">
-        <a href="tel:6475272988" class="btn-hero-call">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          Call Now
-        </a>
-        <button class="btn-hero-quote" onclick="openModal()">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-5-5H9v-2h4v2zm2-4H9v-2h6v2z"/></svg>
-          Get Free Quote
-        </button>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">10+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">Happy Customers</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">4.9★</div>
-          <div class="stat-label">Google Rating</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Transparent Pricing</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-card">
-      <div class="open-badge"><span class="dot"></span><span id="openStatus">Check Hours</span></div>
-      <h3>Business Hours</h3>
-      <ul class="hours-list">
-        <li><span class="day">Monday</span><span class="time">8:00 AM – 5:00 PM</span></li>
-        <li><span class="day">Tuesday</span><span class="time">8:00 AM – 5:00 PM</span></li>
-        <li><span class="day">Wednesday</span><span class="time">8:00 AM – 5:00 PM</span></li>
-        <li><span class="day">Thursday</span><span class="time">8:00 AM – 5:00 PM</span></li>
-        <li><span class="day">Friday</span><span class="time">8:00 AM – 5:00 PM</span></li>
-        <li><span class="day">Saturday</span><span class="time">8:00 AM – 2:00 PM</span></li>
-        <li><span class="day">Sunday</span><span class="closed">Closed</span></li>
-      </ul>
-      <div class="address">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="#6b7280"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        Brampton, Ontario, Canada
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-bar-inner">
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="#16a34a"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-      No Hidden Fees
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="#16a34a"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-      Free Estimates
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="#16a34a"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      Brampton, Ontario
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-      4.9★ Google Rated
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 10c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-12C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-      Certified Technicians
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-      Same-Day Service Available
-    </div>
-  </div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#why" onclick="closeMenu()">Why Us</a>
+  <a href="#reviews" onclick="closeMenu()">Reviews</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="tel:6475272988">📞 647-527-2988</a>
 </div>
 
-<!-- SERVICES -->
-<section class="services-bg" id="services">
-  <div class="section-inner">
-    <div class="section-tag">Our Services</div>
-    <h2 class="section-title">What We Fix & Maintain</h2>
-    <p class="section-sub">Upfront pricing estimates so you can compare before you call. No surprises, ever.</p>
-    <div class="services-grid" id="servicesGrid"></div>
-  </div>
-</section>
-
-<!-- BEFORE AFTER -->
-<section class="ba-bg">
-  <div class="section-inner">
-    <div class="section-tag">Our Work</div>
-    <h2 class="section-title">Before & After — Real Results</h2>
-    <p class="section-sub">We let our work speak for itself. See the difference quality repair makes.</p>
-    <div class="ba-grid" id="baGrid"></div>
-  </div>
-</section>
-
-<!-- WORKSHOP -->
-<section class="workshop-bg">
-  <div class="section-inner">
-    <div class="section-tag">Our Shop</div>
-    <h2 class="section-title">A Clean, Professional Workshop</h2>
-    <p class="section-sub">Our organized, well-equipped facility reflects the same care we put into every vehicle.</p>
-    <div class="workshop-grid">
-      <div class="ws-img c1" style="font-size:4rem;">🔧
-        <div class="ws-overlay">Modern Diagnostic Equipment</div>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Brampton&apos;s Trusted Auto Shop</div>
+      <h1 class="hero-title">Honest Auto<br>Repair You<br>Can <span class="accent">Rely On</span></h1>
+      <p class="hero-sub">Transparent pricing, certified technicians, and zero surprise bills. We keep you informed every step of the way — from diagnosis to done.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-blue">Get Free Quote</a>
+        <a href="tel:6475272988" class="hero-phone"><span class="ph-icon">📞</span> 647-527-2988</a>
       </div>
-      <div class="ws-img c2" style="font-size:3rem;">🚗
-        <div class="ws-overlay">Multiple Service Bays</div>
-      </div>
-      <div class="ws-img c3" style="font-size:3rem;">🛞
-        <div class="ws-overlay">Tire & Alignment Station</div>
-      </div>
-      <div class="ws-img c4" style="font-size:3rem;">⚙️
-        <div class="ws-overlay">Brake Inspection Area</div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">10<span>+</span></span>
+          <span class="stat-lbl">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">4.9<span>★</span></span>
+          <span class="stat-lbl">Google Rating</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">80<span>+</span></span>
+          <span class="stat-lbl">Reviews</span>
+        </div>
       </div>
     </div>
+    <div class="hero-image-wrap">
+      <div class="hero-img-glow"></div>
+      <div class="hero-car-placeholder">
+        <span class="car-svg">🚗</span>
+        <span class="car-label">Professional Auto Service</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="about">
+  <div class="section-inner intro-inner">
+    <div class="intro-img-wrap">
+      <div class="intro-img-glow"></div>
+      <div class="intro-placeholder">
+        <span class="intro-icon">🔧</span>
+        <span class="intro-placeholder-label">Certified Technicians</span>
+      </div>
+    </div>
+    <div class="intro-text">
+      <div class="section-tag">About Us</div>
+      <h2 class="section-title">We Fix and Maintain Vehicles of All Makes and Models</h2>
+      <p class="section-sub">At Gujarat Auto in Brampton, Ontario, our certified technicians bring over 10 years of hands-on experience servicing all vehicle makes and models. We combine honest assessments with transparent pricing so you always know exactly what you are paying for — no hidden fees, no upsells, no surprises.</p>
+      <p class="section-sub">From same-day oil changes to complex engine diagnostics, we deliver quality workmanship with a commitment to getting you back on the road as quickly as possible. We are proud to be Brampton's most trusted neighbourhood auto shop.</p>
+      <div class="feature-pills">
+        <span class="pill">✓ Certified Technicians</span>
+        <span class="pill">✓ Transparent Pricing</span>
+        <span class="pill">✓ Same-Day Service</span>
+        <span class="pill">✓ 10+ Years in Brampton</span>
+        <span class="pill">✓ No Surprise Bills</span>
+      </div>
+      <a href="#contact" class="btn-blue">About Company</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-sub">From routine maintenance to major repairs, we handle it all with precision and care.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-img-placeholder">🛞</div>
+        <div>
+          <div class="service-name">Brake Repair &amp; Replacement</div>
+          <div class="service-desc">Complete brake system inspection, pad replacement, rotor resurfacing and caliper service to keep you safe on the road.</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-placeholder">🛢️</div>
+        <div>
+          <div class="service-name">Oil Change</div>
+          <div class="service-desc">Fast, affordable oil and filter changes using quality conventional or synthetic oils matched to your vehicle specifications.</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-placeholder">🔍</div>
+        <div>
+          <div class="service-name">Engine Diagnostics</div>
+          <div class="service-desc">Advanced OBD-II diagnostics to quickly identify engine faults, warning lights, and performance issues with pinpoint accuracy.</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-placeholder">🏎️</div>
+        <div>
+          <div class="service-name">Tire Services</div>
+          <div class="service-desc">Tire mounting, balancing, rotation, alignment and seasonal changeovers to extend the life of your tires and improve handling.</div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-placeholder">⚙️</div>
+        <div>
+          <div class="service-name">Transmission Service</div>
+          <div class="service-desc">Fluid flushes, filter replacement, adjustments, and full transmission rebuilds for both automatic and manual transmissions.</div>
+        </div>
+      </div>
+
+      <div class="service-card highlight">
+        <div class="highlight-icon">💬</div>
+        <div class="service-name">Leave a Request for a Free Consultation</div>
+        <div class="service-desc">Not sure what your vehicle needs? Send us a message and one of our certified technicians will reach out within hours.</div>
+        <a href="#contact" class="btn-outline">Request Consultation</a>
+      </div>
+
+    </div>
+
+    <!-- AC Card spanning full or as 7th -->
+    <div style="margin-top:1.5rem;">
+      <div class="service-card" style="max-width:calc(33.33% - 1rem);">
+        <div class="service-img-placeholder">❄️</div>
+        <div>
+          <div class="service-name">AC &amp; Heating Repair</div>
+          <div class="service-desc">Refrigerant recharging, compressor repair, heater core service and full HVAC system diagnostics to keep you comfortable year-round.</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- WHY US -->
-<section class="why-bg" id="why-us">
-  <div class="section-inner">
-    <div class="section-tag">Why Gujarat Auto</div>
-    <h2 class="section-title">Why Brampton Trusts Us</h2>
-    <p class="section-sub">We know you have choices. Here is why hundreds of local families keep coming back.</p>
-    <div class="why-grid" id="whyGrid"></div>
+<section class="why" id="why">
+  <div class="section-inner why-inner">
+    <div class="why-left">
+      <div class="section-tag">Why Choose Us</div>
+      <h2 class="section-title">Why Brampton Trusts Us</h2>
+      <div class="why-divider"></div>
+      <p class="section-sub">We built our reputation one honest repair at a time. Our shop runs on three core principles: transparency, quality, and respect for your time and budget. That is why customers keep coming back — and keep sending their friends and family.</p>
+      <p class="section-sub" style="margin-top:1rem;">With over a decade serving the Brampton community, Gujarat Auto has become the go-to shop for drivers who value straightforward communication and fair prices.</p>
+      <a href="tel:6475272988" class="btn-blue" style="margin-top:2rem;">Call Us: 647-527-2988</a>
+    </div>
+    <div class="why-right">
+      <div class="why-box">
+        <span class="why-box-icon">💰</span>
+        <div class="why-box-title">100% Transparent Pricing</div>
+        <div class="why-box-desc">You get a full written estimate before any work begins. No hidden charges, no last-minute surprises.</div>
+      </div>
+      <div class="why-box">
+        <span class="why-box-icon">🏆</span>
+        <div class="why-box-title">Number 1 Rated Shop</div>
+        <div class="why-box-desc">Rated 4.9 out of 5 on Google with over 80 verified reviews from satisfied Brampton customers.</div>
+      </div>
+      <div class="why-box">
+        <span class="why-box-icon">🎯</span>
+        <div class="why-box-title">Exactly Within Your Budget</div>
+        <div class="why-box-desc">We work with you to prioritize repairs and find solutions that fit your budget without compromising safety.</div>
+      </div>
+      <div class="why-box">
+        <span class="why-box-icon">⚡</span>
+        <div class="why-box-title">Same-Day Service Available</div>
+        <div class="why-box-desc">Most services including oil changes, brake pads, and diagnostics are available same day with an appointment.</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews-bg" id="reviews">
+<section class="reviews" id="reviews">
   <div class="section-inner">
-    <div class="section-tag">Google Reviews</div>
-    <h2 class="section-title">What Our Customers Say</h2>
-    <p class="section-sub">Real reviews from real Brampton drivers. No filters, no fakes.</p>
-    <div class="overall-rating">
-      <div class="rating-num">4.9</div>
-      <div class="rating-stars">★★★★★</div>
-      <div class="rating-label">Based on 80+ Google Reviews · Gujarat Auto, Brampton</div>
+    <div class="reviews-header">
+      <div class="section-tag">Customer Reviews</div>
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="reviews-rating-big">
+        <div class="rating-number">4.9</div>
+        <div class="rating-details">
+          <div class="stars-row">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <div class="reviews-count">Based on 80+ Google Reviews</div>
+          <div class="google-badge">🟡 Verified Google Rating</div>
+        </div>
+      </div>
     </div>
-    <div class="reviews-grid" id="reviewsGrid"></div>
+    <div class="reviews-cards">
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"Absolutely the most honest auto shop I have ever been to. They diagnosed my car quickly, explained everything clearly, and charged me exactly what they quoted. No upsells, no pressure."</p>
+        <div class="review-author">Manpreet S.</div>
+        <div class="review-date">Brampton, ON — Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"Brought my Honda in for brake repair and was in and out in two hours. The team was super professional and the price was way lower than the dealer. Will definitely be back!"</p>
+        <div class="review-author">Aisha R.</div>
+        <div class="review-date">Brampton, ON — Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"Same-day oil change and tire rotation done while I waited. The waiting area was clean, staff was friendly, and they did not try to sell me anything I did not need. Highly recommend Gujarat Auto!"</p>
+        <div class="review-author">Raj P.</div>
+        <div class="review-date">Brampton, ON — Google Review</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
-  <h2>Ready to Book Your Service?</h2>
-  <p>Call us now or get a free quote. We will get back to you within the hour during business hours.</p>
-  <div class="cta-buttons">
-    <a href="tel:6475272988" class="btn-lg-call">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-      Call 647-527-2988
-    </a>
-    <button class="btn-lg-quote" onclick="openModal()">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-5-5H9v-2h4v2zm2-4H9v-2h6v2z"/></svg>
-      Get Free Quote
-    </button>
+<section class="cta-section" id="booking">
+  <div class="cta-glow"></div>
+  <div class="section-inner">
+    <div class="section-tag" style="display:inline-block;">Book Now</div>
+    <h2 class="section-title" style="margin-top:1rem;">Ready to Book<br>Your Service?</h2>
+    <p class="section-sub" style="margin:0 auto 2.5rem;">Do not wait until a small issue becomes a big repair. Call us today or send a quote request and we will get you sorted fast.</p>
+    <div class="cta-actions">
+      <a href="tel:6475272988" class="btn-blue" style="font-size:1.05rem;padding:1rem 2.5rem;">📞 Call Now: 647-527-2988</a>
+      <a href="#contact" class="btn-outline">Send a Quote Request</a>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact-bg" id="contact">
+<section class="contact" id="contact">
   <div class="section-inner">
-    <div class="section-tag">Get In Touch</div>
-    <h2 class="section-title">Contact Gujarat Auto</h2>
-    <p class="section-sub">We are here Monday to Saturday. Walk-ins welcome, appointments preferred.</p>
-    <div class="contact-grid">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Contact Gujarat Auto</h2>
+      <p class="section-sub" style="margin:0 auto;">We are here Monday through Saturday. Reach out to book your appointment or get a free quote.</p>
+    </div>
+    <div class="contact-inner">
       <div class="contact-info">
-        <h3>Our Contact Information</h3>
         <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          </div>
+          <div class="contact-icon">📞</div>
           <div>
-            <h4>Phone</h4>
-            <a href="tel:6475272988">647-527-2988</a>
+            <div class="contact-item-title">Phone</div>
+            <div class="contact-item-val"><a href="tel:6475272988">647-527-2988</a></div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </div>
+          <div class="contact-icon">📍</div>
           <div>
-            <h4>Location</h4>
-            <p>Brampton, Ontario, Canada</p>
+            <div class="contact-item-title">Location</div>
+            <div class="contact-item-val">Brampton, Ontario, Canada</div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-          </div>
+          <div class="contact-icon">🕐</div>
           <div>
-            <h4>Hours</h4>
-            <p>Mon–Fri: 8AM–5PM &nbsp;|&nbsp; Sat: 8AM–2PM</p>
+            <div class="contact-item-title">Business Hours</div>
+            <div class="contact-item-val">
+              Mon – Fri: 8:00 AM – 5:00 PM<br>
+              Saturday: 8:00 AM – 2:00 PM<br>
+              <span style="color:var(--text-gray);font-size:0.82rem;">Sunday: Closed</span>
+            </div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          </div>
+          <div class="contact-icon">⭐</div>
           <div>
-            <h4>Rating</h4>
-            <p>4.9 / 5 on Google Reviews</p>
+            <div class="contact-item-title">Rating</div>
+            <div class="contact-item-val">4.9 / 5.0 — 80+ Google Reviews</div>
           </div>
         </div>
-        <div style="margin-top:12px; background:var(--blue-light); border-radius:10px; padding:16px;">
-          <p style="font-size:0.85rem; color:var(--blue); font-weight:600;">
-            💬 <strong>Transparency Promise:</strong> We will always show you the issue, explain the fix, and give you a written estimate before any work begins. No pressure, ever.
-          </p>
+        <div style="margin-top:2rem;">
+          <a href="tel:6475272988" class="btn-blue" style="display:flex;align-items:center;gap:0.5rem;justify-content:center;">📞 Call Now: 647-527-2988</a>
         </div>
       </div>
 
-      <div class="quote-form">
-        <h3>📋 Get a Free Quote</h3>
-        <div id="formContainer">
-          <div class="form-group">
-            <label>Your Name</label>
-            <input type="text" id="fname" placeholder="John Smith">
+      <div class="contact-form-wrap">
+        <div class="form-title">Get a Free Quote</div>
+        <div class="form-sub">Fill out the form and we will respond within a few hours.</div>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" name="name" placeholder="Your Full Name" required>
+            </div>
+            <div class="form-group">
+              <label for="fphone">Phone Number</label>
+              <input type="tel" id="fphone" name="phone" placeholder="Your Phone Number" required>
+            </div>
           </div>
           <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" id="fphone" placeholder="647-000-0000">
+            <label for="fvehicle">Vehicle Year, Make &amp; Model</label>
+            <input type="text" id="fvehicle" name="vehicle" placeholder="e.g. 2019 Honda Civic" required>
           </div>
           <div class="form-group">
-            <label>Your Vehicle (Year, Make, Model)</label>
-            <input type="text" id="fcar" placeholder="e.g. 2018 Honda Civic">
-          </div>
-          <div class="form-group">
-            <label>Service Needed</label>
-            <select id="fservice">
-              <option value="">Select a service...</option>
-              <option>Brake Repair / Replacement</option>
-              <option>Oil Change</option>
-              <option>Engine Diagnostics</option>
-              <option>Tire Services</option>
-              <option>Transmission Service</option>
-              <option>Suspension & Steering</option>
-              <option>AC / Heating Repair</option>
-              <option>Battery Replacement</option>
-              <option>Other</option>
+            <label for="fservice">Service Needed</label>
+            <select id="fservice" name="service" required>
+              <option value="" disabled selected>Select a Service</option>
+              <option value="Brake Repair">Brake Repair</option>
+              <option value="Oil Change">Oil Change</option>
+              <option value="Diagnostics">Diagnostics</option>
+              <option value="Tire Services">Tire Services</option>
+              <option value="Transmission">Transmission</option>
+              <option value="AC Repair">AC Repair</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Describe the Issue (Optional)</label>
-            <textarea id="fdesc" placeholder="Any noise, warning lights, or concerns..."></textarea>
+            <label for="fissue">Describe the Issue</label>
+            <textarea id="fissue" name="issue" placeholder="Tell us what is happening with your vehicle..." rows="4"></textarea>
           </div>
-          <button class="btn-submit" onclick="submitForm()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-            Send Quote Request
-          </button>
-        </div>
-        <div class="success-msg" id="successMsg">
-          <div class="success-icon">✅</div>
-          <h4>Quote Request Sent!</h4>
-          <p>Thanks! We will call you within the hour during business hours. Or call us directly at <a href="tel:6475272988" style="color:var(--blue);font-weight:700;">647-527-2988</a>.</p>
+          <button type="submit" class="btn-blue form-submit">Send Quote Request</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          ✅ Thank you! We received your request and will contact you shortly.
         </div>
       </div>
     </div>
@@ -1335,410 +1143,127 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <h3>🔧 Gujarat Auto</h3>
-      <p>Your trusted auto repair and maintenance shop in Brampton, Ontario. We believe in honest, transparent service — every vehicle, every time.</p>
-      <p style="margin-top:12px;">
-        <a href="tel:6475272988" style="color:#93c5fd; font-weight:700; text-decoration:none;">📞 647-527-2988</a>
-      </p>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Gujarat <span>Auto</span></div>
+        <div class="footer-brand-desc">Trusted auto repair and maintenance in Brampton, Ontario. Certified technicians, transparent pricing, and same-day service for all makes and models.</div>
+        <a href="tel:6475272988" class="footer-phone-link">📞 647-527-2988</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Brake Repair</a></li>
+          <li><a href="#services">Oil Change</a></li>
+          <li><a href="#services">Engine Diagnostics</a></li>
+          <li><a href="#services">Tire Services</a></li>
+          <li><a href="#services">Transmission Service</a></li>
+          <li><a href="#services">AC &amp; Heating Repair</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Hours &amp; Location</div>
+        <div class="footer-hours">
+          <div class="hours-row">
+            <span class="hours-day">Mon – Fri</span>
+            <span class="hours-time">8AM – 5PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Saturday</span>
+            <span class="hours-time">8AM – 2PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Sunday</span>
+            <span class="hours-time">Closed</span>
+          </div>
+        </div>
+        <div style="margin-top:1.2rem;font-size:0.85rem;color:var(--text-gray);display:flex;align-items:flex-start;gap:0.4rem;">
+          <span>📍</span>
+          <span>Brampton, Ontario, Canada</span>
+        </div>
+        <div style="margin-top:0.8rem;font-size:0.85rem;color:var(--text-gray);">
+          ⭐ 4.9 / 5 — 80+ Google Reviews
+        </div>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#services">Brake Repair</a></li>
-        <li><a href="#services">Oil Change</a></li>
-        <li><a href="#services">Diagnostics</a></li>
-        <li><a href="#services">Tire Services</a></li>
-        <li><a href="#services">Transmission</a></li>
-        <li><a href="#services">AC Repair</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 Gujarat Auto. All rights reserved. Brampton, Ontario, Canada.</div>
+      <div class="footer-loc">📍 Brampton, Ontario &nbsp;|&nbsp; <a href="tel:6475272988" style="color:var(--blue-bright);text-decoration:none;">647-527-2988</a></div>
     </div>
-    <div class="footer-col">
-      <h4>Hours</h4>
-      <ul>
-        <li><span>Mon–Fri: 8AM – 5PM</span></li>
-        <li><span>Saturday: 8AM – 2PM</span></li>
-        <li><span>Sunday: Closed</span></li>
-      </ul>
-      <h4 style="margin-top:16px;">Location</h4>
-      <ul>
-        <li><span>Brampton, Ontario</span></li>
-        <li><span>Canada</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2024 Gujarat Auto. All rights reserved. Brampton, Ontario.</span>
-    <span>Built with ❤️ for Brampton drivers</span>
   </div>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <h3>Get a Free Quote</h3>
-    <p>Fill in your details and we will get back to you within the hour.</p>
-    <div id="modalFormContainer">
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" id="mfname" placeholder="John Smith">
-      </div>
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" id="mfphone" placeholder="647-000-0000">
-      </div>
-      <div class="form-group">
-        <label>Service Needed</label>
-        <select id="mfservice">
-          <option value="">Select a service...</option>
-          <option>Brake Repair / Replacement</option>
-          <option>Oil Change</option>
-          <option>Engine Diagnostics</option>
-          <option>Tire Services</option>
-          <option>Transmission Service</option>
-          <option>AC / Heating Repair</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Vehicle (Year, Make, Model)</label>
-        <input type="text" id="mfcar" placeholder="e.g. 2019 Toyota Corolla">
-      </div>
-      <button class="btn-submit" onclick="submitModalForm()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-        Send Quote Request
-      </button>
-      <p style="text-align:center;margin-top:12px;font-size:0.82rem;color:#718096;">Or call directly: <a href="tel:6475272988" style="color:#1a56db;font-weight:700;">647-527-2988</a></p>
-    </div>
-    <div class="success-msg" id="modalSuccess">
-      <div class="success-icon">✅</div>
-      <h4>Request Received!</h4>
-      <p>We will call you back shortly. For faster service call <a href="tel:6475272988" style="color:#1a56db;font-weight:700;">647-527-2988</a>.</p>
-    </div>
-  </div>
-</div>
-
-<!-- STICKY PHONE -->
-<div class="sticky-phone">
-  <a href="tel:6475272988" aria-label="Call Gujarat Auto">
-    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-  </a>
-</div>
-
 <script>
-  // SERVICES DATA
-  var services = [
-    {
-      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>',
-      title: "Brake Repair & Replacement",
-      desc: "Pads, rotors, calipers — full inspection and replacement. We check all four corners.",
-      price: "Starting ~$120–$280 per axle"
-    },
-    {
-      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>',
-      title: "Oil Change & Filter",
-      desc: "Conventional, synthetic blend, or full synthetic. Quick turnaround, quality fluids.",
-      price: "Starting ~$49–$89"
-    },
-    {
-      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5S5.17 15.5 6 15.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>',
-      title: "Engine Diagnostics",
-      desc: "Check engine light? We read error codes and diagnose the root cause accurately.",
-      price: "Starting ~$59 diagnostic fee"
-    },
-    {
-      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 8c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-10C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>',
-      title: "Tire Services",
-      desc: "Mounting, balancing, rotation, and flat repair. We carry major tire brands.",
-      price: "Rotation ~$25 | Balance ~$60"
-    },
-    {
-      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M19.5 8.5h-2v-2h-1v2h-2v1h2v2h1v-2h2zM18 13.5h-4v-6H4.5C3.1 7.5 2 8.6 2 10v6c0 .83.67 1.5 1.5 1.5h1C4.5 18.88 5.62 20 7 20s2.5-1.12 2.5-2.5h5C14.5 18.88 15.62 20 17 20s2.5-1.12 2.5-2.5h1c.83 0 1.5-.67 1.5-1.5v-2l-4-2.5zM7 18.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm10 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>',
-      title: "Transmission Service",
-      desc: "Fluid flush, filter change, and full transmission inspection for smooth shifting.",
-      price: "Starting ~$129"
-    },
-    {
-      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M17.66 11.2c-.23-.3-.51-.56-.77-.82-.67-.6-1.43-1.03-2.07-1.66C13.33 7.26 13 4.85 13.95 3c-.95.23-1.78.75-2.49 1.32-2.59 2.08-3.61 5.75-2.39 8.9.04.1.08.2.08.33 0 .22-.15.42-.35.5-.23.1-.47.04-.66-.12a.58.58 0 01-.14-.17c-1.13-1.43-1.31-3.48-.55-5.12C5.78 10 4.87 12.3 5 14.47c.06.5.12 1 .29 1.5.14.6.41 1.2.71 1.73 1.08 1.73 2.95 2.97 4.96 3.22 2.14.27 4.43-.06 6.1-1.43 1.7-1.4 2.48-3.58 1.83-5.61-.19-.64-.52-1.24-.93-1.68zm-7.3 4.2c-.51.24-1.05.4-1.58.5-.56.09-1.08.05-1.72-.07 1.18.79 2.65.96 3.9.56-.18-.34-.38-.67-.6-.99z"/></svg>',
-      title: "AC & Heating Repair",
-      desc: "Recharge, leak repair, compressor service. Stay comfortable year-round.",
-      price: "Recharge starting ~$99"
-    },
-    {
-      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM13 18h-2v-2h2v2zm0-4h-2V9h2v5z"/></svg>',
-      title: "Battery Replacement",
-      desc: "We test your battery and charging system. Fast replacement with quality batteries.",
-      price: "Testing free | Replace ~$89–$149"
-    },
-    {
-      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M20.5 10H20V8c0-1.1-.9-2-2-2h-1V4c0-1.1-.9-2-2-2H9C7.9 2 7 2.9 7 4v2H6c-1.1 0-2 .9-2 2v2H3.5C2.67 10 2 10.67 2 11.5v3c0 .83.67 1.5 1.5 1.5H4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2h.5c.83 0 1.5-.67 1.5-1.5v-3c0-.83-.67-1.5-1.5-1.5zM7.5 4.5h9v1.5h-9V4.5zM18 17H6V8h12v9zm-4.5-5.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5z"/></svg>',
-      title: "Suspension & Steering",
-      desc: "Shocks, struts, tie rods — we restore ride quality and alignment.",
-      price: "Inspection starting ~$49"
-    }
-  ];
-
-  // BEFORE AFTER DATA
-  var baItems = [
-    { before: "🔴", after: "🟢", title: "Worn Brake Pads", desc: "Replaced worn pads and resurfaced rotors. Stopping distance improved 40%." },
-    { before: "🟤", after: "✨", title: "Oil & Filter Change", desc: "Dirty engine oil swapped for clean synthetic. Engine running quieter." },
-    { before: "⚠️", after: "✅", title: "Check Engine Light", desc: "Faulty O2 sensor diagnosed and replaced. Light cleared, fuel economy restored." },
-    { before: "🫧", after: "🛞", title: "Flat Tire Repair", desc: "Puncture sealed and tire balanced. Safe to drive in under 45 minutes." },
-    { before: "💨", after: "❄️", title: "AC System Recharge", desc: "Low refrigerant topped up, leak sealed. Ice cold air restored." },
-    { before: "🔋", after: "⚡", title: "Dead Battery", desc: "Old battery tested and replaced. Vehicle starts reliably every time." }
-  ];
-
-  // WHY US DATA
-  var whyItems = [
-    { icon: "🔍", title: "Free Estimates", desc: "We inspect your vehicle and give you a written quote before any work starts. Zero obligation." },
-    { icon: "💰", title: "Fair Pricing", desc: "No inflated markup. We charge honest rates and explain every line on your bill." },
-    { icon: "🏆", title: "Quality Parts", desc: "We use OEM or equivalent parts backed by warranty. No cheap shortcuts." },
-    { icon: "⚡", title: "Fast Turnaround", desc: "Most services done same day. We respect your time and keep you updated." },
-    { icon: "🛡️", title: "Warranty on Work", desc: "All repairs come with a satisfaction guarantee. We stand behind every job." },
-    { icon: "🤝", title: "Honest Advice", desc: "We will never recommend a repair you do not need. Just straight talk." },
-    { icon: "📱", title: "Easy Booking", desc: "Call or fill the form. Quick response, flexible scheduling including Saturdays." },
-    { icon: "🌟", title: "Community Trusted", desc: "Serving Brampton families for over a decade. Referrals are our best marketing." }
-  ];
-
-  // REVIEWS DATA
-  var reviews = [
-    {
-      initials: "RS",
-      name: "Rajiv Sharma",
-      date: "2 weeks ago",
-      stars: 5,
-      text: "Brought my car in for brake issues and these guys were amazing. Showed me exactly what was worn, gave me a fair price, and had it done in 3 hours. No upsells, no pressure. Will definitely be back!",
-      av: "av1"
-    },
-    {
-      initials: "PM",
-      name: "Priya Mehta",
-      date: "1 month ago",
-      stars: 5,
-      text: "As a woman walking into an auto shop, I always worry about being taken advantage of. Not here. They explained everything, showed me the old parts, and the bill was exactly what they quoted. Trust earned!",
-      av: "av2"
-    },
-    {
-      initials: "DK",
-      name: "David Kowalski",
-      date: "3 weeks ago",
-      stars: 5,
-      text: "Check engine light came on Friday. Called Gujarat Auto, got in Saturday morning, fixed by noon. Reasonable price for an O2 sensor replacement. These guys know what they are doing.",
-      av: "av3"
-    },
-    {
-      initials: "AP",
-      name: "Anita Patel",
-      date: "2 months ago",
-      stars: 5,
-      text: "Best oil change experience in Brampton. Quick, affordable, and they checked my tire pressure and topped off fluids without charging extra. This is my go-to shop now.",
-      av: "av4"
-    },
-    {
-      initials: "MJ",
-      name: "Mike Johnson",
-      date: "1 month ago",
-      stars: 5,
-      text: "Transmission service done right. They flushed the fluid, replaced the filter, and my car shifts like new. Priced fairly and got it back same day. Highly recommend to anyone in Brampton.",
-      av: "av5"
-    },
-    {
-      initials: "SK",
-      name: "Sunita Kumar",
-      date: "3 months ago",
-      stars: 5,
-      text: "Got my winter tires swapped here. Super fast, balanced them properly, and they spotted a worn tie rod and showed me before recommending repair. Honest shop, genuine people.",
-      av: "av1"
-    }
-  ];
-
-  // RENDER SERVICES
-  function renderServices() {
-    var grid = document.getElementById("servicesGrid");
-    var html = "";
-    services.forEach(function(s) {
-      html += '<div class="service-card">' +
-        '<div class="service-icon">' + s.icon + "</div>" +
-        "<h3>" + s.title + "</h3>" +
-        "<p>" + s.desc + "</p>" +
-        '<div class="price-hint">💲 ' + s.price + "</div>" +
-        "</div>";
-    });
-    grid.innerHTML = html;
-  }
-
-  // RENDER BEFORE AFTER
-  function renderBA() {
-    var grid = document.getElementById("baGrid");
-    var html = "";
-    baItems.forEach(function(item) {
-      html += '<div class="ba-card">' +
-        '<div class="ba-images">' +
-        '<div class="ba-img before" style="font-size:3rem;">' + item.before + '<span class="ba-label">Before</span></div>' +
-        '<div class="ba-divider"><div class="ba-arrow">→</div></div>' +
-        '<div class="ba-img after" style="font-size:3rem;">' + item.after + '<span class="ba-label">After</span></div>' +
-        "</div>" +
-        '<div class="ba-info"><h4>' + item.title + "</h4><p>" + item.desc + "</p></div>" +
-        "</div>";
-    });
-    grid.innerHTML = html;
-  }
-
-  // RENDER WHY US
-  function renderWhy() {
-    var grid = document.getElementById("whyGrid");
-    var html = "";
-    whyItems.forEach(function(w) {
-      html += '<div class="why-card">' +
-        '<div class="why-icon">' + w.icon + "</div>" +
-        "<h4>" + w.title + "</h4>" +
-        "<p>" + w.desc + "</p>" +
-        "</div>";
-    });
-    grid.innerHTML = html;
-  }
-
-  // RENDER REVIEWS
-  function renderReviews() {
-    var grid = document.getElementById("reviewsGrid");
-    var html = "";
-    reviews.forEach(function(r) {
-      var stars = "";
-      for (var i = 0; i < r.stars; i++) stars += "★";
-      html += '<div class="review-card">' +
-        '<div class="review-header">' +
-        '<div class="avatar ' + r.av + '">' + r.initials + "</div>" +
-        "<div>" +
-        '<div class="reviewer-name">' + r.name + "</div>" +
-        '<div class="review-date">' + r.date + "</div>" +
-        "</div>" +
-        "</div>" +
-        '<div class="stars">' + stars + "</div>" +
-        '<p class="review-text">"' + r.text + '"</p>' +
-        '<div class="google-badge">🔍 Posted on Google</div>' +
-        "</div>";
-    });
-    grid.innerHTML = html;
-  }
-
-  // CHECK OPEN STATUS
-  function checkOpenStatus() {
-    var now = new Date();
-    var day = now.getDay(); // 0=Sun, 1=Mon...6=Sat
-    var hour = now.getHours();
-    var min = now.getMinutes();
-    var time = hour + min / 60;
-    var el = document.getElementById("openStatus");
-    var badge = document.querySelector(".open-badge");
-
-    var isOpen = false;
-    if (day >= 1 && day <= 5 && time >= 8 && time < 17) isOpen = true;
-    if (day === 6 && time >= 8 && time < 14) isOpen = true;
-
-    if (el) {
-      if (isOpen) {
-        el.textContent = "Open Now";
-        badge.style.background = "#dcfce7";
-        badge.style.color = "#16a34a";
-        badge.querySelector(".dot").style.background = "#16a34a";
-      } else {
-        el.textContent = "Currently Closed";
-        badge.style.background = "#fee2e2";
-        badge.style.color = "#dc2626";
-        badge.querySelector(".dot").style.background = "#dc2626";
-        badge.querySelector(".dot").style.animation = "none";
-      }
-    }
-  }
-
-  // MOBILE MENU
   function toggleMenu() {
     var menu = document.getElementById("mobileMenu");
     menu.classList.toggle("open");
   }
-
-  function closeMobileMenu() {
+  function closeMenu() {
     document.getElementById("mobileMenu").classList.remove("open");
   }
 
-  // MODAL
-  function openModal() {
-    document.getElementById("modalOverlay").classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModal() {
-    document.getElementById("modalOverlay").classList.remove("open");
-    document.body.style.overflow = "";
-  }
-
-  function closeModalOutside(e) {
-    if (e.target === document.getElementById("modalOverlay")) closeModal();
-  }
-
-  // FORM SUBMIT
-  function submitForm() {
-    var name = document.getElementById("fname").value.trim();
-    var phone = document.getElementById("fphone").value.trim();
-    if (!name || !phone) {
-      alert("Please fill in your name and phone number.");
-      return;
+  // Close mobile menu on outside click
+  document.addEventListener("click", function(e) {
+    var menu = document.getElementById("mobileMenu");
+    var btn = document.getElementById("hamburgerBtn");
+    if (menu.classList.contains("open") && !menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove("open");
     }
-    document.getElementById("formContainer").style.display = "none";
-    document.getElementById("successMsg").classList.add("show");
-  }
+  });
 
-  function submitModalForm() {
-    var name = document.getElementById("mfname").value.trim();
-    var phone = document.getElementById("mfphone").value.trim();
-    if (!name || !phone) {
-      alert("Please fill in your name and phone number.");
-      return;
-    }
-    document.getElementById("modalFormContainer").style.display = "none";
-    document.getElementById("modalSuccess").classList.add("show");
-    setTimeout(function() { closeModal(); }, 3000);
-  }
-
-  // SMOOTH SCROLL FOR ANCHOR LINKS
-  document.querySelectorAll("a[href^=\"#\"]").forEach(function(anchor) {
-    anchor.addEventListener("click", function(e) {
+  // Smooth scroll for all anchor links
+  document.querySelectorAll("a[href^=\"#\"]").forEach(function(link) {
+    link.addEventListener("click", function(e) {
       var target = document.querySelector(this.getAttribute("href"));
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        var offset = 68;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: "smooth" });
       }
     });
   });
 
-  // INIT
-  renderServices();
-  renderBA();
-  renderWhy();
-  renderReviews();
-  checkOpenStatus();
-
-  // SCROLL ANIMATIONS
-  function animateOnScroll() {
-    var elements = document.querySelectorAll(".service-card, .review-card, .why-card, .ba-card");
-    elements.forEach(function(el) {
-      var rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 60) {
-        el.style.opacity = "1";
-        el.style.transform = el.style.transform || "";
-      }
-    });
+  // Form submit handler
+  function handleSubmit(e) {
+    e.preventDefault();
+    var btn = e.target.querySelector(".form-submit");
+    btn.textContent = "Sending...";
+    btn.disabled = true;
+    btn.style.opacity = "0.7";
+    setTimeout(function() {
+      document.getElementById("contactForm").style.display = "none";
+      document.getElementById("formSuccess").style.display = "block";
+    }, 1200);
   }
 
-  // Initial opacity
-  document.querySelectorAll(".service-card, .review-card, .why-card, .ba-card").forEach(function(el) {
-    el.style.opacity = "0";
-    el.style.transition = "opacity 0.5s ease, transform 0.3s ease, box-shadow 0.25s";
+  // Nav background on scroll
+  window.addEventListener("scroll", function() {
+    var nav = document.querySelector("nav");
+    if (window.scrollY > 40) {
+      nav.style.background = "rgba(10,10,12,0.98)";
+      nav.style.boxShadow = "0 2px 20px rgba(0,0,0,0.5)";
+    } else {
+      nav.style.background = "rgba(10,10,12,0.92)";
+      nav.style.boxShadow = "none";
+    }
   });
 
-  window.addEventListener("scroll", animateOnScroll);
-  setTimeout(animateOnScroll, 100);
+  // Intersection observer for subtle entrance animations
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".service-card, .why-box, .review-card, .contact-item").forEach(function(el) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "opacity 0.5s ease, transform 0.5s ease, border-color 0.25s, box-shadow 0.25s";
+    observer.observe(el);
+  });
 </script>
 </body>
 </html>
