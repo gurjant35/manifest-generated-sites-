@@ -3,1861 +3,1742 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Turtle Jack's Etobicoke | Casual Dining & Bar</title>
-<meta name="description" content="Turtle Jack's Etobicoke - Premium casual dining and bar in Etobicoke, Toronto. Great food, drinks, and atmosphere.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<title>Gujarat Auto - Trusted Auto Repair in Brampton, Ontario</title>
+<meta name="description" content="Gujarat Auto - Trusted auto repair and maintenance in Brampton, Ontario. Brake repair, diagnostics, oil change, tire services. Call 647-527-2988.">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --black: #0a0a0a;
-    --charcoal: #1a1a1a;
-    --charcoal2: #222222;
-    --dark: #2a2a2a;
-    --red: #e63329;
-    --red-dark: #c0271e;
-    --orange: #f07030;
-    --gold: #d4a843;
+    --blue: #1a56db;
+    --blue-dark: #1341b0;
+    --blue-light: #e8f0fe;
+    --green: #16a34a;
+    --green-dark: #15803d;
+    --grey-bg: #f8f9fa;
+    --grey-soft: #e9ecef;
+    --text-dark: #1a1a2e;
+    --text-mid: #4a5568;
+    --text-light: #718096;
     --white: #ffffff;
-    --light-gray: #f0ece6;
-    --mid-gray: #888888;
-    --text-muted: #aaaaaa;
+    --shadow: 0 2px 16px rgba(26,86,219,0.08);
+    --shadow-hover: 0 6px 32px rgba(26,86,219,0.16);
+    --radius: 12px;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: "Montserrat", sans-serif;
-    background: var(--black);
-    color: var(--white);
-    overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    background: var(--grey-bg);
+    color: var(--text-dark);
     line-height: 1.6;
+    font-size: 16px;
   }
-
-  /* SCROLLBAR */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--black); }
-  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
 
   /* NAV */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
     z-index: 1000;
-    background: rgba(10,10,10,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(230,51,41,0.2);
     padding: 0 20px;
-    height: 70px;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: all 0.3s;
+    height: 64px;
+    gap: 12px;
   }
 
-  nav.scrolled {
-    background: rgba(10,10,10,0.99);
-    box-shadow: 0 4px 30px rgba(230,51,41,0.15);
-  }
-
-  .nav-logo {
-    font-family: "Playfair Display", serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--white);
-    text-decoration: none;
-    letter-spacing: 0.5px;
-  }
-
-  .nav-logo span { color: var(--red); }
-
-  .nav-actions {
+  .logo {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
   }
 
-  .btn {
-    display: inline-flex;
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--blue);
+    border-radius: 8px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: none;
+  }
+
+  .logo-icon svg { width: 24px; height: 24px; fill: white; }
+
+  .logo-text { font-size: 1.25rem; font-weight: 700; color: var(--blue); line-height: 1.1; }
+  .logo-sub { font-size: 0.7rem; color: var(--text-light); font-weight: 500; }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .nav-links a {
     text-decoration: none;
-    transition: all 0.25s ease;
+    color: var(--text-mid);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--blue); }
+
+  .nav-cta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .btn-call {
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s, transform 0.1s;
     white-space: nowrap;
   }
 
-  .btn-primary {
-    background: var(--red);
-    color: var(--white);
-  }
+  .btn-call:hover { background: var(--green-dark); transform: translateY(-1px); }
 
-  .btn-primary:hover {
-    background: var(--red-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(230,51,41,0.4);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--white);
-    border: 1.5px solid rgba(255,255,255,0.3);
-  }
-
-  .btn-outline:hover {
-    border-color: var(--red);
-    color: var(--red);
-  }
-
-  .btn-gold {
-    background: var(--gold);
-    color: var(--black);
-  }
-
-  .btn-gold:hover {
-    background: #c4952e;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(212,168,67,0.4);
-  }
-
-  .btn-large {
-    padding: 16px 36px;
+  .btn-quote {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
     font-size: 0.9rem;
-    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
   }
+
+  .btn-quote:hover { background: var(--blue-dark); transform: translateY(-1px); }
 
   .hamburger {
     display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 5px;
     background: none;
     border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-direction: column;
+    gap: 5px;
   }
 
   .hamburger span {
     display: block;
     width: 24px;
-    height: 2px;
-    background: var(--white);
+    height: 2.5px;
+    background: var(--text-dark);
+    border-radius: 2px;
     transition: all 0.3s;
   }
 
   .mobile-menu {
     display: none;
-    position: fixed;
-    top: 70px;
-    left: 0; right: 0;
-    background: rgba(10,10,10,0.98);
-    backdrop-filter: blur(20px);
-    z-index: 999;
-    padding: 20px;
-    border-bottom: 1px solid rgba(230,51,41,0.2);
+    background: var(--white);
+    border-top: 1px solid var(--grey-soft);
+    padding: 16px 20px;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
   .mobile-menu.open { display: flex; }
 
   .mobile-menu a {
-    color: var(--white);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-mid);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--grey-soft);
   }
 
-  .mobile-menu a:hover { color: var(--red); }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    list-style: none;
+  .mobile-menu .btn-call, .mobile-menu .btn-quote {
+    justify-content: center;
+    padding: 12px;
+    font-size: 1rem;
   }
-
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--white); }
 
   /* HERO */
   .hero {
+    background: linear-gradient(135deg, #1a56db 0%, #0f3a8c 100%);
+    color: white;
+    padding: 60px 20px 50px;
     position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
   }
 
-  .hero-bg {
+  .hero::before {
+    content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%);
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
   }
 
-  .hero-bg::before {
-    content: "";
+  .hero::after {
+    content: '';
     position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(230,51,41,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(240,112,48,0.08) 0%, transparent 50%);
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
   }
 
-  .hero-image-overlay {
-    position: absolute;
-    inset: 0;
-    background: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80&auto=format&fit=crop") center/cover no-repeat;
-    opacity: 0.18;
-  }
-
-  .hero-content {
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
     position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 100px 20px 60px;
-    max-width: 800px;
-    width: 100%;
+    z-index: 1;
   }
 
   .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(230,51,41,0.15);
-    border: 1px solid rgba(230,51,41,0.3);
-    color: var(--red);
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-
-  .hero-badge::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    background: var(--red);
-    border-radius: 50%;
-    animation: pulse 1.5s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.3); }
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 16px;
   }
 
   .hero h1 {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(2.8rem, 8vw, 5.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 10px;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
   }
 
-  .hero h1 span { color: var(--red); }
+  .hero h1 span { color: #93c5fd; }
 
-  .hero-sub {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(1rem, 3vw, 1.4rem);
-    color: var(--text-muted);
-    font-style: italic;
-    margin-bottom: 20px;
-  }
-
-  .hero-desc {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.65);
+  .hero p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin-bottom: 28px;
     max-width: 480px;
-    margin: 0 auto 36px;
-    line-height: 1.8;
   }
 
   .hero-buttons {
     display: flex;
     gap: 12px;
-    justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 48px;
   }
+
+  .btn-hero-call {
+    background: var(--green);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(22,163,74,0.4);
+  }
+
+  .btn-hero-call:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+  .btn-hero-quote {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid rgba(255,255,255,0.4);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-hero-quote:hover { background: rgba(255,255,255,0.25); }
 
   .hero-stats {
     display: flex;
-    gap: 40px;
-    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
     flex-wrap: wrap;
-    padding-top: 36px;
-    border-top: 1px solid rgba(255,255,255,0.08);
   }
 
-  .stat {
-    text-align: center;
+  .stat { text-align: center; }
+  .stat-num { font-size: 1.8rem; font-weight: 800; color: #93c5fd; }
+  .stat-label { font-size: 0.75rem; opacity: 0.8; }
+
+  .hero-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    color: var(--text-dark);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
   }
 
-  .stat-number {
-    font-family: "Playfair Display", serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--red);
-    line-height: 1;
-    display: block;
-  }
+  .hero-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--blue); margin-bottom: 16px; }
 
-  .stat-label {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
+  .hours-list { list-style: none; }
 
-  .scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+  .hours-list li {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--grey-soft);
+    font-size: 0.9rem;
+  }
+
+  .hours-list li:last-child { border-bottom: none; }
+
+  .hours-list .day { font-weight: 600; color: var(--text-mid); }
+  .hours-list .time { color: var(--blue); font-weight: 700; }
+  .hours-list .closed { color: #ef4444; font-weight: 700; }
+
+  .open-badge {
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: var(--text-muted);
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    animation: bounce 2s ease-in-out infinite;
-  }
-
-  .scroll-indicator svg { color: var(--red); }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-8px); }
-  }
-
-  /* SECTIONS */
-  section { padding: 80px 20px; }
-
-  .section-label {
-    display: inline-block;
-    color: var(--red);
-    font-size: 0.7rem;
+    background: #dcfce7;
+    color: var(--green);
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
     margin-bottom: 12px;
+  }
+
+  .open-badge .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero-card .address {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--grey-soft);
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--white);
+    padding: 20px;
+    border-bottom: 1px solid var(--grey-soft);
+  }
+
+  .trust-bar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-mid);
+  }
+
+  .trust-item svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+  /* SECTION */
+  section { padding: 64px 20px; }
+
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 10px;
   }
 
   .section-title {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 16px;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--text-dark);
   }
 
-  .section-desc {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.8;
-    max-width: 500px;
+  .section-sub {
+    color: var(--text-mid);
+    font-size: 1rem;
+    max-width: 560px;
+    margin-bottom: 40px;
   }
 
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  /* SERVICES */
+  .services-bg { background: var(--grey-bg); }
 
-  /* QUICK INFO BAR */
-  .info-bar {
-    background: var(--charcoal2);
-    border-top: 1px solid rgba(255,255,255,0.05);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding: 0;
-  }
-
-  .info-bar-inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .info-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 18px 24px;
-    border-right: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    flex: 1;
-    min-width: 180px;
-    justify-content: center;
-  }
-
-  .info-item:last-child { border-right: none; }
-
-  .info-item svg { color: var(--red); flex-shrink: 0; }
-
-  .info-item strong {
-    color: var(--white);
-    display: block;
-    font-size: 0.85rem;
-  }
-
-  /* FOOD GALLERY */
-  .gallery-section { background: var(--charcoal); }
-
-  .gallery-header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-
-  .food-grid {
+  .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .food-card {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    group: true;
-  }
-
-  .food-card.large {
-    grid-column: span 2;
-    aspect-ratio: 16/7;
-  }
-
-  .food-card:not(.large) { aspect-ratio: 4/3; }
-
-  .food-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-    filter: brightness(0.85);
-  }
-
-  .food-card:hover img {
-    transform: scale(1.05);
-    filter: brightness(1);
-  }
-
-  .food-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
-    display: flex;
-    align-items: flex-end;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .food-card:hover .food-card-overlay { opacity: 1; }
-
-  .food-card-name {
-    font-family: "Playfair Display", serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-  }
-
-  /* MENU HIGHLIGHTS */
-  .menu-section { background: var(--black); }
-
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 20px;
-    margin-top: 48px;
   }
 
-  .menu-card {
-    background: var(--charcoal);
+  .service-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: all 0.25s;
+    border: 2px solid transparent;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--blue);
+    transform: translateY(-3px);
+  }
+
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--blue-light);
     border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.06);
-    transition: all 0.3s ease;
-  }
-
-  .menu-card:hover {
-    border-color: rgba(230,51,41,0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  }
-
-  .menu-card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.9);
-    transition: filter 0.3s;
-  }
-
-  .menu-card:hover .menu-card-img { filter: brightness(1.05); }
-
-  .menu-card-body {
-    padding: 20px;
-  }
-
-  .menu-tag {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 8px;
-  }
-
-  .menu-card-title {
-    font-family: "Playfair Display", serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .menu-card-desc {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .menu-card-price {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--gold);
-  }
-
-  /* ABOUT */
-  .about-section { background: var(--charcoal); }
-
-  .about-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .about-image-wrap {
-    position: relative;
-  }
-
-  .about-image-wrap img {
-    width: 100%;
-    border-radius: 10px;
-    display: block;
-    filter: brightness(0.9);
-  }
-
-  .about-image-wrap::after {
-    content: "";
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    right: -16px;
-    bottom: -16px;
-    border: 2px solid rgba(230,51,41,0.3);
-    border-radius: 10px;
-    z-index: -1;
-  }
-
-  .about-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 32px;
-  }
-
-  .about-feature {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .about-feature-icon {
-    width: 36px;
-    height: 36px;
-    background: rgba(230,51,41,0.12);
-    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    color: var(--red);
+    margin-bottom: 14px;
   }
 
-  .about-feature-text { font-size: 0.8rem; color: var(--text-muted); }
-  .about-feature-text strong { display: block; color: var(--white); font-size: 0.85rem; margin-bottom: 2px; }
+  .service-icon svg { width: 28px; height: 28px; }
+
+  .service-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+  .service-card p { font-size: 0.85rem; color: var(--text-mid); margin-bottom: 14px; }
+
+  .price-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  /* BEFORE AFTER */
+  .ba-bg { background: var(--white); }
+
+  .ba-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .ba-card {
+    background: var(--grey-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .ba-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+
+  .ba-img {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+  }
+
+  .ba-img.before { background: linear-gradient(135deg, #fca5a5, #f87171); }
+  .ba-img.after { background: linear-gradient(135deg, #86efac, #4ade80); }
+
+  .ba-label {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .ba-divider {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .ba-arrow {
+    background: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-size: 1rem;
+  }
+
+  .ba-info { padding: 16px; }
+  .ba-info h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+  .ba-info p { font-size: 0.82rem; color: var(--text-mid); }
+
+  /* WORKSHOP */
+  .workshop-bg { background: var(--grey-bg); }
+
+  .workshop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .ws-img {
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+  }
+
+  .ws-img:first-child { grid-column: span 2; aspect-ratio: unset; min-height: 200px; }
+
+  .ws-img.c1 { background: linear-gradient(135deg, #dbeafe, #93c5fd); }
+  .ws-img.c2 { background: linear-gradient(135deg, #e0f2fe, #7dd3fc); }
+  .ws-img.c3 { background: linear-gradient(135deg, #ede9fe, #c4b5fd); }
+  .ws-img.c4 { background: linear-gradient(135deg, #dcfce7, #86efac); }
+
+  .ws-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.5));
+    color: white;
+    padding: 16px 12px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
 
   /* REVIEWS */
-  .reviews-section { background: var(--black); }
+  .reviews-bg { background: var(--white); }
 
-  .reviews-header { text-align: center; margin-bottom: 48px; }
-
-  .stars {
-    display: flex;
-    gap: 3px;
-    color: var(--gold);
-    font-size: 1rem;
-    margin-bottom: 8px;
-  }
-
-  .overall-rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 12px;
-  }
-
-  .rating-big {
-    font-family: "Playfair Display", serif;
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1;
-  }
-
-  .rating-detail { text-align: left; }
-  .rating-detail .stars { justify-content: flex-start; }
-  .rating-count { font-size: 0.8rem; color: var(--text-muted); }
+  .stars { color: #f59e0b; font-size: 1rem; letter-spacing: 2px; }
 
   .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
-    max-width: 1100px;
-    margin: 0 auto;
   }
 
   .review-card {
-    background: var(--charcoal);
-    border-radius: 10px;
-    padding: 24px;
-    border: 1px solid rgba(255,255,255,0.06);
-    transition: border-color 0.3s;
+    background: var(--grey-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    border-left: 4px solid var(--blue);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
   }
 
-  .review-card:hover { border-color: rgba(212,168,67,0.3); }
+  .review-card:hover { transform: translateY(-2px); }
 
-  .reviewer {
+  .review-header {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .reviewer-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(230,51,41,0.3);
-    background: var(--dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--red);
-    flex-shrink: 0;
-  }
-
-  .reviewer-name { font-weight: 700; font-size: 0.9rem; }
-  .reviewer-meta { font-size: 0.72rem; color: var(--text-muted); }
-
-  .review-text {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.7;
-    font-style: italic;
-  }
-
-  .review-text::before { content: "\201C"; }
-  .review-text::after { content: "\201D"; }
-
-  /* HOURS & LOCATION */
-  .location-section { background: var(--charcoal); }
-
-  .location-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-    align-items: start;
-  }
-
-  .hours-table { width: 100%; margin-top: 24px; }
-
-  .hours-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.85rem;
-  }
-
-  .hours-row:last-child { border-bottom: none; }
-
-  .hours-day { color: var(--text-muted); }
-
-  .hours-time {
-    font-weight: 600;
-    color: var(--white);
-  }
-
-  .hours-time.today { color: var(--red); }
-
-  .today-badge {
-    font-size: 0.6rem;
-    background: rgba(230,51,41,0.15);
-    border: 1px solid rgba(230,51,41,0.3);
-    color: var(--red);
-    padding: 2px 6px;
-    border-radius: 3px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-left: 8px;
-  }
-
-  .map-wrap {
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
-    height: 300px;
-    background: var(--dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 16px;
-    cursor: pointer;
-    transition: border-color 0.3s;
-    text-decoration: none;
-    color: var(--white);
-  }
-
-  .map-wrap:hover { border-color: rgba(230,51,41,0.4); }
-
-  .map-placeholder-icon { color: var(--red); }
-
-  .map-address { font-size: 0.85rem; color: var(--text-muted); text-align: center; line-height: 1.6; }
-
-  .contact-grid {
-    display: grid;
-    gap: 12px;
-    margin-top: 28px;
-  }
-
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 16px;
-    background: var(--dark);
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--white);
-    font-size: 0.85rem;
-    transition: all 0.2s;
-    border: 1px solid rgba(255,255,255,0.04);
-  }
-
-  .contact-item:hover {
-    background: rgba(230,51,41,0.1);
-    border-color: rgba(230,51,41,0.2);
-    color: var(--white);
-  }
-
-  .contact-item svg { color: var(--red); flex-shrink: 0; }
-
-  /* CTA STRIP */
-  .cta-strip {
-    background: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 50%, var(--orange) 100%);
-    padding: 60px 20px;
-    text-align: center;
-  }
-
-  .cta-strip h2 {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
     margin-bottom: 12px;
   }
 
-  .cta-strip p {
-    font-size: 0.95rem;
-    opacity: 0.9;
-    margin-bottom: 32px;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-buttons {
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
     display: flex;
-    gap: 12px;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
   }
 
-  .btn-white {
-    background: var(--white);
-    color: var(--red-dark);
-    border: none;
+  .av1 { background: #1a56db; }
+  .av2 { background: #16a34a; }
+  .av3 { background: #9333ea; }
+  .av4 { background: #ea580c; }
+  .av5 { background: #0891b2; }
+
+  .reviewer-name { font-weight: 700; font-size: 0.95rem; }
+  .review-date { font-size: 0.75rem; color: var(--text-light); }
+
+  .review-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; margin-top: 8px; }
+
+  .google-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 0.75rem;
+    color: var(--text-light);
   }
 
-  .btn-white:hover {
-    background: var(--light-gray);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  .overall-rating {
+    background: var(--blue);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 32px;
   }
 
-  .btn-transparent {
+  .rating-num { font-size: 3rem; font-weight: 800; }
+  .rating-stars { font-size: 1.5rem; letter-spacing: 4px; color: #fbbf24; }
+  .rating-label { opacity: 0.9; font-size: 0.9rem; margin-top: 4px; }
+
+  /* WHY US */
+  .why-bg { background: var(--grey-bg); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .why-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+  }
+
+  .why-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+
+  .why-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--blue-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-size: 1.6rem;
+  }
+
+  .why-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+  .why-card p { font-size: 0.82rem; color: var(--text-mid); }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, #1a56db 0%, #0f3a8c 100%);
+    padding: 64px 20px;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 12px; }
+  .cta-section p { font-size: 1rem; opacity: 0.9; margin-bottom: 32px; max-width: 540px; margin-left: auto; margin-right: auto; }
+
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-lg-call {
+    background: var(--green);
+    color: white;
+    padding: 16px 36px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(22,163,74,0.4);
+  }
+
+  .btn-lg-call:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+  .btn-lg-quote {
     background: transparent;
-    color: var(--white);
-    border: 2px solid rgba(255,255,255,0.6);
+    color: white;
+    padding: 16px 36px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid rgba(255,255,255,0.5);
+    transition: all 0.2s;
+    cursor: pointer;
+    background-color: transparent;
   }
 
-  .btn-transparent:hover {
-    border-color: var(--white);
-    background: rgba(255,255,255,0.1);
+  .btn-lg-quote:hover { background: rgba(255,255,255,0.12); }
+
+  /* CONTACT */
+  .contact-bg { background: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
   }
+
+  .contact-info h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+
+  .contact-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--blue-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg { width: 22px; height: 22px; }
+
+  .contact-item h4 { font-size: 0.85rem; color: var(--text-light); font-weight: 600; margin-bottom: 2px; }
+  .contact-item p, .contact-item a { font-size: 1rem; font-weight: 700; color: var(--text-dark); text-decoration: none; }
+  .contact-item a:hover { color: var(--blue); }
+
+  .quote-form {
+    background: var(--grey-bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+  }
+
+  .quote-form h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: var(--blue); }
+
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 5px; color: var(--text-mid); }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--grey-soft);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: white;
+    color: var(--text-dark);
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-submit:hover { background: var(--green-dark); transform: translateY(-1px); }
 
   /* FOOTER */
   footer {
-    background: var(--black);
-    padding: 48px 20px 24px;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.8);
+    padding: 40px 20px 20px;
   }
 
   .footer-inner {
     max-width: 1100px;
     margin: 0 auto;
-  }
-
-  .footer-top {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
-  .footer-brand-name {
-    font-family: "Playfair Display", serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
+  .footer-brand h3 { color: white; font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; }
 
-  .footer-brand-name span { color: var(--red); }
+  .footer-col h4 { color: white; font-size: 0.9rem; font-weight: 700; margin-bottom: 14px; }
 
-  .footer-brand-desc {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-bottom: 20px;
-    max-width: 280px;
-  }
-
-  .social-links {
-    display: flex;
-    gap: 10px;
-  }
-
-  .social-link {
-    width: 36px;
-    height: 36px;
-    background: var(--charcoal);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: all 0.2s;
-    border: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.85rem;
-  }
-
-  .social-link:hover {
-    background: var(--red);
-    color: var(--white);
-    border-color: var(--red);
-  }
-
-  .footer-col h4 {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-
-  .footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .footer-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.82rem;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--red); }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 8px; }
+  .footer-col ul li a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.85rem; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: white; }
+  .footer-col ul li span { font-size: 0.82rem; color: rgba(255,255,255,0.7); }
 
   .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    align-items: center;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 8px;
   }
-
-  .footer-bottom p {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-  }
-
-  .footer-bottom a { color: var(--red); text-decoration: none; }
 
   /* MODAL */
   .modal-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.5);
     z-index: 2000;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    backdrop-filter: blur(4px);
   }
 
   .modal-overlay.open { display: flex; }
 
   .modal {
-    background: var(--charcoal);
-    border-radius: 12px;
-    padding: 36px;
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
     max-width: 480px;
     width: 100%;
-    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     position: relative;
-    animation: modalIn 0.3s ease;
+    animation: slideUp 0.3s ease;
   }
 
-  @keyframes modalIn {
-    from { opacity: 0; transform: translateY(20px) scale(0.97); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .modal-close {
     position: absolute;
     top: 16px;
     right: 16px;
-    background: none;
+    background: var(--grey-soft);
     border: none;
-    color: var(--text-muted);
-    font-size: 1.2rem;
-    cursor: pointer;
     width: 32px;
     height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
-    transition: all 0.2s;
+    transition: background 0.2s;
   }
 
-  .modal-close:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+  .modal-close:hover { background: #d1d5db; }
 
-  .modal h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 1.5rem;
-    margin-bottom: 8px;
+  .modal h3 { font-size: 1.3rem; font-weight: 800; color: var(--blue); margin-bottom: 6px; }
+  .modal p { font-size: 0.9rem; color: var(--text-mid); margin-bottom: 20px; }
+
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 20px;
   }
 
-  .modal-subtitle { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 28px; }
+  .success-msg.show { display: block; }
+  .success-icon { font-size: 3rem; margin-bottom: 12px; }
+  .success-msg h4 { font-size: 1.1rem; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+  .success-msg p { color: var(--text-mid); }
 
-  .form-group { margin-bottom: 16px; }
-
-  .form-group label {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    background: var(--dark);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 6px;
-    padding: 12px 14px;
-    color: var(--white);
-    font-family: "Montserrat", sans-serif;
-    font-size: 0.9rem;
-    transition: border-color 0.2s;
-    outline: none;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--red);
-  }
-
-  .form-group select option { background: var(--dark); }
-  .form-group textarea { height: 80px; resize: vertical; }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  /* TOAST */
-  .toast {
+  /* STICKY PHONE */
+  .sticky-phone {
     position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: var(--charcoal2);
-    border: 1px solid rgba(230,51,41,0.3);
-    color: var(--white);
-    padding: 14px 24px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    z-index: 3000;
-    transition: transform 0.4s ease;
-    white-space: nowrap;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  }
-
-  .toast.show { transform: translateX(-50%) translateY(0); }
-  .toast .toast-icon { color: var(--red); margin-right: 8px; }
-
-  /* PHONE FLOAT */
-  .phone-float {
-    position: fixed;
-    bottom: 24px;
+    bottom: 20px;
     right: 20px;
     z-index: 999;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
+    display: none;
   }
 
-  .phone-btn {
-    width: 52px;
-    height: 52px;
-    background: var(--red);
+  .sticky-phone a {
+    background: var(--green);
+    color: white;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
+    box-shadow: 0 4px 20px rgba(22,163,74,0.5);
     text-decoration: none;
-    box-shadow: 0 4px 20px rgba(230,51,41,0.5);
-    transition: all 0.2s;
-    animation: phoneFloat 3s ease-in-out infinite;
+    animation: bounce 2s infinite;
   }
 
-  .phone-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 28px rgba(230,51,41,0.7);
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
   }
 
-  @keyframes phoneFloat {
-    0%, 100% { box-shadow: 0 4px 20px rgba(230,51,41,0.5); }
-    50% { box-shadow: 0 4px 30px rgba(230,51,41,0.8); }
-  }
+  .sticky-phone svg { width: 26px; height: 26px; fill: white; }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .nav-links { display: none; }
-    .nav-actions .btn { display: none; }
-    .nav-actions .btn:last-child { display: inline-flex; }
+    .nav-cta { display: none; }
     .hamburger { display: flex; }
 
-    .food-grid { grid-template-columns: 1fr; }
-    .food-card.large { grid-column: span 1; aspect-ratio: 16/9; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .hero { padding: 40px 20px 36px; }
 
-    .about-inner { grid-template-columns: 1fr; }
-    .about-image-wrap::after { display: none; }
-    .about-features { grid-template-columns: 1fr; }
+    .workshop-grid { grid-template-columns: 1fr 1fr; }
+    .ws-img:first-child { grid-column: span 2; }
 
-    .location-inner { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
 
-    .footer-top { grid-template-columns: 1fr; gap: 28px; }
-    .footer-bottom { flex-direction: column; text-align: center; }
+    .footer-inner { grid-template-columns: 1fr; gap: 24px; }
 
-    .form-row { grid-template-columns: 1fr; }
+    .sticky-phone { display: block; }
 
-    .reviews-grid { grid-template-columns: 1fr; }
-
-    .hero-stats { gap: 24px; }
-
-    .info-item { min-width: 150px; }
+    section { padding: 48px 20px; }
   }
 
   @media (max-width: 480px) {
-    nav { padding: 0 16px; }
-    .nav-logo { font-size: 1.1rem; }
-    .btn.btn-primary { padding: 9px 16px; font-size: 0.75rem; }
-    section { padding: 60px 16px; }
-    .modal { padding: 24px 20px; }
-    .info-bar-inner { flex-direction: column; }
-    .info-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .workshop-grid { grid-template-columns: 1fr; }
+    .ws-img:first-child { grid-column: span 1; }
+    .hero-buttons { flex-direction: column; }
+    .btn-hero-call, .btn-hero-quote { justify-content: center; }
+    .hero-stats { gap: 16px; }
+    .trust-bar-inner { gap: 16px; }
   }
-
-  /* ANIMATIONS */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .fade-up-delay-1 { transition-delay: 0.1s; }
-  .fade-up-delay-2 { transition-delay: 0.2s; }
-  .fade-up-delay-3 { transition-delay: 0.3s; }
-  .fade-up-delay-4 { transition-delay: 0.4s; }
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav id="mainNav">
-  <a href="#home" class="nav-logo">Turtle <span>Jack's</span></a>
-  <ul class="nav-links">
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#location">Location</a></li>
-  </ul>
-  <div class="nav-actions">
-    <a href="tel:4162131111" class="btn btn-outline">
-      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      Call Us
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+      </div>
+      <div>
+        <div class="logo-text">Gujarat Auto</div>
+        <div class="logo-sub">Brampton, Ontario</div>
+      </div>
     </a>
-    <button class="btn btn-primary" onclick="openModal('reservation')">
-      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      Reserve
-    </button>
-    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="tel:6475272988" class="btn-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        647-527-2988
+      </a>
+      <button class="btn-quote" onclick="openModal()">Get Free Quote</button>
+    </div>
+
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-</nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#menu" onclick="toggleMobileMenu()">Menu</a>
-  <a href="#about" onclick="toggleMobileMenu()">About</a>
-  <a href="#reviews" onclick="toggleMobileMenu()">Reviews</a>
-  <a href="#location" onclick="toggleMobileMenu()">Location</a>
-  <a href="tel:4162131111">&#128222; 416-213-1111</a>
-  <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="openModal('reservation');toggleMobileMenu()">Reserve a Table</button>
-</div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMobileMenu()">Services</a>
+    <a href="#why-us" onclick="closeMobileMenu()">Why Us</a>
+    <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    <a href="tel:6475272988" class="btn-call">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      Call Now: 647-527-2988
+    </a>
+    <button class="btn-quote" onclick="openModal(); closeMobileMenu()">Get Free Quote</button>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg">
-    <div class="hero-image-overlay"></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-badge">Now Open in Etobicoke</div>
-    <h1>Turtle <span>Jack's</span></h1>
-    <p class="hero-sub">Casual Dining &amp; Bar &mdash; Etobicoke, Toronto</p>
-    <p class="hero-desc">Where great food meets great company. Bold flavors, cold drinks, and a vibe that keeps you coming back.</p>
-    <div class="hero-buttons">
-      <button class="btn btn-primary btn-large" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-        View Menu
-      </button>
-      <button class="btn btn-gold btn-large" onclick="openModal('reservation')">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Reserve Table
-      </button>
-      <a href="tel:4162131111" class="btn btn-outline btn-large">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        416-213-1111
-      </a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-number">4.5★</span>
-        <span class="stat-label">Google Rating</span>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#93c5fd"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        Trusted Auto Repair in Brampton
       </div>
-      <div class="stat">
-        <span class="stat-number">500+</span>
-        <span class="stat-label">Happy Guests</span>
+      <h1>Honest Auto Repair<br>You Can <span>Rely On</span></h1>
+      <p>No surprise bills. No upsells. Just transparent, quality auto care from certified technicians who treat your car like their own.</p>
+      <div class="hero-buttons">
+        <a href="tel:6475272988" class="btn-hero-call">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Call Now
+        </a>
+        <button class="btn-hero-quote" onclick="openModal()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-5-5H9v-2h4v2zm2-4H9v-2h6v2z"/></svg>
+          Get Free Quote
+        </button>
       </div>
-      <div class="stat">
-        <span class="stat-number">15+</span>
-        <span class="stat-label">Craft Drinks</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">Daily</span>
-        <span class="stat-label">Kitchen Open</span>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4.9★</div>
+          <div class="stat-label">Google Rating</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Transparent Pricing</div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="scroll-indicator" onclick="document.getElementById('infobar').scrollIntoView({behavior:'smooth'})">
-    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-    Scroll
+
+    <div class="hero-card">
+      <div class="open-badge"><span class="dot"></span><span id="openStatus">Check Hours</span></div>
+      <h3>Business Hours</h3>
+      <ul class="hours-list">
+        <li><span class="day">Monday</span><span class="time">8:00 AM – 5:00 PM</span></li>
+        <li><span class="day">Tuesday</span><span class="time">8:00 AM – 5:00 PM</span></li>
+        <li><span class="day">Wednesday</span><span class="time">8:00 AM – 5:00 PM</span></li>
+        <li><span class="day">Thursday</span><span class="time">8:00 AM – 5:00 PM</span></li>
+        <li><span class="day">Friday</span><span class="time">8:00 AM – 5:00 PM</span></li>
+        <li><span class="day">Saturday</span><span class="time">8:00 AM – 2:00 PM</span></li>
+        <li><span class="day">Sunday</span><span class="closed">Closed</span></li>
+      </ul>
+      <div class="address">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#6b7280"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Brampton, Ontario, Canada
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- INFO BAR -->
-<div class="info-bar" id="infobar">
-  <div class="info-bar-inner">
-    <div class="info-item">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <div>
-        <strong>Etobicoke, Toronto ON</strong>
-        Get Directions
-      </div>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="#16a34a"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+      No Hidden Fees
     </div>
-    <div class="info-item">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      <div>
-        <strong>416-213-1111</strong>
-        Call for Reservations
-      </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="#16a34a"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      Free Estimates
     </div>
-    <div class="info-item">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <div>
-        <strong>Daily Hours</strong>
-        Hours Vary by Day
-      </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="#16a34a"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Brampton, Ontario
     </div>
-    <div class="info-item">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-      <div>
-        <strong>Casual Dining &amp; Bar</strong>
-        Dine In &amp; Drinks
-      </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      4.9★ Google Rated
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 10c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-12C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      Certified Technicians
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+      Same-Day Service Available
     </div>
   </div>
 </div>
 
-<!-- FOOD GALLERY -->
-<section class="gallery-section" id="gallery">
-  <div class="gallery-header fade-up">
-    <span class="section-label">Fresh &amp; Flavorful</span>
-    <h2 class="section-title">Crafted with Passion</h2>
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="section-inner">
+    <div class="section-tag">Our Services</div>
+    <h2 class="section-title">What We Fix & Maintain</h2>
+    <p class="section-sub">Upfront pricing estimates so you can compare before you call. No surprises, ever.</p>
+    <div class="services-grid" id="servicesGrid"></div>
   </div>
-  <div class="food-grid container">
-    <div class="food-card large fade-up">
-      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80&auto=format&fit=crop" alt="Restaurant ambiance" loading="lazy">
-      <div class="food-card-overlay"><span class="food-card-name">The Full Experience</span></div>
-    </div>
-    <div class="food-card fade-up fade-up-delay-1">
-      <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=80&auto=format&fit=crop" alt="Juicy burger" loading="lazy">
-      <div class="food-card-overlay"><span class="food-card-name">Signature Burgers</span></div>
-    </div>
-    <div class="food-card fade-up fade-up-delay-2">
-      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80&auto=format&fit=crop" alt="Pizza" loading="lazy">
-      <div class="food-card-overlay"><span class="food-card-name">Stone-Baked Flatbreads</span></div>
-    </div>
-    <div class="food-card fade-up fade-up-delay-3">
-      <img src="https://images.unsplash.com/photo-1546039907-7fa05f864c02?w=700&q=80&auto=format&fit=crop" alt="Cocktails" loading="lazy">
-      <div class="food-card-overlay"><span class="food-card-name">Craft Cocktails</span></div>
-    </div>
-    <div class="food-card fade-up fade-up-delay-4">
-      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=80&auto=format&fit=crop" alt="Food platter" loading="lazy">
-      <div class="food-card-overlay"><span class="food-card-name">Shareable Platters</span></div>
+</section>
+
+<!-- BEFORE AFTER -->
+<section class="ba-bg">
+  <div class="section-inner">
+    <div class="section-tag">Our Work</div>
+    <h2 class="section-title">Before & After — Real Results</h2>
+    <p class="section-sub">We let our work speak for itself. See the difference quality repair makes.</p>
+    <div class="ba-grid" id="baGrid"></div>
+  </div>
+</section>
+
+<!-- WORKSHOP -->
+<section class="workshop-bg">
+  <div class="section-inner">
+    <div class="section-tag">Our Shop</div>
+    <h2 class="section-title">A Clean, Professional Workshop</h2>
+    <p class="section-sub">Our organized, well-equipped facility reflects the same care we put into every vehicle.</p>
+    <div class="workshop-grid">
+      <div class="ws-img c1" style="font-size:4rem;">🔧
+        <div class="ws-overlay">Modern Diagnostic Equipment</div>
+      </div>
+      <div class="ws-img c2" style="font-size:3rem;">🚗
+        <div class="ws-overlay">Multiple Service Bays</div>
+      </div>
+      <div class="ws-img c3" style="font-size:3rem;">🛞
+        <div class="ws-overlay">Tire & Alignment Station</div>
+      </div>
+      <div class="ws-img c4" style="font-size:3rem;">⚙️
+        <div class="ws-overlay">Brake Inspection Area</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- MENU HIGHLIGHTS -->
-<section class="menu-section" id="menu">
-  <div class="container">
-    <div class="fade-up" style="margin-bottom:0">
-      <span class="section-label">What We Serve</span>
-      <h2 class="section-title">Fan Favourites</h2>
-      <p class="section-desc">Bold flavors, fresh ingredients, and comfort food done right. There is something for everyone.</p>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-card fade-up fade-up-delay-1">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80&auto=format&fit=crop" alt="Signature Burger" loading="lazy">
-        <div class="menu-card-body">
-          <div class="menu-tag">&#128293; Most Popular</div>
-          <div class="menu-card-title">The Turtle Burger</div>
-          <div class="menu-card-desc">Double smash patty, aged cheddar, house sauce, crispy onions on a brioche bun. Served with seasoned fries.</div>
-          <div class="menu-card-price">$18.99</div>
-        </div>
-      </div>
-      <div class="menu-card fade-up fade-up-delay-2">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=80&auto=format&fit=crop" alt="Chicken Wings" loading="lazy">
-        <div class="menu-card-body">
-          <div class="menu-tag">&#127857; Bar Classic</div>
-          <div class="menu-card-title">Crispy Wings</div>
-          <div class="menu-card-desc">1 lb of fresh wings tossed in your choice of sauce: Honey Garlic, Buffalo, BBQ, or Dry Rub. With celery and dip.</div>
-          <div class="menu-card-price">$16.99</div>
-        </div>
-      </div>
-      <div class="menu-card fade-up fade-up-delay-3">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80&auto=format&fit=crop" alt="Flatbread" loading="lazy">
-        <div class="menu-card-body">
-          <div class="menu-tag">&#127829; Chef Special</div>
-          <div class="menu-card-title">Loaded Flatbread</div>
-          <div class="menu-card-desc">Stone-baked flatbread with roasted garlic aioli, smoked chicken, red onion, peppers, and three-cheese blend.</div>
-          <div class="menu-card-price">$17.49</div>
-        </div>
-      </div>
-      <div class="menu-card fade-up fade-up-delay-1">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1546039907-7fa05f864c02?w=600&q=80&auto=format&fit=crop" alt="Cocktails" loading="lazy">
-        <div class="menu-card-body">
-          <div class="menu-tag">&#127864; Drinks Menu</div>
-          <div class="menu-card-title">Craft Cocktails</div>
-          <div class="menu-card-desc">From classics to house originals. Try our signature Turtle Sunset or choose from 15+ cocktails and local drafts.</div>
-          <div class="menu-card-price">From $10.99</div>
-        </div>
-      </div>
-      <div class="menu-card fade-up fade-up-delay-2">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80&auto=format&fit=crop" alt="Salad" loading="lazy">
-        <div class="menu-card-body">
-          <div class="menu-tag">&#127807; Fresh &amp; Light</div>
-          <div class="menu-card-title">House Harvest Salad</div>
-          <div class="menu-card-desc">Mixed greens, candied pecans, dried cranberries, goat cheese, and balsamic vinaigrette. Add grilled chicken for $4.</div>
-          <div class="menu-card-price">$14.49</div>
-        </div>
-      </div>
-      <div class="menu-card fade-up fade-up-delay-3">
-        <img class="menu-card-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80&auto=format&fit=crop" alt="Ribs" loading="lazy">
-        <div class="menu-card-body">
-          <div class="menu-tag">&#127830; Weekend Special</div>
-          <div class="menu-card-title">Slow-Smoked Ribs</div>
-          <div class="menu-card-desc">Fall-off-the-bone back ribs slow-smoked for 8 hours in our signature dry rub, finished with house BBQ glaze. Full rack.</div>
-          <div class="menu-card-price">$34.99</div>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:36px">
-      <a href="https://www.turtlejacks.com/" target="_blank" rel="noopener" class="btn btn-primary btn-large">
-        View Full Menu
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="about-inner">
-    <div class="about-image-wrap fade-up">
-      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop" alt="Turtle Jacks restaurant interior" loading="lazy">
-    </div>
-    <div class="fade-up fade-up-delay-2">
-      <span class="section-label">Our Story</span>
-      <h2 class="section-title">More Than Just a Meal</h2>
-      <p class="section-desc">Turtle Jack's Etobicoke is your neighborhood spot for great food, cold drinks, and good times. Whether you are catching up with friends, celebrating a win, or just need a solid bite after work &mdash; we have got you.</p>
-      <div class="about-features">
-        <div class="about-feature">
-          <div class="about-feature-icon">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          </div>
-          <div class="about-feature-text"><strong>Full Bar Service</strong>Craft cocktails, local draft beers, and wine</div>
-        </div>
-        <div class="about-feature">
-          <div class="about-feature-icon">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <div class="about-feature-text"><strong>Private Events</strong>Book the space for your next gathering</div>
-        </div>
-        <div class="about-feature">
-          <div class="about-feature-icon">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="about-feature-text"><strong>Top Rated</strong>4.5 stars across Google and Yelp</div>
-        </div>
-        <div class="about-feature">
-          <div class="about-feature-icon">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div class="about-feature-text"><strong>Open Daily</strong>Kitchen open every day for lunch and dinner</div>
-        </div>
-      </div>
-    </div>
+<!-- WHY US -->
+<section class="why-bg" id="why-us">
+  <div class="section-inner">
+    <div class="section-tag">Why Gujarat Auto</div>
+    <h2 class="section-title">Why Brampton Trusts Us</h2>
+    <p class="section-sub">We know you have choices. Here is why hundreds of local families keep coming back.</p>
+    <div class="why-grid" id="whyGrid"></div>
   </div>
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews-section" id="reviews">
-  <div class="container">
-    <div class="reviews-header fade-up">
-      <span class="section-label">What People Are Saying</span>
-      <div class="overall-rating">
-        <span class="rating-big">4.5</span>
-        <div class="rating-detail">
-          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-          <div class="rating-count">Based on 200+ reviews</div>
-          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px">Google &bull; Yelp &bull; TripAdvisor</div>
-        </div>
-      </div>
+<section class="reviews-bg" id="reviews">
+  <div class="section-inner">
+    <div class="section-tag">Google Reviews</div>
+    <h2 class="section-title">What Our Customers Say</h2>
+    <p class="section-sub">Real reviews from real Brampton drivers. No filters, no fakes.</p>
+    <div class="overall-rating">
+      <div class="rating-num">4.9</div>
+      <div class="rating-stars">★★★★★</div>
+      <div class="rating-label">Based on 80+ Google Reviews · Gujarat Auto, Brampton</div>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card fade-up fade-up-delay-1">
-        <div class="reviewer">
-          <div class="reviewer-avatar">S</div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to Book Your Service?</h2>
+  <p>Call us now or get a free quote. We will get back to you within the hour during business hours.</p>
+  <div class="cta-buttons">
+    <a href="tel:6475272988" class="btn-lg-call">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      Call 647-527-2988
+    </a>
+    <button class="btn-lg-quote" onclick="openModal()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-5-5H9v-2h4v2zm2-4H9v-2h6v2z"/></svg>
+      Get Free Quote
+    </button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-bg" id="contact">
+  <div class="section-inner">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Contact Gujarat Auto</h2>
+    <p class="section-sub">We are here Monday to Saturday. Walk-ins welcome, appointments preferred.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Our Contact Information</h3>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          </div>
           <div>
-            <div class="reviewer-name">Sarah M.</div>
-            <div class="reviewer-meta">Etobicoke, Toronto &bull; Google Review</div>
+            <h4>Phone</h4>
+            <a href="tel:6475272988">647-527-2988</a>
           </div>
         </div>
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">Absolutely love this place. The wings are some of the best in the city and the staff always make you feel welcome. Our go-to spot for Friday nights without question!</p>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <h4>Location</h4>
+            <p>Brampton, Ontario, Canada</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          </div>
+          <div>
+            <h4>Hours</h4>
+            <p>Mon–Fri: 8AM–5PM &nbsp;|&nbsp; Sat: 8AM–2PM</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="#1a56db"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          </div>
+          <div>
+            <h4>Rating</h4>
+            <p>4.9 / 5 on Google Reviews</p>
+          </div>
+        </div>
+        <div style="margin-top:12px; background:var(--blue-light); border-radius:10px; padding:16px;">
+          <p style="font-size:0.85rem; color:var(--blue); font-weight:600;">
+            💬 <strong>Transparency Promise:</strong> We will always show you the issue, explain the fix, and give you a written estimate before any work begins. No pressure, ever.
+          </p>
+        </div>
       </div>
-      <div class="review-card fade-up fade-up-delay-2">
-        <div class="reviewer">
-          <div class="reviewer-avatar">J</div>
-          <div>
-            <div class="reviewer-name">James K.</div>
-            <div class="reviewer-meta">Toronto, ON &bull; Yelp Review</div>
+
+      <div class="quote-form">
+        <h3>📋 Get a Free Quote</h3>
+        <div id="formContainer">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="fname" placeholder="John Smith">
           </div>
-        </div>
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">Great atmosphere, great food, great drinks. The Turtle Burger is genuinely one of the best burgers I have had. And the craft cocktail menu is seriously impressive. Will keep coming back!</p>
-      </div>
-      <div class="review-card fade-up fade-up-delay-3">
-        <div class="reviewer">
-          <div class="reviewer-avatar">A</div>
-          <div>
-            <div class="reviewer-name">Amanda T.</div>
-            <div class="reviewer-meta">Etobicoke &bull; Google Review</div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="fphone" placeholder="647-000-0000">
           </div>
-        </div>
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-        <p class="review-text">We booked Turtle Jack's for a birthday dinner and it was perfect. The staff went above and beyond. Food was delicious and the vibe was exactly what we wanted. Highly recommended!</p>
-      </div>
-      <div class="review-card fade-up fade-up-delay-1">
-        <div class="reviewer">
-          <div class="reviewer-avatar">M</div>
-          <div>
-            <div class="reviewer-name">Mike D.</div>
-            <div class="reviewer-meta">Toronto, ON &bull; TripAdvisor</div>
+          <div class="form-group">
+            <label>Your Vehicle (Year, Make, Model)</label>
+            <input type="text" id="fcar" placeholder="e.g. 2018 Honda Civic">
           </div>
-        </div>
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">Best ribs I have had in Etobicoke. Slow smoked, fall off the bone, and that BBQ sauce is next level. Paired with a cold draft beer &mdash; life does not get much better. Already planning my next visit!</p>
-      </div>
-      <div class="review-card fade-up fade-up-delay-2">
-        <div class="reviewer">
-          <div class="reviewer-avatar">R</div>
-          <div>
-            <div class="reviewer-name">Rachel B.</div>
-            <div class="reviewer-meta">Etobicoke &bull; Google Review</div>
+          <div class="form-group">
+            <label>Service Needed</label>
+            <select id="fservice">
+              <option value="">Select a service...</option>
+              <option>Brake Repair / Replacement</option>
+              <option>Oil Change</option>
+              <option>Engine Diagnostics</option>
+              <option>Tire Services</option>
+              <option>Transmission Service</option>
+              <option>Suspension & Steering</option>
+              <option>AC / Heating Repair</option>
+              <option>Battery Replacement</option>
+              <option>Other</option>
+            </select>
           </div>
-        </div>
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">Love that there is finally a great casual dining spot this close to home. The flatbread is incredible and the service is always fast and friendly. This place deserves more recognition!</p>
-      </div>
-      <div class="review-card fade-up fade-up-delay-3">
-        <div class="reviewer">
-          <div class="reviewer-avatar">D</div>
-          <div>
-            <div class="reviewer-name">David L.</div>
-            <div class="reviewer-meta">Toronto, ON &bull; Yelp Review</div>
+          <div class="form-group">
+            <label>Describe the Issue (Optional)</label>
+            <textarea id="fdesc" placeholder="Any noise, warning lights, or concerns..."></textarea>
           </div>
+          <button class="btn-submit" onclick="submitForm()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            Send Quote Request
+          </button>
         </div>
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-        <p class="review-text">Solid sports bar with excellent food. We watched the game here and the energy was electric. Good prices, fast service, and genuinely tasty food. Exactly what a local bar should be!</p>
+        <div class="success-msg" id="successMsg">
+          <div class="success-icon">✅</div>
+          <h4>Quote Request Sent!</h4>
+          <p>Thanks! We will call you within the hour during business hours. Or call us directly at <a href="tel:6475272988" style="color:var(--blue);font-weight:700;">647-527-2988</a>.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- HOURS & LOCATION -->
-<section class="location-section" id="location">
-  <div class="location-inner">
-    <div class="fade-up">
-      <span class="section-label">Find Us</span>
-      <h2 class="section-title">Hours &amp; Location</h2>
-      <table class="hours-table">
-        <tbody id="hoursTable"></tbody>
-      </table>
-      <div class="contact-grid" style="margin-top:28px">
-        <a href="tel:4162131111" class="contact-item">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          <span><strong style="display:block;color:#fff">416-213-1111</strong>Call to reserve or inquire</span>
-        </a>
-        <a href="https://www.turtlejacks.com/" target="_blank" rel="noopener" class="contact-item">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-          <span><strong style="display:block;color:#fff">turtlejacks.com</strong>View online menu &amp; specials</span>
-        </a>
-      </div>
-    </div>
-    <div class="fade-up fade-up-delay-2">
-      <a href="https://www.google.com/maps/search/Turtle+Jacks+Etobicoke+Toronto" target="_blank" rel="noopener" class="map-wrap">
-        <svg class="map-placeholder-icon" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <div class="map-address">
-          <strong style="color:#fff;font-size:1rem;display:block;margin-bottom:4px">Turtle Jack's Etobicoke</strong>
-          Etobicoke, Toronto, Ontario<br>
-          Click to open in Google Maps
-        </div>
-        <span class="btn btn-primary" style="pointer-events:none">Get Directions</span>
-      </a>
-      <div style="margin-top:24px;text-align:center">
-        <button class="btn btn-primary btn-large" style="width:100%" onclick="openModal('reservation')">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Reserve Your Table Now
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA STRIP -->
-<div class="cta-strip">
-  <div class="container" style="text-align:center">
-    <h2>Ready for a Great Night Out?</h2>
-    <p>Join us for amazing food, cold drinks, and a vibe you will love. Tables fill up fast &mdash; reserve yours today.</p>
-    <div class="cta-buttons">
-      <button class="btn btn-white btn-large" onclick="openModal('reservation')">
-        Reserve a Table
-      </button>
-      <a href="tel:4162131111" class="btn btn-transparent btn-large">
-        Call 416-213-1111
-      </a>
-      <a href="https://www.turtlejacks.com/" target="_blank" rel="noopener" class="btn btn-transparent btn-large">
-        Full Menu &#8599;
-      </a>
-    </div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-name">Turtle <span>Jack's</span></div>
-        <p class="footer-brand-desc">Your favourite casual dining and bar in Etobicoke. Great food, great drinks, and an atmosphere that keeps you coming back.</p>
-        <div class="social-links">
-          <a href="https://www.facebook.com/turtlejacks" target="_blank" rel="noopener" class="social-link" title="Facebook">f</a>
-          <a href="https://www.instagram.com/turtlejacks" target="_blank" rel="noopener" class="social-link" title="Instagram">&#9313;</a>
-          <a href="https://twitter.com/turtlejacks" target="_blank" rel="noopener" class="social-link" title="Twitter">&#120143;</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#location">Location</a></li>
-          <li><a href="https://www.turtlejacks.com/" target="_blank" rel="noopener">Official Website</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul class="footer-links">
-          <li><a href="tel:4162131111">416-213-1111</a></li>
-          <li><a href="https://www.turtlejacks.com/" target="_blank" rel="noopener">turtlejacks.com</a></li>
-          <li><a href="#location">Etobicoke, Toronto ON</a></li>
-          <li><a href="#" onclick="openModal('reservation');return false">Make Reservation</a></li>
-        </ul>
-      </div>
+    <div class="footer-brand">
+      <h3>🔧 Gujarat Auto</h3>
+      <p>Your trusted auto repair and maintenance shop in Brampton, Ontario. We believe in honest, transparent service — every vehicle, every time.</p>
+      <p style="margin-top:12px;">
+        <a href="tel:6475272988" style="color:#93c5fd; font-weight:700; text-decoration:none;">📞 647-527-2988</a>
+      </p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Turtle Jack's Etobicoke. All rights reserved. | <a href="https://www.turtlejacks.com/" target="_blank" rel="noopener">turtlejacks.com</a></p>
-      <p style="font-size:0.7rem">Etobicoke, Toronto, Ontario</p>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Brake Repair</a></li>
+        <li><a href="#services">Oil Change</a></li>
+        <li><a href="#services">Diagnostics</a></li>
+        <li><a href="#services">Tire Services</a></li>
+        <li><a href="#services">Transmission</a></li>
+        <li><a href="#services">AC Repair</a></li>
+      </ul>
     </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <ul>
+        <li><span>Mon–Fri: 8AM – 5PM</span></li>
+        <li><span>Saturday: 8AM – 2PM</span></li>
+        <li><span>Sunday: Closed</span></li>
+      </ul>
+      <h4 style="margin-top:16px;">Location</h4>
+      <ul>
+        <li><span>Brampton, Ontario</span></li>
+        <li><span>Canada</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Gujarat Auto. All rights reserved. Brampton, Ontario.</span>
+    <span>Built with ❤️ for Brampton drivers</span>
   </div>
 </footer>
 
-<!-- PHONE FLOAT -->
-<div class="phone-float">
-  <a href="tel:4162131111" class="phone-btn" title="Call Turtle Jacks">
-    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-  </a>
-</div>
-
-<!-- RESERVATION MODAL -->
-<div class="modal-overlay" id="reservationModal">
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal('reservation')" aria-label="Close">&#10005;</button>
-    <h3>Reserve a Table</h3>
-    <p class="modal-subtitle">Fill in your details and we will confirm your reservation at Turtle Jack's Etobicoke.</p>
-    <form id="reservationForm" onsubmit="submitReservation(event)">
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" placeholder="John" required>
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="Smith" required>
-        </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>Get a Free Quote</h3>
+    <p>Fill in your details and we will get back to you within the hour.</p>
+    <div id="modalFormContainer">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="mfname" placeholder="John Smith">
       </div>
       <div class="form-group">
         <label>Phone Number</label>
-        <input type="tel" placeholder="416-555-0000" required>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Date</label>
-          <input type="date" required id="resDate">
-        </div>
-        <div class="form-group">
-          <label>Time</label>
-          <select required>
-            <option value="">Select time</option>
-            <option>11:30 AM</option>
-            <option>12:00 PM</option>
-            <option>12:30 PM</option>
-            <option>1:00 PM</option>
-            <option>5:00 PM</option>
-            <option>5:30 PM</option>
-            <option>6:00 PM</option>
-            <option>6:30 PM</option>
-            <option>7:00 PM</option>
-            <option>7:30 PM</option>
-            <option>8:00 PM</option>
-            <option>8:30 PM</option>
-          </select>
-        </div>
+        <input type="tel" id="mfphone" placeholder="647-000-0000">
       </div>
       <div class="form-group">
-        <label>Party Size</label>
-        <select required>
-          <option value="">Select guests</option>
-          <option>1 Guest</option>
-          <option>2 Guests</option>
-          <option>3 Guests</option>
-          <option>4 Guests</option>
-          <option>5 Guests</option>
-          <option>6 Guests</option>
-          <option>7-10 Guests</option>
-          <option>10+ Guests (call us)</option>
+        <label>Service Needed</label>
+        <select id="mfservice">
+          <option value="">Select a service...</option>
+          <option>Brake Repair / Replacement</option>
+          <option>Oil Change</option>
+          <option>Engine Diagnostics</option>
+          <option>Tire Services</option>
+          <option>Transmission Service</option>
+          <option>AC / Heating Repair</option>
+          <option>Other</option>
         </select>
       </div>
       <div class="form-group">
-        <label>Special Requests (optional)</label>
-        <textarea placeholder="Birthdays, allergies, seating preferences..."></textarea>
+        <label>Vehicle (Year, Make, Model)</label>
+        <input type="text" id="mfcar" placeholder="e.g. 2019 Toyota Corolla">
       </div>
-      <button type="submit" class="btn btn-primary" style="width:100%;padding:14px;font-size:0.85rem">
-        Confirm Reservation
+      <button class="btn-submit" onclick="submitModalForm()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        Send Quote Request
       </button>
-      <p style="text-align:center;font-size:0.72rem;color:var(--text-muted);margin-top:12px">
-        Or call us directly: <a href="tel:4162131111" style="color:var(--red);font-weight:600">416-213-1111</a>
-      </p>
-    </form>
+      <p style="text-align:center;margin-top:12px;font-size:0.82rem;color:#718096;">Or call directly: <a href="tel:6475272988" style="color:#1a56db;font-weight:700;">647-527-2988</a></p>
+    </div>
+    <div class="success-msg" id="modalSuccess">
+      <div class="success-icon">✅</div>
+      <h4>Request Received!</h4>
+      <p>We will call you back shortly. For faster service call <a href="tel:6475272988" style="color:#1a56db;font-weight:700;">647-527-2988</a>.</p>
+    </div>
   </div>
 </div>
 
-<!-- TOAST -->
-<div class="toast" id="toast">
-  <span class="toast-icon">&#10003;</span>
-  <span id="toastMessage">Reservation request sent!</span>
+<!-- STICKY PHONE -->
+<div class="sticky-phone">
+  <a href="tel:6475272988" aria-label="Call Gujarat Auto">
+    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  </a>
 </div>
 
 <script>
-  // NAV SCROLL
-  window.addEventListener("scroll", function() {
-    var nav = document.getElementById("mainNav");
-    if (window.scrollY > 50) {
-      nav.classList.add("scrolled");
-    } else {
-      nav.classList.remove("scrolled");
+  // SERVICES DATA
+  var services = [
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>',
+      title: "Brake Repair & Replacement",
+      desc: "Pads, rotors, calipers — full inspection and replacement. We check all four corners.",
+      price: "Starting ~$120–$280 per axle"
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>',
+      title: "Oil Change & Filter",
+      desc: "Conventional, synthetic blend, or full synthetic. Quick turnaround, quality fluids.",
+      price: "Starting ~$49–$89"
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5S5.17 15.5 6 15.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>',
+      title: "Engine Diagnostics",
+      desc: "Check engine light? We read error codes and diagnose the root cause accurately.",
+      price: "Starting ~$59 diagnostic fee"
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 8c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-10C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>',
+      title: "Tire Services",
+      desc: "Mounting, balancing, rotation, and flat repair. We carry major tire brands.",
+      price: "Rotation ~$25 | Balance ~$60"
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M19.5 8.5h-2v-2h-1v2h-2v1h2v2h1v-2h2zM18 13.5h-4v-6H4.5C3.1 7.5 2 8.6 2 10v6c0 .83.67 1.5 1.5 1.5h1C4.5 18.88 5.62 20 7 20s2.5-1.12 2.5-2.5h5C14.5 18.88 15.62 20 17 20s2.5-1.12 2.5-2.5h1c.83 0 1.5-.67 1.5-1.5v-2l-4-2.5zM7 18.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm10 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>',
+      title: "Transmission Service",
+      desc: "Fluid flush, filter change, and full transmission inspection for smooth shifting.",
+      price: "Starting ~$129"
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M17.66 11.2c-.23-.3-.51-.56-.77-.82-.67-.6-1.43-1.03-2.07-1.66C13.33 7.26 13 4.85 13.95 3c-.95.23-1.78.75-2.49 1.32-2.59 2.08-3.61 5.75-2.39 8.9.04.1.08.2.08.33 0 .22-.15.42-.35.5-.23.1-.47.04-.66-.12a.58.58 0 01-.14-.17c-1.13-1.43-1.31-3.48-.55-5.12C5.78 10 4.87 12.3 5 14.47c.06.5.12 1 .29 1.5.14.6.41 1.2.71 1.73 1.08 1.73 2.95 2.97 4.96 3.22 2.14.27 4.43-.06 6.1-1.43 1.7-1.4 2.48-3.58 1.83-5.61-.19-.64-.52-1.24-.93-1.68zm-7.3 4.2c-.51.24-1.05.4-1.58.5-.56.09-1.08.05-1.72-.07 1.18.79 2.65.96 3.9.56-.18-.34-.38-.67-.6-.99z"/></svg>',
+      title: "AC & Heating Repair",
+      desc: "Recharge, leak repair, compressor service. Stay comfortable year-round.",
+      price: "Recharge starting ~$99"
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM13 18h-2v-2h2v2zm0-4h-2V9h2v5z"/></svg>',
+      title: "Battery Replacement",
+      desc: "We test your battery and charging system. Fast replacement with quality batteries.",
+      price: "Testing free | Replace ~$89–$149"
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="#1a56db" width="28" height="28"><path d="M20.5 10H20V8c0-1.1-.9-2-2-2h-1V4c0-1.1-.9-2-2-2H9C7.9 2 7 2.9 7 4v2H6c-1.1 0-2 .9-2 2v2H3.5C2.67 10 2 10.67 2 11.5v3c0 .83.67 1.5 1.5 1.5H4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2h.5c.83 0 1.5-.67 1.5-1.5v-3c0-.83-.67-1.5-1.5-1.5zM7.5 4.5h9v1.5h-9V4.5zM18 17H6V8h12v9zm-4.5-5.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5z"/></svg>',
+      title: "Suspension & Steering",
+      desc: "Shocks, struts, tie rods — we restore ride quality and alignment.",
+      price: "Inspection starting ~$49"
     }
-  });
-
-  // MOBILE MENU
-  function toggleMobileMenu() {
-    var menu = document.getElementById("mobileMenu");
-    var burger = document.getElementById("hamburger");
-    menu.classList.toggle("open");
-    var spans = burger.querySelectorAll("span");
-    if (menu.classList.contains("open")) {
-      spans[0].style.transform = "rotate(45deg) translate(5px, 5px)";
-      spans[1].style.opacity = "0";
-      spans[2].style.transform = "rotate(-45deg) translate(5px, -5px)";
-    } else {
-      spans[0].style.transform = "";
-      spans[1].style.opacity = "";
-      spans[2].style.transform = "";
-    }
-  }
-
-  // CLOSE MOBILE MENU ON OUTSIDE CLICK
-  document.addEventListener("click", function(e) {
-    var menu = document.getElementById("mobileMenu");
-    var burger = document.getElementById("hamburger");
-    if (menu.classList.contains("open") && !menu.contains(e.target) && !burger.contains(e.target)) {
-      toggleMobileMenu();
-    }
-  });
-
-  // MODAL
-  function openModal(type) {
-    if (type === "reservation") {
-      document.getElementById("reservationModal").classList.add("open");
-      document.body.style.overflow = "hidden";
-      var today = new Date().toISOString().split("T")[0];
-      document.getElementById("resDate").min = today;
-      document.getElementById("resDate").value = today;
-    }
-  }
-
-  function closeModal(type) {
-    if (type === "reservation") {
-      document.getElementById("reservationModal").classList.remove("open");
-      document.body.style.overflow = "";
-    }
-  }
-
-  document.getElementById("reservationModal").addEventListener("click", function(e) {
-    if (e.target === this) closeModal("reservation");
-  });
-
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") closeModal("reservation");
-  });
-
-  // SUBMIT RESERVATION
-  function submitReservation(e) {
-    e.preventDefault();
-    closeModal("reservation");
-    showToast("Reservation request sent! We will call to confirm shortly.");
-    e.target.reset();
-  }
-
-  // TOAST
-  function showToast(msg) {
-    var toast = document.getElementById("toast");
-    document.getElementById("toastMessage").textContent = msg;
-    toast.classList.add("show");
-    setTimeout(function() {
-      toast.classList.remove("show");
-    }, 4000);
-  }
-
-  // HOURS TABLE
-  var hoursData = [
-    { day: "Monday", time: "11:30 AM - 12:00 AM" },
-    { day: "Tuesday", time: "11:30 AM - 12:00 AM" },
-    { day: "Wednesday", time: "11:30 AM - 12:00 AM" },
-    { day: "Thursday", time: "11:30 AM - 1:00 AM" },
-    { day: "Friday", time: "11:30 AM - 2:00 AM" },
-    { day: "Saturday", time: "11:00 AM - 2:00 AM" },
-    { day: "Sunday", time: "11:00 AM - 12:00 AM" }
   ];
 
-  var todayIndex = new Date().getDay();
-  var jsToIndex = [6, 0, 1, 2, 3, 4, 5];
-  var todayHoursIdx = jsToIndex[todayIndex];
+  // BEFORE AFTER DATA
+  var baItems = [
+    { before: "🔴", after: "🟢", title: "Worn Brake Pads", desc: "Replaced worn pads and resurfaced rotors. Stopping distance improved 40%." },
+    { before: "🟤", after: "✨", title: "Oil & Filter Change", desc: "Dirty engine oil swapped for clean synthetic. Engine running quieter." },
+    { before: "⚠️", after: "✅", title: "Check Engine Light", desc: "Faulty O2 sensor diagnosed and replaced. Light cleared, fuel economy restored." },
+    { before: "🫧", after: "🛞", title: "Flat Tire Repair", desc: "Puncture sealed and tire balanced. Safe to drive in under 45 minutes." },
+    { before: "💨", after: "❄️", title: "AC System Recharge", desc: "Low refrigerant topped up, leak sealed. Ice cold air restored." },
+    { before: "🔋", after: "⚡", title: "Dead Battery", desc: "Old battery tested and replaced. Vehicle starts reliably every time." }
+  ];
 
-  var tbody = document.getElementById("hoursTable");
-  hoursData.forEach(function(row, i) {
-    var tr = document.createElement("tr");
-    var isToday = (i === todayHoursIdx);
-    tr.innerHTML = "<td class=\"hours-row\" style=\"display:flex;justify-content:space-between;align-items:center\">" +
-      "<span class=\"hours-day\"" + (isToday ? " style=\"color:#fff;font-weight:600\"" : "") + ">" + row.day + (isToday ? "<span class=\"today-badge\">Today</span>" : "") + "</span>" +
-      "<span class=\"hours-time" + (isToday ? " today" : "") + "\">" + row.time + "</span>" +
-      "</td>";
-    tbody.appendChild(tr);
-  });
+  // WHY US DATA
+  var whyItems = [
+    { icon: "🔍", title: "Free Estimates", desc: "We inspect your vehicle and give you a written quote before any work starts. Zero obligation." },
+    { icon: "💰", title: "Fair Pricing", desc: "No inflated markup. We charge honest rates and explain every line on your bill." },
+    { icon: "🏆", title: "Quality Parts", desc: "We use OEM or equivalent parts backed by warranty. No cheap shortcuts." },
+    { icon: "⚡", title: "Fast Turnaround", desc: "Most services done same day. We respect your time and keep you updated." },
+    { icon: "🛡️", title: "Warranty on Work", desc: "All repairs come with a satisfaction guarantee. We stand behind every job." },
+    { icon: "🤝", title: "Honest Advice", desc: "We will never recommend a repair you do not need. Just straight talk." },
+    { icon: "📱", title: "Easy Booking", desc: "Call or fill the form. Quick response, flexible scheduling including Saturdays." },
+    { icon: "🌟", title: "Community Trusted", desc: "Serving Brampton families for over a decade. Referrals are our best marketing." }
+  ];
 
-  // INTERSECTION OBSERVER FOR FADE-UP
-  var fadeEls = document.querySelectorAll(".fade-up");
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
+  // REVIEWS DATA
+  var reviews = [
+    {
+      initials: "RS",
+      name: "Rajiv Sharma",
+      date: "2 weeks ago",
+      stars: 5,
+      text: "Brought my car in for brake issues and these guys were amazing. Showed me exactly what was worn, gave me a fair price, and had it done in 3 hours. No upsells, no pressure. Will definitely be back!",
+      av: "av1"
+    },
+    {
+      initials: "PM",
+      name: "Priya Mehta",
+      date: "1 month ago",
+      stars: 5,
+      text: "As a woman walking into an auto shop, I always worry about being taken advantage of. Not here. They explained everything, showed me the old parts, and the bill was exactly what they quoted. Trust earned!",
+      av: "av2"
+    },
+    {
+      initials: "DK",
+      name: "David Kowalski",
+      date: "3 weeks ago",
+      stars: 5,
+      text: "Check engine light came on Friday. Called Gujarat Auto, got in Saturday morning, fixed by noon. Reasonable price for an O2 sensor replacement. These guys know what they are doing.",
+      av: "av3"
+    },
+    {
+      initials: "AP",
+      name: "Anita Patel",
+      date: "2 months ago",
+      stars: 5,
+      text: "Best oil change experience in Brampton. Quick, affordable, and they checked my tire pressure and topped off fluids without charging extra. This is my go-to shop now.",
+      av: "av4"
+    },
+    {
+      initials: "MJ",
+      name: "Mike Johnson",
+      date: "1 month ago",
+      stars: 5,
+      text: "Transmission service done right. They flushed the fluid, replaced the filter, and my car shifts like new. Priced fairly and got it back same day. Highly recommend to anyone in Brampton.",
+      av: "av5"
+    },
+    {
+      initials: "SK",
+      name: "Sunita Kumar",
+      date: "3 months ago",
+      stars: 5,
+      text: "Got my winter tires swapped here. Super fast, balanced them properly, and they spotted a worn tie rod and showed me before recommending repair. Honest shop, genuine people.",
+      av: "av1"
+    }
+  ];
+
+  // RENDER SERVICES
+  function renderServices() {
+    var grid = document.getElementById("servicesGrid");
+    var html = "";
+    services.forEach(function(s) {
+      html += '<div class="service-card">' +
+        '<div class="service-icon">' + s.icon + "</div>" +
+        "<h3>" + s.title + "</h3>" +
+        "<p>" + s.desc + "</p>" +
+        '<div class="price-hint">💲 ' + s.price + "</div>" +
+        "</div>";
     });
-  }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
-
-  fadeEls.forEach(function(el) { observer.observe(el); });
-
-  // HERO STATS COUNTER ANIMATION
-  function animateCounter(el, target, duration) {
-    var start = 0;
-    var step = target / (duration / 16);
-    var timer = setInterval(function() {
-      start += step;
-      if (start >= target) {
-        start = target;
-        clearInterval(timer);
-      }
-      el.textContent = Math.floor(start) + (el.dataset.suffix || "");
-    }, 16);
+    grid.innerHTML = html;
   }
 
-  // SMOOTH ANCHOR LINKS
+  // RENDER BEFORE AFTER
+  function renderBA() {
+    var grid = document.getElementById("baGrid");
+    var html = "";
+    baItems.forEach(function(item) {
+      html += '<div class="ba-card">' +
+        '<div class="ba-images">' +
+        '<div class="ba-img before" style="font-size:3rem;">' + item.before + '<span class="ba-label">Before</span></div>' +
+        '<div class="ba-divider"><div class="ba-arrow">→</div></div>' +
+        '<div class="ba-img after" style="font-size:3rem;">' + item.after + '<span class="ba-label">After</span></div>' +
+        "</div>" +
+        '<div class="ba-info"><h4>' + item.title + "</h4><p>" + item.desc + "</p></div>" +
+        "</div>";
+    });
+    grid.innerHTML = html;
+  }
+
+  // RENDER WHY US
+  function renderWhy() {
+    var grid = document.getElementById("whyGrid");
+    var html = "";
+    whyItems.forEach(function(w) {
+      html += '<div class="why-card">' +
+        '<div class="why-icon">' + w.icon + "</div>" +
+        "<h4>" + w.title + "</h4>" +
+        "<p>" + w.desc + "</p>" +
+        "</div>";
+    });
+    grid.innerHTML = html;
+  }
+
+  // RENDER REVIEWS
+  function renderReviews() {
+    var grid = document.getElementById("reviewsGrid");
+    var html = "";
+    reviews.forEach(function(r) {
+      var stars = "";
+      for (var i = 0; i < r.stars; i++) stars += "★";
+      html += '<div class="review-card">' +
+        '<div class="review-header">' +
+        '<div class="avatar ' + r.av + '">' + r.initials + "</div>" +
+        "<div>" +
+        '<div class="reviewer-name">' + r.name + "</div>" +
+        '<div class="review-date">' + r.date + "</div>" +
+        "</div>" +
+        "</div>" +
+        '<div class="stars">' + stars + "</div>" +
+        '<p class="review-text">"' + r.text + '"</p>' +
+        '<div class="google-badge">🔍 Posted on Google</div>' +
+        "</div>";
+    });
+    grid.innerHTML = html;
+  }
+
+  // CHECK OPEN STATUS
+  function checkOpenStatus() {
+    var now = new Date();
+    var day = now.getDay(); // 0=Sun, 1=Mon...6=Sat
+    var hour = now.getHours();
+    var min = now.getMinutes();
+    var time = hour + min / 60;
+    var el = document.getElementById("openStatus");
+    var badge = document.querySelector(".open-badge");
+
+    var isOpen = false;
+    if (day >= 1 && day <= 5 && time >= 8 && time < 17) isOpen = true;
+    if (day === 6 && time >= 8 && time < 14) isOpen = true;
+
+    if (el) {
+      if (isOpen) {
+        el.textContent = "Open Now";
+        badge.style.background = "#dcfce7";
+        badge.style.color = "#16a34a";
+        badge.querySelector(".dot").style.background = "#16a34a";
+      } else {
+        el.textContent = "Currently Closed";
+        badge.style.background = "#fee2e2";
+        badge.style.color = "#dc2626";
+        badge.querySelector(".dot").style.background = "#dc2626";
+        badge.querySelector(".dot").style.animation = "none";
+      }
+    }
+  }
+
+  // MOBILE MENU
+  function toggleMenu() {
+    var menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("open");
+  }
+
+  function closeMobileMenu() {
+    document.getElementById("mobileMenu").classList.remove("open");
+  }
+
+  // MODAL
+  function openModal() {
+    document.getElementById("modalOverlay").classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    document.getElementById("modalOverlay").classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById("modalOverlay")) closeModal();
+  }
+
+  // FORM SUBMIT
+  function submitForm() {
+    var name = document.getElementById("fname").value.trim();
+    var phone = document.getElementById("fphone").value.trim();
+    if (!name || !phone) {
+      alert("Please fill in your name and phone number.");
+      return;
+    }
+    document.getElementById("formContainer").style.display = "none";
+    document.getElementById("successMsg").classList.add("show");
+  }
+
+  function submitModalForm() {
+    var name = document.getElementById("mfname").value.trim();
+    var phone = document.getElementById("mfphone").value.trim();
+    if (!name || !phone) {
+      alert("Please fill in your name and phone number.");
+      return;
+    }
+    document.getElementById("modalFormContainer").style.display = "none";
+    document.getElementById("modalSuccess").classList.add("show");
+    setTimeout(function() { closeModal(); }, 3000);
+  }
+
+  // SMOOTH SCROLL FOR ANCHOR LINKS
   document.querySelectorAll("a[href^=\"#\"]").forEach(function(anchor) {
     anchor.addEventListener("click", function(e) {
       var target = document.querySelector(this.getAttribute("href"));
       if (target) {
         e.preventDefault();
-        var offset = 70;
-        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top: top, behavior: "smooth" });
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   });
+
+  // INIT
+  renderServices();
+  renderBA();
+  renderWhy();
+  renderReviews();
+  checkOpenStatus();
+
+  // SCROLL ANIMATIONS
+  function animateOnScroll() {
+    var elements = document.querySelectorAll(".service-card, .review-card, .why-card, .ba-card");
+    elements.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 60) {
+        el.style.opacity = "1";
+        el.style.transform = el.style.transform || "";
+      }
+    });
+  }
+
+  // Initial opacity
+  document.querySelectorAll(".service-card, .review-card, .why-card, .ba-card").forEach(function(el) {
+    el.style.opacity = "0";
+    el.style.transition = "opacity 0.5s ease, transform 0.3s ease, box-shadow 0.25s";
+  });
+
+  window.addEventListener("scroll", animateOnScroll);
+  setTimeout(animateOnScroll, 100);
 </script>
 </body>
 </html>
