@@ -1,10 +1,1383 @@
-I notice your request appears to be empty - you didn't specify what kind of website you want me to build. Could you please provide more details about what you'd like? For example:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coco Coffee – Sip the Moment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-- A portfolio website
-- A landing page for a product
-- A restaurant website
-- A blog layout
-- A calculator or interactive tool
-- Something else entirely
+        :root {
+            --brown-dark: #2C1A0E;
+            --brown-mid: #5C3317;
+            --brown-light: #A0522D;
+            --cream: #F5E6D3;
+            --warm-white: #FDF8F2;
+            --gold: #C8922A;
+            --text-dark: #1A0F07;
+            --text-light: #7A5230;
+        }
 
-Please share your request and I'll build it for you!
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--warm-white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(44, 26, 14, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 12px 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--cream);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--brown-dark) !important;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--cream) !important;
+            transform: scale(1.05);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--cream);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 50%, #3D1F0D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(200,146,42,0.15) 0%, transparent 70%);
+        }
+
+        .hero-circles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(200,146,42,0.15);
+        }
+
+        .circle-1 { width: 400px; height: 400px; top: -100px; left: -100px; }
+        .circle-2 { width: 300px; height: 300px; bottom: -80px; right: -80px; }
+        .circle-3 { width: 200px; height: 200px; top: 60%; left: 10%; }
+        .circle-4 { width: 150px; height: 150px; top: 20%; right: 15%; }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(200,146,42,0.2);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            color: var(--cream);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-title span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.1rem;
+            color: rgba(245,230,211,0.75);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--brown-dark);
+            padding: 16px 38px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--cream);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200,146,42,0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cream);
+            padding: 16px 38px;
+            border-radius: 30px;
+            border: 2px solid rgba(245,230,211,0.5);
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--cream);
+            background: rgba(245,230,211,0.1);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(245,230,211,0.5);
+            font-family: 'Arial', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid rgba(245,230,211,0.5);
+            border-bottom: 2px solid rgba(245,230,211,0.5);
+            transform: rotate(45deg);
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            padding: 110px 60px;
+            background: var(--warm-white);
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .about-img-main {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(160deg, var(--brown-mid), var(--brown-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-img-main::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(44,26,14,0.6));
+        }
+
+        .about-badge-img {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--brown-dark);
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8rem;
+            text-align: center;
+            line-height: 1.3;
+            box-shadow: 0 8px 25px rgba(200,146,42,0.4);
+        }
+
+        .about-badge-img .big-num {
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+
+        .about-text {
+            flex: 1.2;
+        }
+
+        .section-tag {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--brown-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .about-text p {
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 35px;
+            margin-top: 35px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--brown-dark);
+            display: block;
+        }
+
+        .stat-label {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        /* ===== MENU ===== */
+        #menu {
+            padding: 100px 60px;
+            background: var(--cream);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: 2px solid var(--brown-light);
+            background: transparent;
+            color: var(--brown-mid);
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--brown-dark);
+            border-color: var(--brown-dark);
+            color: var(--cream);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-card {
+            background: var(--warm-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(44,26,14,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(44,26,14,0.15);
+        }
+
+        .menu-card-img {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .menu-card-img.hot { background: linear-gradient(135deg, #8B4513, #5C3317); }
+        .menu-card-img.cold { background: linear-gradient(135deg, #2C4A6E, #1A3350); }
+        .menu-card-img.food { background: linear-gradient(135deg, #6B4226, #4A2D1A); }
+
+        .menu-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--brown-dark);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .menu-card-body {
+            padding: 20px;
+        }
+
+        .menu-card-body h3 {
+            font-size: 1.2rem;
+            color: var(--brown-dark);
+            margin-bottom: 8px;
+        }
+
+        .menu-card-body p {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .menu-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--brown-dark);
+        }
+
+        .add-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--brown-dark);
+            color: var(--cream);
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-btn:hover {
+            background: var(--gold);
+            color: var(--brown-dark);
+            transform: scale(1.1);
+        }
+
+        /* ===== FEATURES ===== */
+        #features {
+            padding: 100px 60px;
+            background: var(--warm-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 45px 30px;
+            border-radius: 20px;
+            background: var(--cream);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(44,26,14,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--brown-dark);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        #testimonials {
+            padding: 100px 60px;
+            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 100%);
+        }
+
+        #testimonials .section-title {
+            color: var(--cream);
+        }
+
+        #testimonials .section-tag {
+            color: var(--gold);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 50px auto 0;
+        }
+
+        .testimonial-card {
+            background: rgba(245,230,211,0.08);
+            border: 1px solid rgba(245,230,211,0.15);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(245,230,211,0.13);
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-text {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(245,230,211,0.85);
+            line-height: 1.9;
+            margin-bottom: 22px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            color: var(--cream);
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .author-info span {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(245,230,211,0.5);
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {
+            padding: 100px 60px;
+            background: var(--cream);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 70px;
+            max-width: 1100px;
+            margin: 50px auto 0;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.6rem;
+            color: var(--brown-dark);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contact-item-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--brown-dark);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item-text h4 {
+            color: var(--brown-dark);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-item-text span {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: var(--warm-white);
+            border-radius: 20px;
+            padding: 45px;
+            box-shadow: 0 5px 30px rgba(44,26,14,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85rem;
+            color: var(--brown-mid);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background: var(--cream);
+            font-family: 'Arial', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--brown-dark);
+            color: var(--cream);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold);
+            color: var(--brown-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--brown-dark);
+            color: var(--cream);
+            padding: 70px 60px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand .nav-logo {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(245,230,211,0.6);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(245,230,211,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+        }
+
+        .footer-col h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--cream);
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col a {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.88rem;
+            color: rgba(245,230,211,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-hours span {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.88rem;
+            color: rgba(245,230,211,0.6);
+            display: block;
+            line-height: 1.9;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(245,230,211,0.1);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(245,230,211,0.4);
+        }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--brown-dark);
+            color: var(--cream);
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 9999;
+            border-left: 4px solid var(--gold);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            nav { padding: 15px 30px; }
+            nav.scrolled { padding: 12px 30px; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: var(--brown-dark);
+                align-items: center;
+                justify-content: center;
+                gap: 35px;
+                z-index: 999;
+            }
+            .nav-links.open a { font-size: 1.2rem; }
+            .hamburger { display: flex; z-index: 1000; }
+            #about { flex-direction: column; padding: 80px 30px; gap: 50px; }
+            .about-image { min-width: unset; width: 100%; }
+            .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 35px; }
+            #menu, #features, #testimonials, #contact { padding: 80px 30px; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            #hero { padding: 0 20px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .about-stats { gap: 20px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            footer { padding: 50px 30px 25px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+            .contact-form { padding: 30px 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+    <a href="#hero" class="nav-logo">Coco <span>Coffee</span></a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#features">Why Us</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact" class="nav-cta">Visit Us</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <div class="hero-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-4"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-badge">☕ Artisan Coffee Since 2015</div>
+        <h1 class="hero-title">Sip Into the<br><span>Perfect Moment</span></h1>
+        <p class="hero-subtitle">Handcrafted coffee made with love, sourced from the world's finest beans, served in the coziest corner of your day.</p>
+        <div class="hero-buttons">
+            <a href="#menu" class="btn-primary">Explore Our Menu</a>
+            <a href="#contact" class="btn-secondary">Find Our Cafe</a>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <span>SCROLL</span>
+        <div class="scroll-arrow"></div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about-image fade-in">
+        <div class="about-img-main">☕</div>
+        <div class="about-badge-img">
+            <span class="big-num">10+</span>
+            <span>Years of<br>Excellence</span>
+        </div>
+    </div>
+    <div class="about-text fade-in">
+        <span class="section-tag">Our Story</span>
+        <h2 class="section-title">More Than Coffee,<br>It's a <span>Ritual</span></h2>
+        <p>Born from a passion for exceptional coffee, Coco Coffee was founded with one simple belief: every cup should tell a story. We carefully source our beans from small, sustainable farms across Colombia, Ethiopia, and Sumatra.</p>
+        <p>Our skilled baristas undergo rigorous training to perfect every brew — from the classic espresso to our signature coconut latte that gave us our name. Every detail matters, from the first pour to the final sip.</p>
+        <div class="about-stats">
+            <div class="stat-item">
+                <span class="stat-num">50+</span>
+                <span class="stat-label">Menu Items</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">12K+</span>
+                <span class="stat-label">Happy Customers</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">8</span>
+                <span class="stat-label">Bean Origins</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+    <div class="section-header fade-in">
+        <span class="section-tag">Our Offerings</span>
+        <h2 class="section-title">Crafted With <span>Passion</span></h2>
+    </div>
+    <div class="menu-filters fade-in">
+        <button class="filter-btn active" onclick="filterMenu(this, 'all')">All Items</button>
+        <button class="filter-btn" onclick="filterMenu(this, 'hot')">Hot Drinks</button>
+        <button class="filter-btn" onclick="filterMenu(this, 'cold')">Cold Drinks</button>
+        <button class="filter-btn" onclick="filterMenu(this, 'food')">Bites</button>
+    </div>
+    <div class="menu-grid" id="menuGrid">
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <div class="section-header fade-in">
+        <span class="section-tag">Why Choose Us</span>
+        <h2 class="section-title">The Coco <span>Difference</span></h2>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card fade-in">
+            <span class="feature-icon">🌿</span>
+            <h3>Ethically Sourced</h3>
+            <p>Every bean is traceable, sourced from certified fair-trade farms that prioritize both people and planet.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <span class="feature-icon">🏆</span>
+            <h3>Award-Winning Baristas</h3>
+            <p>Our team has competed nationally and brings championship-level skill to your everyday cup.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <span class="feature-icon">🫘</span>
+            <h3>Small-Batch Roasting</h3>
+            <p>We roast fresh in-house every week to ensure peak flavor and unmatched aroma in every order.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <span class="feature-icon">🛋️</span>
+            <h3>Cozy Atmosphere</h3>
+            <p>Designed as your second home — warm lighting, cozy corners, and the perfect ambient soundtrack.</p>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+    <div class="section-header fade-in">
+        <span class="section-tag">Customer Love</span>
+        <h2 class="section-title">Words From Our <span>Community</span></h2>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Coco Coffee has completely ruined other coffee shops for me. Their coconut latte is absolutely divine — I drive 30 minutes just for it!"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">😊</div>
+                <div class="author-info">
+                    <h4>Sarah M.</h4>
+                    <span>Regular Customer · 3 years</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card fade-in">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"The atmosphere is unmatched. I work from here every morning and the staff knows my order by heart. That's the kind of place Coco Coffee is."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">👨</div>
+                <div class="author-info">
+                    <h4>James R.</h4>
+                    <span>Daily Visitor · Remote Worker</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card fade-in">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Best pour-over I've ever had, and I've traveled the world for coffee! The Ethiopian beans they use are simply extraordinary."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">👩</div>
+                <div class="author-info">
+                    <h4>Priya K.</h4>
+                    <span>Coffee Enthusiast</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="section-header fade-in">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Come Visit <span>Us</span></h2>
+    </div>
+    <div class="contact-wrapper">
+        <div class="contact-info fade-in">
+            <h3>We'd Love to See You</h3>
+            <p>Whether you're stopping in for your morning ritual or want to host a private event, we're here for you. Drop us a message or visit us at our cafe.</p>
+            <div class="contact-items">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <div class="contact-item-text">
+                        <h4>Location</h4>
+                        <span>42 Roastery Lane, Brewtown<br>New York, NY 10001</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">🕐</div>
+                    <div class="contact-item-text">
+                        <h4>Opening Hours</h4>
+                        <span>Mon – Fri: 7:00 AM – 9:00 PM<br>Sat – Sun: 8:00 AM – 10:00 PM</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📞</div>
+                    <div class="contact-item-text">
+                        <h4>Phone</h4>
+                        <span>+1 (212) 555-0198</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">✉️</div>
+                    <div class="contact-item-text">
+                        <h4>Email</h4>
+                        <span>hello@cococoffee.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form fade-in">
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Doe" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <select>
+                        <option value="">Select a topic...</option>
+                        <option>General Enquiry</option>
+                        <option>Event Booking</option>
+                        <option>Feedback</option>
+                        <option>Catering</option>
+                        <option>Partnership</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Your Message</label>
+                    <textarea placeholder="Tell us what's on your mind..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message ☕</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <a href="#hero" class="nav-logo">Coco <span>Coffee</span></a>
+            <p>A cozy corner where great coffee meets great conversations. Come as you are, leave inspired.</p>
+            <div class="social-links">
+                <a class="social-link" title="Instagram">📸</a>
+                <a class="social-link" title="Facebook">👍</a>
+                <a class="social-link" title="Twitter">🐦</a>
+                <a class="social-link" title="TikTok">🎵</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#features">Why Us</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Our Menu</h4>
+            <ul>
+                <li><a href="#menu">Hot Coffees</a></li>
+                <li><a href="#menu">Cold Brews</a></li>
+                <li><a href="#menu">Specialty Lattes</a></li>
+                <li><a href="#menu">Pastries</a></li>
+                <li><a href="#menu">Light Bites</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Opening Hours</h4>
+            <div class="footer-hours">
+                <span>Mon – Fri</span>
+                <span style="color: #C8922A; margin-bottom: 10px; display:block;">7:00 AM – 9:00 PM</span>
+                <span>Sat – Sun</span>
+                <span style="color: #C8922A; display:block;">8:00 AM – 10:00 PM</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Coco Coffee. All rights reserved.</p>
+        <p>Made with ☕ & love in New York</p>
+    </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+    // ===== MENU DATA =====
+    const menuItems = [
+        { name: "Signature Espresso", desc: "Rich double shot with a golden crema finish.", price: "$3.50", emoji: "☕", category: "hot", tag: "Classic" },
+        { name: "Coconut Latte", desc: "Our namesake — creamy coconut milk with bold espresso.", price: "$5.50", emoji: "🥥", category: "hot", tag: "Signature" },
+        { name: "Caramel Macchiato", desc: "Velvety steamed milk topped with caramel drizzle.", price: "$5.00", emoji: "🍮", category: "hot", tag: "Popular" },
+        { name: "Pour Over", desc: "Single-origin Ethiopian beans, slow brewed to perfection.", price: "$6.00", emoji: "🫗", category: "hot", tag: "Artisan" },
+        { name: "Cold Brew", desc: "12-hour steep, smooth and never bitter. Pure refreshment.", price: "$5.00", emoji: "🧊", category: "cold", tag: "Refreshing" },
+        { name: "Iced Coconut Latte", desc: "Our cold spin on the house favorite. Tropical bliss.", price: "$5.50", emoji: "🌴", category: "cold", tag: "Signature" },
+        { name: "Vanilla Bean Frappe", desc: "Blended ice with real vanilla, milk and espresso shots.", price: "$6.50", emoji: "🍦", category: "cold", tag: "Indulgent" },
+        { name: "Matcha Latte Iced", desc: "Premium ceremonial matcha with oat milk over ice.", price: "$5.50", emoji: "🍵", category: "cold", tag: "Wellness" },
+        { name: "Butter Croissant", desc: "Flaky, golden, freshly baked every morning in-house.", price: "$3.50", emoji: "🥐", category: "food", tag: "Fresh" },
+        { name: "Avocado Toast", desc: "Sourdough, smashed avocado, chili flakes, lemon zest.", price: "$8.00", emoji: "🥑", category: "food", tag: "Healthy" },
+        { name: "Cinnamon Roll", desc: "Soft, gooey, drizzled with cream cheese frosting.", price: "$4.50", emoji: "🍥", category: "food", tag: "Treat" },
+        { name: "Chocolate Brownie", desc: "Dense, fudgy, made with 70% dark Belgian chocolate.", price: "$4.00", emoji: "🍫", category: "food", tag: "Indulgent" },
+    ];
+
+    function renderMenu(filter = 'all') {
+        const grid = document.getElementById('menuGrid');
+        grid.innerHTML = '';
+        const filtered = filter === 'all' ? menuItems : menuItems.filter(i => i.category === filter);
+        filtered.forEach((item, idx) => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.style.animationDelay = `${idx * 0.07}s`;
+            card.innerHTML = `
+                <div class="menu-card-img ${item.category}">
+                    ${item.emoji}
+                    <span class="menu-tag">${item.tag}</span>
+                </div>
+                <div class="menu-card-body">
+                    <h3>${item.name}</h3>
+                    <p>${item.desc}</p>
+                    <div class="menu-card-footer">
+                        <span class="price">${item.price}</span>
+                        <button class="add-btn" onclick="addToOrder('${item.name}')">+</button>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function filterMenu(btn, cat) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderMenu(cat);
+    }
+
+    function addToOrder(name) {
+        showToast(`✓ "${name}" added! See you soon ☕`);
+    }
+
+    // ===== NAVBAR =====
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    function toggleMenu() {
+        const links = document.getElementById('navLinks');
+        links.classList.toggle('open');
+    }
+
+    document.getElementById('navLinks').querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('open');
+        });
+    });
+
+    // ===== FORM =====
+    function handleSubmit(e) {
+        e.preventDefault();
+        showToast('✓ Message sent! We'll get back to you shortly ☕');
+        e.target.reset();
+    }
+
+    // ===== TOAST =====
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    // ===== SCROLL ANIMATIONS =====
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ===== INIT =====
+    renderMenu();
+</script>
+</body>
+</html>
