@@ -3,1859 +3,1806 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumber on Demand | 24/7 Emergency Plumbing – Scarborough, Toronto & GTA</title>
+<title>Remezzo Italian Bistro | Authentic Italian Restaurant in Scarborough, Toronto</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --orange: #FF6B00;
-    --orange-light: #FF8C2E;
-    --navy: #0A1628;
-    --navy-mid: #1A2E4A;
-    --white: #FFFFFF;
-    --light-gray: #F4F6F9;
-    --mid-gray: #E8ECF2;
-    --text-gray: #5A6A7E;
-    --star-gold: #FFB800;
+    --burgundy: #6B1A2A;
+    --burgundy-light: #8B2535;
+    --burgundy-dark: #4A0F1C;
+    --olive: #4A5C2A;
+    --olive-light: #5E7335;
+    --olive-dark: #2E3A18;
+    --cream: #F8F3E8;
+    --cream-dark: #EDE4CE;
+    --charcoal: #1C1C1C;
+    --warm-gray: #6B6057;
+    --gold: #C9A84C;
+    --gold-light: #E2C87A;
+    --white: #FDFAF5;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Segoe UI', 'Arial', sans-serif;
-    background: var(--white);
-    color: var(--navy);
+    font-family: "Lato", sans-serif;
+    background-color: var(--cream);
+    color: var(--charcoal);
     overflow-x: hidden;
   }
 
-  /* ===== NAVIGATION ===== */
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--burgundy); border-radius: 3px; }
+
+  /* ─── NAVBAR ─── */
   nav {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 0; left: 0; right: 0;
     z-index: 1000;
-    background: rgba(10, 22, 40, 0.97);
+    background: rgba(28, 28, 28, 0.97);
     backdrop-filter: blur(10px);
-    padding: 0 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 0 2rem;
     height: 72px;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  nav.scrolled {
+    height: 62px;
+    background: rgba(28, 28, 28, 0.99);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
   }
 
   .nav-logo {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
+    flex-direction: column;
+    line-height: 1;
   }
 
-  .nav-logo-icon {
-    width: 42px;
-    height: 42px;
-    background: var(--orange);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
+  .nav-logo-main {
+    font-family: "Playfair Display", serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .nav-logo-text {
-    color: var(--white);
-    font-size: 1.1rem;
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.3px;
-  }
-
-  .nav-logo-text span {
-    color: var(--orange);
+  .nav-logo-sub {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
   }
 
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 2rem;
     list-style: none;
   }
 
   .nav-links a {
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-family: "Lato", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    transition: color 0.2s;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
   }
 
-  .nav-links a:hover { color: var(--orange); }
-
-  .nav-call {
-    background: var(--orange);
-    color: var(--white) !important;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: 800 !important;
-    transition: background 0.2s !important;
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
   }
 
-  .nav-call:hover { background: var(--orange-light) !important; color: var(--white) !important; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-phone {
+    font-family: "Lato", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--gold) !important;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    padding: 0.4rem 0.9rem;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-phone:hover {
+    background: var(--gold);
+    color: var(--charcoal) !important;
+    border-color: var(--gold);
+  }
+
+  .nav-phone::after { display: none !important; }
 
   .hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-    padding: 5px;
+    padding: 4px;
   }
 
   .hamburger span {
     display: block;
-    width: 26px;
-    height: 3px;
-    background: var(--white);
-    border-radius: 2px;
-    transition: all 0.3s;
+    width: 24px; height: 2px;
+    background: var(--gold);
+    transition: all 0.3s ease;
+    border-radius: 1px;
   }
 
-  /* ===== HERO ===== */
-  #hero {
-    min-height: 100vh;
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    padding-top: 72px;
-  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  .hero-swoop-1 {
-    position: absolute;
-    top: -120px;
-    right: -200px;
-    width: 700px;
-    height: 700px;
-    background: linear-gradient(135deg, var(--orange) 0%, #FF4500 100%);
-    border-radius: 50%;
-    opacity: 0.12;
-  }
-
-  .hero-swoop-2 {
-    position: absolute;
-    bottom: -100px;
-    left: -150px;
-    width: 500px;
-    height: 500px;
-    background: var(--orange);
-    border-radius: 50%;
-    opacity: 0.07;
-  }
-
-  .hero-swoop-3 {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 55%;
-    height: 100%;
-    background: linear-gradient(150deg, var(--navy-mid) 0%, rgba(26,46,74,0.4) 100%);
-    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
-  }
-
-  .hero-geo-circle {
-    position: absolute;
-    right: 6%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 420px;
-    height: 420px;
-    border: 3px solid rgba(255,107,0,0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-geo-circle::before {
-    content: "";
-    position: absolute;
-    width: 370px;
-    height: 370px;
-    background: radial-gradient(circle at 40% 40%, var(--orange) 0%, #B83B00 100%);
-    border-radius: 50%;
-    opacity: 0.18;
-  }
-
-  .hero-geo-inner {
-    width: 340px;
-    height: 340px;
-    background: linear-gradient(135deg, var(--navy-mid), #0D1F38);
-    border-radius: 50%;
-    border: 2px solid rgba(255,107,0,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: rgba(20, 20, 20, 0.98);
+    z-index: 999;
+    padding: 2rem;
     flex-direction: column;
-    text-align: center;
-    padding: 40px;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
   }
 
-  .hero-badge-icon { font-size: 3rem; margin-bottom: 8px; }
+  .mobile-menu.open { display: flex; }
 
-  .hero-badge-text {
-    color: var(--orange);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 2px;
+  .mobile-menu a {
+    font-family: "Lato", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    line-height: 1.4;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: color 0.3s;
   }
 
-  .hero-badge-num {
-    color: var(--white);
-    font-size: 3.5rem;
-    font-weight: 900;
-    line-height: 1;
-    margin: 6px 0;
+  .mobile-menu a:hover { color: var(--gold); }
+
+  /* ─── HERO ─── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  .hero-badge-sub {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.75) 100%),
+      linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.65) 100%),
+      url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transform: scale(1.05);
+    animation: heroZoom 20s ease-out forwards;
+  }
+
+  @keyframes heroZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1.0); }
+  }
+
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 70% at center, transparent 40%, rgba(10,5,0,0.8) 100%);
+    pointer-events: none;
   }
 
   .hero-content {
     position: relative;
-    z-index: 10;
-    padding: 80px 5%;
-    max-width: 640px;
+    z-index: 2;
+    text-align: center;
+    max-width: 860px;
+    padding: 2rem;
+    animation: heroFadeUp 1.2s ease-out 0.3s both;
   }
 
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,107,0,0.15);
-    border: 1px solid rgba(255,107,0,0.4);
-    border-radius: 50px;
-    padding: 7px 18px;
-    color: var(--orange);
-    font-size: 0.8rem;
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-family: "Lato", sans-serif;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.35em;
     text-transform: uppercase;
-    margin-bottom: 28px;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    position: relative;
   }
 
-  .hero-tag::before {
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
     content: "";
-    width: 8px;
-    height: 8px;
-    background: var(--orange);
-    border-radius: 50%;
-    animation: pulse 1.5s infinite;
+    position: absolute;
+    bottom: 0;
+    width: 40px; height: 1px;
+    background: var(--gold);
+    opacity: 0.7;
   }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.3); }
-  }
+  .hero-eyebrow::before { right: calc(100% + 12px); }
+  .hero-eyebrow::after { left: calc(100% + 12px); }
 
-  .hero-headline {
-    font-size: clamp(2.4rem, 5.5vw, 4rem);
-    font-weight: 900;
+  .hero-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.6rem, 6vw, 5.2rem);
+    font-weight: 700;
     color: var(--white);
-    line-height: 1.08;
-    letter-spacing: -1.5px;
-    margin-bottom: 22px;
-    text-transform: uppercase;
+    line-height: 1.12;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
   }
 
-  .hero-headline span { color: var(--orange); }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.72);
-    line-height: 1.7;
-    margin-bottom: 40px;
-    font-weight: 400;
-    max-width: 520px;
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
   }
 
-  .hero-cta-group {
+  .hero-subtitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.6;
+    margin-bottom: 2.8rem;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-ctas {
     display: flex;
-    gap: 16px;
+    gap: 1rem;
+    justify-content: center;
     flex-wrap: wrap;
-    align-items: center;
   }
 
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: var(--orange);
-    color: var(--white);
-    text-decoration: none;
-    font-size: 1.05rem;
-    font-weight: 800;
-    padding: 17px 34px;
-    border-radius: 8px;
-    letter-spacing: 0.5px;
+    gap: 0.5rem;
+    font-family: "Lato", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    transition: all 0.25s;
-    box-shadow: 0 8px 30px rgba(255,107,0,0.4);
-    border: none;
+    color: var(--charcoal);
+    background: var(--gold);
+    padding: 1rem 2.2rem;
+    border: 2px solid var(--gold);
+    text-decoration: none;
     cursor: pointer;
+    transition: all 0.35s ease;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .btn-primary:hover {
-    background: var(--orange-light);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(255,107,0,0.5);
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--white);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease;
+    z-index: 0;
   }
+
+  .btn-primary span { position: relative; z-index: 1; }
+
+  .btn-primary:hover { color: var(--burgundy); border-color: var(--white); }
+  .btn-primary:hover::before { transform: scaleX(1); transform-origin: left; }
 
   .btn-outline {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: transparent;
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.95rem;
+    gap: 0.5rem;
+    font-family: "Lato", sans-serif;
+    font-size: 0.82rem;
     font-weight: 700;
-    padding: 16px 28px;
-    border-radius: 8px;
-    border: 2px solid rgba(255,255,255,0.3);
-    letter-spacing: 0.5px;
-    transition: all 0.25s;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: transparent;
+    padding: 1rem 2.2rem;
+    border: 2px solid rgba(255,255,255,0.6);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    border-radius: 2px;
   }
 
   .btn-outline:hover {
-    border-color: var(--orange);
-    color: var(--orange);
-    transform: translateY(-2px);
+    background: rgba(255,255,255,0.12);
+    border-color: var(--white);
   }
 
-  .hero-trust {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-  }
-
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.65);
-    font-size: 0.82rem;
-    font-weight: 600;
-  }
-
-  .trust-item .check {
-    width: 20px;
-    height: 20px;
-    background: var(--orange);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    color: white;
-    flex-shrink: 0;
-  }
-
-  /* ===== ABOUT ===== */
-  #about {
-    padding: 100px 5%;
-    background: var(--light-gray);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .about-bg-shape {
+  .hero-scroll {
     position: absolute;
-    top: -80px;
-    right: -80px;
-    width: 350px;
-    height: 350px;
-    border: 30px solid rgba(255,107,0,0.06);
-    border-radius: 50%;
-  }
-
-  .about-bg-shape2 {
-    position: absolute;
-    bottom: -60px;
-    left: -60px;
-    width: 250px;
-    height: 250px;
-    border: 20px solid rgba(10,22,40,0.05);
-    border-radius: 50%;
-  }
-
-  .section-label {
-    display: inline-block;
-    color: var(--orange);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 3px;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 14px;
+    animation: bounce 2.5s infinite;
+  }
+
+  .hero-scroll svg { width: 20px; opacity: 0.6; }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section { padding: 7rem 2rem; }
+
+  .section-inner { max-width: 1180px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-block;
+    font-family: "Lato", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
   }
 
   .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 900;
-    color: var(--navy);
-    line-height: 1.1;
-    letter-spacing: -1px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
   }
 
-  .about-inner {
-    max-width: 1100px;
-    margin: 0 auto;
+  .section-title em { font-style: italic; color: var(--burgundy); }
+
+  .section-divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 1.2rem 0 1.8rem;
+  }
+
+  .section-divider.centered { margin: 1.2rem auto 1.8rem; }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--white); }
+
+  .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 70px;
+    gap: 5rem;
     align-items: center;
-    position: relative;
-    z-index: 1;
   }
 
-  .about-text p {
-    color: var(--text-gray);
-    font-size: 1.08rem;
-    line-height: 1.8;
-    margin-bottom: 32px;
+  .about-image-wrap {
+    position: relative;
+  }
+
+  .about-img-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    aspect-ratio: 4/5;
+  }
+
+  .about-img-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(10,5,0,0.55) 100%);
+    pointer-events: none;
+  }
+
+  .about-img-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+
+  .about-img-frame:hover img { transform: scale(1.04); }
+
+  .about-accent-box {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 120px; height: 120px;
+    background: var(--burgundy);
+    z-index: -1;
+    border-radius: 2px;
+  }
+
+  .about-accent-top {
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    width: 70px; height: 70px;
+    border: 2px solid var(--gold);
+    opacity: 0.5;
+    z-index: -1;
+    border-radius: 2px;
+  }
+
+  .about-text { }
+
+  .about-lead {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.3rem, 2vw, 1.65rem);
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .about-body {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--warm-gray);
+    margin-bottom: 2rem;
   }
 
   .about-stats {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.08);
   }
 
-  .stat-card {
-    background: var(--white);
-    border-radius: 14px;
-    padding: 24px 22px;
-    border-left: 4px solid var(--orange);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    transition: transform 0.25s;
+  .stat {
+    text-align: center;
   }
 
-  .stat-card:hover { transform: translateY(-4px); }
-
-  .stat-num {
+  .stat-number {
+    font-family: "Playfair Display", serif;
     font-size: 2.2rem;
-    font-weight: 900;
-    color: var(--orange);
+    font-weight: 700;
+    color: var(--burgundy);
     line-height: 1;
+    margin-bottom: 0.3rem;
   }
 
   .stat-label {
-    font-size: 0.82rem;
-    color: var(--text-gray);
-    font-weight: 600;
-    margin-top: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    color: var(--warm-gray);
   }
 
-  .about-features {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    background: var(--white);
-    border-radius: 14px;
-    padding: 22px 24px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    transition: transform 0.25s, box-shadow 0.25s;
-  }
-
-  .feature-item:hover {
-    transform: translateX(6px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-  }
-
-  .feature-icon {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, var(--orange), #FF4500);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    flex-shrink: 0;
-  }
-
-  .feature-body h4 {
-    font-size: 1rem;
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 5px;
-  }
-
-  .feature-body p {
-    font-size: 0.875rem;
-    color: var(--text-gray);
-    line-height: 1.6;
-  }
-
-  /* ===== SERVICES ===== */
-  #services {
-    padding: 100px 5%;
-    background: var(--white);
+  /* ─── MENU ─── */
+  #menu {
+    background: linear-gradient(135deg, #1A0A0F 0%, #0F1308 60%, #1A0A0F 100%);
     position: relative;
     overflow: hidden;
   }
 
-  .services-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 45%;
-    background: var(--navy);
-    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  }
-
-  .services-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .services-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .services-header .section-label { color: var(--orange-light); }
-
-  .services-header .section-title { color: var(--white); }
-
-  .services-header p {
-    color: rgba(255,255,255,0.65);
-    font-size: 1rem;
-    max-width: 520px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  .service-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 40px 32px;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.12);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.18);
-  }
-
-  .service-card::before {
+  #menu::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--orange), var(--orange-light));
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(107, 26, 42, 0.2) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(74, 92, 42, 0.15) 0%, transparent 70%);
+    pointer-events: none;
   }
 
-  .service-card-num {
+  #menu .section-title { color: var(--white); }
+  #menu .section-tag { color: var(--gold); }
+
+  .menu-header { text-align: center; margin-bottom: 4rem; }
+
+  .menu-header .section-divider {
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    width: 100px;
+    margin: 1.2rem auto 1.8rem;
+  }
+
+  .menu-subtitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .menu-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+  }
+
+  .menu-card::before {
+    content: "";
     position: absolute;
-    top: 28px;
-    right: 28px;
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: rgba(10,22,40,0.05);
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .menu-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.35); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+  .menu-card:hover::before { opacity: 1; }
+
+  .menu-card-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.88) saturate(1.1);
+    transition: filter 0.4s ease, transform 0.6s ease;
+  }
+
+  .menu-card:hover .menu-card-img { filter: brightness(1) saturate(1.15); transform: scale(1.03); }
+
+  .menu-card-img-wrap {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .menu-card-img-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);
+    pointer-events: none;
+  }
+
+  .menu-card-body { padding: 2rem; }
+
+  .menu-card-number {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(201,168,76,0.12);
     line-height: 1;
-    letter-spacing: -2px;
+    margin-bottom: 0.5rem;
+    font-style: italic;
   }
 
-  .service-icon {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, rgba(255,107,0,0.12), rgba(255,107,0,0.06));
-    border: 2px solid rgba(255,107,0,0.2);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    margin-bottom: 22px;
-  }
-
-  .service-card h3 {
-    font-size: 1.25rem;
-    font-weight: 900;
-    color: var(--navy);
-    margin-bottom: 14px;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: -0.3px;
-  }
-
-  .service-card p {
-    font-size: 0.9rem;
-    color: var(--text-gray);
-    line-height: 1.75;
-    margin-bottom: 24px;
-  }
-
-  .service-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 28px;
-  }
-
-  .service-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.85rem;
-    color: var(--navy);
+  .menu-card-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
     font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
   }
 
-  .service-list li::before {
-    content: "✓";
-    width: 18px;
-    height: 18px;
-    background: var(--orange);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    color: white;
-    flex-shrink: 0;
+  .menu-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 1.5rem;
   }
 
-  .service-link {
+  .menu-card-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+  }
+
+  .menu-cta-wrap { text-align: center; margin-top: 3.5rem; }
+
+  .btn-gold-outline {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    color: var(--orange);
-    font-size: 0.88rem;
-    font-weight: 800;
-    text-decoration: none;
+    gap: 0.5rem;
+    font-family: "Lato", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: gap 0.2s;
+    color: var(--gold);
+    background: transparent;
+    padding: 1rem 2.5rem;
+    border: 2px solid rgba(201,168,76,0.6);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    border-radius: 2px;
   }
 
-  .service-link:hover { gap: 14px; }
-
-  /* ===== REVIEWS ===== */
-  #reviews {
-    padding: 100px 5%;
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
+  .btn-gold-outline:hover {
+    background: var(--gold);
+    color: var(--charcoal);
+    border-color: var(--gold);
   }
 
-  .reviews-circle1 {
-    position: absolute;
-    top: -100px;
-    left: -100px;
-    width: 400px;
-    height: 400px;
-    border: 50px solid rgba(255,107,0,0.05);
-    border-radius: 50%;
-  }
+  /* ─── REVIEWS ─── */
+  #reviews { background: var(--cream); }
 
-  .reviews-circle2 {
-    position: absolute;
-    bottom: -80px;
-    right: -80px;
-    width: 300px;
-    height: 300px;
-    border: 40px solid rgba(255,255,255,0.03);
-    border-radius: 50%;
-  }
-
-  .reviews-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .reviews-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .reviews-header .section-label { color: var(--orange-light); }
-  .reviews-header .section-title { color: var(--white); }
-  .reviews-header p { color: rgba(255,255,255,0.6); font-size: 1rem; }
-
-  .rating-hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
-  }
-
-  .rating-big {
-    text-align: center;
-  }
-
-  .rating-num {
-    font-size: 5rem;
-    font-weight: 900;
-    color: var(--white);
-    line-height: 1;
-  }
-
-  .rating-stars {
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    margin: 10px 0;
-  }
-
-  .star { color: var(--star-gold); font-size: 1.5rem; }
-  .star-half { color: var(--star-gold); font-size: 1.5rem; opacity: 0.6; }
-
-  .rating-count {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.85rem;
-    font-weight: 600;
-  }
-
-  .rating-divider {
-    width: 2px;
-    height: 80px;
-    background: rgba(255,255,255,0.1);
-  }
-
-  .rating-badges {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .rating-badge {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: rgba(255,255,255,0.8);
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-
-  .badge-dot {
-    width: 10px;
-    height: 10px;
-    background: var(--orange);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
+  .reviews-header { text-align: center; margin-bottom: 4rem; }
 
   .reviews-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 2rem;
+    margin-bottom: 4rem;
   }
 
   .review-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-    padding: 32px 28px;
-    transition: background 0.25s, transform 0.25s;
+    background: var(--white);
+    border-radius: 4px;
+    padding: 2.5rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   }
 
-  .review-card:hover {
-    background: rgba(255,255,255,0.09);
-    transform: translateY(-4px);
+  .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+
+  .review-quote-icon {
+    font-family: "Playfair Display", serif;
+    font-size: 4.5rem;
+    color: var(--burgundy);
+    opacity: 0.15;
+    line-height: 0.8;
+    margin-bottom: 0.8rem;
+    display: block;
   }
 
   .review-stars {
     display: flex;
-    gap: 4px;
-    margin-bottom: 18px;
+    gap: 3px;
+    margin-bottom: 1.2rem;
+  }
+
+  .review-stars span {
+    color: var(--gold);
+    font-size: 1rem;
   }
 
   .review-text {
-    color: rgba(255,255,255,0.78);
-    font-size: 0.92rem;
-    line-height: 1.75;
-    margin-bottom: 22px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.1rem;
     font-style: italic;
+    line-height: 1.7;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
   }
 
   .review-author {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 0.8rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(0,0,0,0.07);
   }
 
-  .author-avatar {
-    width: 44px;
-    height: 44px;
+  .review-avatar {
+    width: 44px; height: 44px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--orange), #FF4500);
+    background: var(--burgundy);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
-    color: white;
+    font-family: "Playfair Display", serif;
     font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
     flex-shrink: 0;
   }
 
-  .author-name {
-    color: var(--white);
-    font-weight: 800;
-    font-size: 0.92rem;
+  .review-name {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--charcoal);
   }
 
-  .author-loc {
-    color: rgba(255,255,255,0.45);
-    font-size: 0.78rem;
-    margin-top: 2px;
+  .review-date {
+    font-size: 0.75rem;
+    color: var(--warm-gray);
+    margin-top: 0.15rem;
   }
 
-  /* ===== CONTACT ===== */
-  #contact {
-    padding: 100px 5%;
-    background: var(--light-gray);
+  .review-badge {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--olive);
+    background: rgba(74,92,42,0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    border: 1px solid rgba(74,92,42,0.25);
+  }
+
+  .rating-banner {
+    background: var(--burgundy);
+    border-radius: 4px;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 3rem;
     position: relative;
     overflow: hidden;
   }
 
-  .contact-swoop {
+  .rating-banner::before {
+    content: "";
     position: absolute;
-    top: -50px;
-    right: -100px;
-    width: 500px;
-    height: 500px;
-    background: rgba(255,107,0,0.05);
+    top: -50%; right: -10%;
+    width: 400px; height: 400px;
     border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
   }
 
-  .contact-inner {
-    max-width: 1100px;
-    margin: 0 auto;
+  .rating-big {
+    font-family: "Playfair Display", serif;
+    font-size: 5.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    font-style: italic;
+  }
+
+  .rating-detail { }
+
+  .rating-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 0.8rem;
+  }
+
+  .rating-stars span { color: var(--gold); font-size: 1.3rem; }
+
+  .rating-label {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+
+  .rating-sub {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  .rating-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Lato", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    background: var(--gold);
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .rating-cta a:hover { background: var(--white); }
+
+  /* ─── RESERVE / CONTACT ─── */
+  #contact {
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 50%; height: 100%;
+    background: url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80") center/cover no-repeat;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+
+  .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 70px;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 5rem;
     align-items: start;
     position: relative;
-    z-index: 1;
   }
 
-  .contact-info .section-label { color: var(--orange); }
-  .contact-info .section-title { font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
+  .contact-info { }
 
-  .contact-info > p {
-    color: var(--text-gray);
-    font-size: 1rem;
-    line-height: 1.75;
-    margin-bottom: 36px;
-  }
-
-  .contact-details {
+  .contact-info-item {
     display: flex;
-    flex-direction: column;
-    gap: 18px;
-    margin-bottom: 36px;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
   }
 
-  .contact-detail {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .detail-icon {
-    width: 46px;
-    height: 46px;
-    background: var(--orange);
-    border-radius: 12px;
+  .contact-icon {
+    width: 44px; height: 44px;
+    border-radius: 2px;
+    background: var(--burgundy);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
     flex-shrink: 0;
   }
 
-  .detail-text strong {
-    display: block;
-    font-size: 0.88rem;
-    font-weight: 800;
-    color: var(--navy);
+  .contact-icon svg { width: 18px; fill: var(--white); }
+
+  .contact-info-text h4 {
+    font-family: "Lato", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    color: var(--warm-gray);
+    margin-bottom: 0.3rem;
   }
 
-  .detail-text span, .detail-text a {
-    font-size: 1rem;
-    color: var(--text-gray);
-    font-weight: 600;
+  .contact-info-text p, .contact-info-text a {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.1rem;
+    color: var(--charcoal);
     text-decoration: none;
-    transition: color 0.2s;
+    line-height: 1.5;
+    transition: color 0.3s;
   }
 
-  .detail-text a:hover { color: var(--orange); }
+  .contact-info-text a:hover { color: var(--burgundy); }
 
   .contact-form {
-    background: var(--white);
-    border-radius: 24px;
-    padding: 48px 44px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-  }
-
-  .contact-form h3 {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--navy);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-  }
-
-  .contact-form > p {
-    color: var(--text-gray);
-    font-size: 0.9rem;
-    margin-bottom: 30px;
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 3rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.07);
   }
 
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 1.2rem;
   }
 
   .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 1.4rem;
   }
 
   .form-group label {
     display: block;
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: var(--navy);
+    font-family: "Lato", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 8px;
+    color: var(--warm-gray);
+    margin-bottom: 0.55rem;
   }
 
   .form-group input,
   .form-group select,
   .form-group textarea {
     width: 100%;
-    padding: 14px 16px;
-    border: 2px solid var(--mid-gray);
-    border-radius: 10px;
-    font-size: 0.95rem;
-    color: var(--navy);
-    background: var(--light-gray);
-    transition: border-color 0.2s, background 0.2s;
-    font-family: inherit;
+    padding: 0.85rem 1rem;
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 2px;
+    font-family: "Lato", sans-serif;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    transition: all 0.3s ease;
     outline: none;
+    appearance: none;
+  }
+
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6057' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
   }
 
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus {
-    border-color: var(--orange);
-    background: var(--white);
+    border-color: var(--burgundy);
+    box-shadow: 0 0 0 3px rgba(107,26,42,0.08);
   }
 
-  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(107,96,87,0.45); }
 
-  .form-submit {
+  .form-group textarea { height: 100px; resize: vertical; }
+
+  .btn-submit {
     width: 100%;
-    padding: 18px;
-    background: var(--orange);
+    padding: 1.1rem 2rem;
+    background: var(--burgundy);
     color: var(--white);
     border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.25s;
-    box-shadow: 0 8px 25px rgba(255,107,0,0.35);
-    margin-top: 6px;
-  }
-
-  .form-submit:hover {
-    background: var(--orange-light);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(255,107,0,0.45);
-  }
-
-  .form-note {
-    text-align: center;
-    margin-top: 16px;
-    color: var(--text-gray);
-    font-size: 0.8rem;
-  }
-
-  .success-msg {
-    display: none;
-    background: #e8f5e9;
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    padding: 16px 20px;
-    color: #2e7d32;
+    font-family: "Lato", sans-serif;
+    font-size: 0.82rem;
     font-weight: 700;
-    text-align: center;
-    margin-top: 16px;
-    font-size: 0.92rem;
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    background: var(--navy);
-    padding: 70px 5% 30px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.35s ease;
     position: relative;
     overflow: hidden;
   }
 
-  .footer-top-bar {
-    background: var(--orange);
-    height: 4px;
+  .btn-submit::before {
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
+    background: var(--burgundy-dark);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease;
   }
 
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
+  .btn-submit span { position: relative; z-index: 1; }
+  .btn-submit:hover::before { transform: scaleX(1); transform-origin: left; }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .form-success.show { display: block; }
+
+  .form-success-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-success h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.6rem;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-success p { color: var(--warm-gray); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.7);
+    padding: 5rem 2rem 2rem;
   }
 
   .footer-grid {
+    max-width: 1180px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 50px;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 2rem;
   }
 
-  .footer-brand .nav-logo { margin-bottom: 16px; display: inline-flex; }
+  .footer-brand { }
 
-  .footer-brand p {
-    color: rgba(255,255,255,0.55);
-    font-size: 0.88rem;
-    line-height: 1.7;
-    margin-bottom: 22px;
+  .footer-logo {
+    font-family: "Playfair Display", serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-logo-sub {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-tagline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
 
   .footer-social {
     display: flex;
-    gap: 12px;
+    gap: 0.8rem;
   }
 
-  .social-btn {
-    width: 40px;
-    height: 40px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 10px;
+  .footer-social a {
+    width: 38px; height: 38px;
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.2s;
   }
 
-  .social-btn:hover {
-    background: var(--orange);
-    border-color: var(--orange);
-    color: white;
-    transform: translateY(-2px);
-  }
+  .footer-social a:hover { background: var(--gold); border-color: var(--gold); }
+  .footer-social a:hover svg { fill: var(--charcoal); }
+  .footer-social svg { width: 16px; fill: rgba(255,255,255,0.6); transition: fill 0.3s; }
 
-  .footer-col h4 {
-    color: var(--white);
-    font-size: 0.85rem;
-    font-weight: 800;
+  .footer-col h5 {
+    font-family: "Lato", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgba(255,107,0,0.4);
-    display: inline-block;
+    color: var(--gold);
+    margin-bottom: 1.3rem;
   }
 
-  .footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li {
+    margin-bottom: 0.7rem;
   }
 
-  .footer-links a {
+  .footer-col ul li a {
+    font-size: 0.88rem;
     color: rgba(255,255,255,0.55);
     text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 500;
-    transition: color 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transition: color 0.3s;
   }
 
-  .footer-links a:hover { color: var(--orange); }
+  .footer-col ul li a:hover { color: var(--white); }
 
-  .footer-links a::before {
-    content: "→";
-    font-size: 0.75rem;
-    color: var(--orange);
-    opacity: 0.7;
-  }
-
-  .footer-hours-item {
+  .footer-hours-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    gap: 12px;
-  }
-
-  .footer-hours-item span:first-child {
+    font-size: 0.83rem;
     color: rgba(255,255,255,0.55);
-    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
   }
 
-  .footer-hours-item span:last-child {
-    color: var(--orange);
-    font-size: 0.85rem;
-    font-weight: 700;
-  }
+  .footer-hours-row span:first-child { color: rgba(255,255,255,0.75); font-weight: 600; }
 
-  .footer-contact-item {
+  .footer-contact-row {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-
-  .footer-contact-item .fi {
-    color: var(--orange);
-    font-size: 0.9rem;
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-
-  .footer-contact-item span, .footer-contact-item a {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.87rem;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
     line-height: 1.5;
-    text-decoration: none;
-    transition: color 0.2s;
   }
 
-  .footer-contact-item a:hover { color: var(--orange); }
+  .footer-contact-row svg { width: 14px; fill: var(--gold); flex-shrink: 0; margin-top: 3px; }
+
+  .footer-contact-row a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.3s; }
+  .footer-contact-row a:hover { color: var(--white); }
 
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 28px;
+    max-width: 1180px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 1rem;
   }
 
-  .footer-bottom p {
+  .footer-copyright {
+    font-size: 0.78rem;
     color: rgba(255,255,255,0.35);
-    font-size: 0.82rem;
   }
 
-  .footer-bottom-links {
+  .footer-legal {
     display: flex;
-    gap: 20px;
+    gap: 1.5rem;
   }
 
-  .footer-bottom-links a {
+  .footer-legal a {
+    font-size: 0.78rem;
     color: rgba(255,255,255,0.35);
     text-decoration: none;
-    font-size: 0.82rem;
-    transition: color 0.2s;
+    transition: color 0.3s;
   }
 
-  .footer-bottom-links a:hover { color: var(--orange); }
+  .footer-legal a:hover { color: rgba(255,255,255,0.7); }
 
-  /* ===== STICKY CTA ===== */
-  .sticky-cta {
+  /* ─── FLOATING CTA ─── */
+  .floating-cta {
     position: fixed;
-    bottom: 28px;
-    right: 28px;
-    z-index: 999;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 500;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0.8rem;
     align-items: flex-end;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: all 0.4s ease;
   }
 
-  .sticky-phone {
-    background: var(--orange);
-    color: white;
-    text-decoration: none;
-    padding: 14px 20px;
-    border-radius: 50px;
-    font-size: 0.88rem;
-    font-weight: 800;
+  .floating-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  .floating-btn {
     display: flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 8px 30px rgba(255,107,0,0.5);
-    transition: all 0.25s;
+    gap: 0.6rem;
+    padding: 0.75rem 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: "Lato", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
     white-space: nowrap;
   }
 
-  .sticky-phone:hover {
-    background: var(--orange-light);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(255,107,0,0.6);
+  .floating-btn-call { background: var(--olive); color: var(--white); }
+  .floating-btn-reserve { background: var(--burgundy); color: var(--white); }
+
+  .floating-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+
+  .floating-btn svg { width: 16px; fill: var(--white); }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
   }
 
-  .sticky-pulse {
-    width: 12px;
-    height: 12px;
-    background: white;
-    border-radius: 50%;
-    animation: pulse 1.5s infinite;
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  /* ===== MOBILE NAV ===== */
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: rgba(10,22,40,0.98);
-    z-index: 999;
-    padding: 30px 5%;
-    flex-direction: column;
-    gap: 6px;
-    backdrop-filter: blur(10px);
-  }
+  .fade-up-delay-1 { transition-delay: 0.1s; }
+  .fade-up-delay-2 { transition-delay: 0.2s; }
+  .fade-up-delay-3 { transition-delay: 0.3s; }
+  .fade-up-delay-4 { transition-delay: 0.4s; }
 
-  .mobile-menu.open { display: flex; }
-
-  .mobile-menu a {
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    font-size: 1.05rem;
-    font-weight: 700;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
-  .mobile-menu a:hover { color: var(--orange); }
-
-  .mobile-menu .mobile-cta {
-    background: var(--orange);
-    color: var(--white) !important;
-    border-radius: 8px;
-    padding: 14px 20px !important;
-    text-align: center;
-    margin-top: 10px;
-    border-bottom: none !important;
-  }
-
-  /* ===== RESPONSIVE ===== */
+  /* ─── RESPONSIVE ─── */
   @media (max-width: 1024px) {
-    .hero-geo-circle { display: none; }
-    .reviews-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-image-wrap { max-width: 500px; margin: 0 auto; }
+    .about-accent-box { display: none; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
+    .rating-banner { grid-template-columns: auto 1fr; }
+    .rating-cta { display: none; }
   }
 
   @media (max-width: 768px) {
+    nav { padding: 0 1.2rem; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
-
-    .hero-content { padding: 60px 5%; max-width: 100%; }
-    .hero-swoop-3 { display: none; }
-
-    .about-inner { grid-template-columns: 1fr; gap: 40px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .reviews-grid { grid-template-columns: 1fr; }
-
-    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
-    .contact-form { padding: 32px 24px; }
+    section { padding: 5rem 1.2rem; }
+    .menu-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .reviews-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto 3rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-form { padding: 2rem; }
     .form-row { grid-template-columns: 1fr; }
-
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
     .footer-bottom { flex-direction: column; text-align: center; }
-
-    .rating-divider { display: none; }
-
-    .sticky-cta { bottom: 16px; right: 16px; }
-    .sticky-phone span.phone-text { display: none; }
+    .rating-banner { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+    .rating-stars { justify-content: center; }
+    .about-stats { grid-template-columns: repeat(3, 1fr); }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .floating-btn span { display: none; }
+    .floating-btn { padding: 0.9rem; border-radius: 50%; }
+    .floating-btn svg { margin: 0; }
   }
 
   @media (max-width: 480px) {
-    .footer-grid { grid-template-columns: 1fr; }
-    .about-stats { grid-template-columns: 1fr 1fr; }
-    .hero-cta-group { flex-direction: column; align-items: flex-start; }
-    .contact-form { padding: 28px 20px; }
+    .section-title { font-size: 1.8rem; }
+    .about-stats { grid-template-columns: 1fr; text-align: left; }
+    .stat { text-align: left; display: flex; gap: 1rem; align-items: center; }
+    .stat-number { font-size: 1.8rem; margin-bottom: 0; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
+<!-- ─── NAVBAR ─── -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">
-    <div class="nav-logo-icon">🔧</div>
-    <div class="nav-logo-text">Plumber on <span>Demand</span></div>
+  <a class="nav-logo" href="#hero" style="text-decoration:none;">
+    <span class="nav-logo-main">Remezzo</span>
+    <span class="nav-logo-sub">Italian Bistro</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
     <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="tel:+16476697444" class="nav-call">📞 647-669-7444</a></li>
+    <li><a href="#contact">Reserve</a></li>
+    <li><a href="tel:4162990011" class="nav-phone">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      416-299-0011
+    </a></li>
   </ul>
   <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
+<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#services" onclick="closeMenu()">Services</a>
-  <a href="#reviews" onclick="closeMenu()">Reviews</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
-  <a href="tel:+16476697444" class="mobile-cta" onclick="closeMenu()">📞 Call Now: 647-669-7444</a>
+  <a href="#about" onclick="toggleMenu()">Our Story</a>
+  <a href="#menu" onclick="toggleMenu()">Menu</a>
+  <a href="#reviews" onclick="toggleMenu()">Reviews</a>
+  <a href="#contact" onclick="toggleMenu()">Reserve a Table</a>
+  <a href="tel:4162990011" style="color: #C9A84C !important;">&#9990; 416-299-0011</a>
 </div>
 
-<!-- HERO -->
+<!-- ─── HERO ─── -->
 <section id="hero">
-  <div class="hero-swoop-1"></div>
-  <div class="hero-swoop-2"></div>
-  <div class="hero-swoop-3"></div>
-
-  <div class="hero-geo-circle">
-    <div class="hero-geo-inner">
-      <div class="hero-badge-icon">🛠️</div>
-      <div class="hero-badge-text">Available</div>
-      <div class="hero-badge-num">24/7</div>
-      <div class="hero-badge-sub">Emergency Service</div>
-    </div>
-  </div>
-
+  <div class="hero-bg"></div>
+  <div class="hero-vignette"></div>
   <div class="hero-content">
-    <div class="hero-tag">🟠 Always Available – Scarborough &amp; GTA</div>
-    <h1 class="hero-headline">24/7 Emergency<br><span>Plumbing</span><br>You Can<br>Rely On</h1>
-    <p class="hero-sub">Fast, professional plumbing service across Scarborough, Toronto, and the Greater Toronto Area. We show up when it matters most — day or night, rain or shine.</p>
-    <div class="hero-cta-group">
-      <a href="tel:+16476697444" class="btn-primary">📞 Call Now – Free Quote</a>
-      <a href="#contact" class="btn-outline">Request Service →</a>
+    <span class="hero-eyebrow">Scarborough, Toronto &mdash; Since 2004</span>
+    <h1 class="hero-title">Savor Authentic<br><em>Italian Traditions</em></h1>
+    <p class="hero-subtitle">
+      Experience timeless Italian hospitality in the heart of Scarborough &mdash; where every dish tells a story of passion, heritage, and the finest ingredients.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary"><span>&#x2665; Reserve a Table</span></a>
+      <a href="tel:4162990011" class="btn-outline">&#9990; 416-299-0011</a>
     </div>
-    <div class="hero-trust">
-      <div class="trust-item"><div class="check">✓</div> Licensed &amp; Insured</div>
-      <div class="trust-item"><div class="check">✓</div> Transparent Pricing</div>
-      <div class="trust-item"><div class="check">✓</div> Fast Response Time</div>
-    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Scroll
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ─── ABOUT ─── -->
 <section id="about">
-  <div class="about-bg-shape"></div>
-  <div class="about-bg-shape2"></div>
-  <div class="about-inner">
-    <div class="about-text">
-      <div class="section-label">About Us</div>
-      <h2 class="section-title">Why Choose Plumber on Demand?</h2>
-      <p>We are Scarborough's most trusted local plumbing experts with years of hands-on experience serving homeowners and businesses across the GTA. Our team delivers transparent, upfront pricing with no hidden fees — and we pride ourselves on fast response times so your plumbing emergency gets resolved quickly and professionally.</p>
-      <div class="about-stats">
-        <div class="stat-card">
-          <div class="stat-num">24/7</div>
-          <div class="stat-label">Always Available</div>
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-image-wrap fade-up">
+        <div class="about-img-frame">
+          <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800&q=80" alt="Remezzo Italian Bistro interior and authentic Italian dining atmosphere" loading="lazy">
         </div>
-        <div class="stat-card">
-          <div class="stat-num">4.8★</div>
-          <div class="stat-label">Customer Rating</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">60min</div>
-          <div class="stat-label">Avg Response Time</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Satisfaction Goal</div>
-        </div>
+        <div class="about-accent-box"></div>
+        <div class="about-accent-top"></div>
       </div>
-    </div>
-    <div class="about-features">
-      <div class="feature-item">
-        <div class="feature-icon">⚡</div>
-        <div class="feature-body">
-          <h4>Rapid Emergency Response</h4>
-          <p>Our emergency plumbers are dispatched within minutes. We understand that a burst pipe or blocked drain cannot wait — we get there fast.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">💲</div>
-        <div class="feature-body">
-          <h4>Transparent, Upfront Pricing</h4>
-          <p>No surprises on your invoice. We provide clear, honest quotes before any work begins, so you always know exactly what you are paying for.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🏆</div>
-        <div class="feature-body">
-          <h4>Licensed Local Experts</h4>
-          <p>Fully licensed and insured plumbers who know Scarborough and the GTA inside and out, delivering reliable workmanship on every job.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🔒</div>
-        <div class="feature-body">
-          <h4>Guaranteed Workmanship</h4>
-          <p>Every repair and installation comes backed by our satisfaction guarantee. We stand behind our work so you can have total peace of mind.</p>
+      <div class="about-text fade-up fade-up-delay-2">
+        <span class="section-tag">&#9674; Our Story</span>
+        <h2 class="section-title">A Family Tradition of <em>True Italian</em> Craft</h2>
+        <div class="section-divider"></div>
+        <p class="about-lead">
+          "Rooted in the soul of Italy, crafted with the heart of Scarborough."
+        </p>
+        <p class="about-body">
+          At Remezzo Italian Bistro, we are passionately devoted to honoring the time-honored recipes of traditional Italian cooking, bringing together the freshest local ingredients and the warmth of an authentic family-friendly dining experience under one welcoming roof. Every plate that leaves our kitchen carries the unmistakable love of generations of Italian culinary heritage &mdash; crafted to nourish the body, delight the palate, and create memories that last a lifetime.
+        </p>
+        <p class="about-body">
+          From hand-rolled pastas to stone-oven pizzas and curated wines, we invite you to gather, celebrate, and truly taste the difference that genuine passion makes. Benvenuti &mdash; welcome to the family.
+        </p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Years Serving</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">4.9</div>
+            <div class="stat-label">Guest Rating</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Fresh Daily</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="services-bg"></div>
-  <div class="services-inner">
-    <div class="services-header">
-      <div class="section-label">What We Do</div>
-      <h2 class="section-title">Our Plumbing Services</h2>
-      <p>From urgent emergency repairs to full commercial installations, we handle every plumbing challenge with speed and precision.</p>
+<!-- ─── MENU ─── -->
+<section id="menu">
+  <div class="section-inner">
+    <div class="menu-header fade-up">
+      <span class="section-tag">&#9674; Signature Offerings</span>
+      <h2 class="section-title" style="color:var(--white);">A Menu Crafted with <em style="color:var(--gold-light);">Soul</em></h2>
+      <div class="section-divider" style="background: linear-gradient(90deg, transparent, var(--gold), transparent); width:100px; margin: 1.2rem auto 1.8rem;"></div>
+      <p class="menu-subtitle">Each dish is a love letter to Italy, prepared with seasonal ingredients and the finest artisanal techniques.</p>
     </div>
-    <div class="services-grid">
-
-      <!-- Service 1 -->
-      <div class="service-card">
-        <div class="service-card-num">01</div>
-        <div class="service-icon">🚨</div>
-        <h3>Emergency Plumbing Repairs</h3>
-        <p>When disaster strikes, we respond immediately. Our 24/7 emergency plumbing team handles any urgent situation across Scarborough and the GTA with no overtime charges.</p>
-        <ul class="service-list">
-          <li>Burst pipe repair</li>
-          <li>Severe water leaks</li>
-          <li>Blocked or overflowing drains</li>
-          <li>Sewer backups</li>
-          <li>Flooding & water damage</li>
-        </ul>
-        <a href="#contact" class="service-link">Book Emergency →</a>
+    <div class="menu-grid">
+      <div class="menu-card fade-up fade-up-delay-1">
+        <div class="menu-card-img-wrap">
+          <img class="menu-card-img" src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=600&q=80" alt="Artisanal fresh pasta dishes at Remezzo" loading="lazy">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-number">01</div>
+          <h3 class="menu-card-title">Artisanal Pastas</h3>
+          <p class="menu-card-desc">Lovingly crafted fresh each morning in our kitchen, our hand-rolled pastas feature time-honored recipes &mdash; from silky tagliatelle al ragu to pillowy gnocchi in housemade sauces bursting with Italian flavor.</p>
+          <span class="menu-card-tag">Handmade Daily</span>
+        </div>
       </div>
-
-      <!-- Service 2 -->
-      <div class="service-card">
-        <div class="service-card-num">02</div>
-        <div class="service-icon">🏠</div>
-        <h3>Residential Plumbing &amp; Installations</h3>
-        <p>Complete home plumbing solutions from small fixture replacements to full system installations. We keep your household running smoothly every day.</p>
-        <ul class="service-list">
-          <li>Toilet installation & repair</li>
-          <li>Faucet & fixture upgrades</li>
-          <li>Water heater installation</li>
-          <li>Kitchen & bathroom plumbing</li>
-          <li>Pipe replacement & repiping</li>
-        </ul>
-        <a href="#contact" class="service-link">Get a Quote →</a>
+      <div class="menu-card fade-up fade-up-delay-2">
+        <div class="menu-card-img-wrap">
+          <img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80" alt="Stone oven pizza at Remezzo Italian Bistro" loading="lazy">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-number">02</div>
+          <h3 class="menu-card-title">Stone-Oven Pizzas</h3>
+          <p class="menu-card-desc">Fired in our authentic wood-burning stone oven, our pizzas arrive with classic Neapolitan toppings &mdash; San Marzano tomatoes, hand-stretched dough, fresh buffalo mozzarella, and a perfectly blistered cornicione.</p>
+          <span class="menu-card-tag">Wood-Fired Perfection</span>
+        </div>
       </div>
-
-      <!-- Service 3 -->
-      <div class="service-card">
-        <div class="service-card-num">03</div>
-        <div class="service-icon">🏢</div>
-        <h3>Commercial Plumbing Services</h3>
-        <p>Reliable commercial plumbing solutions for businesses, retail spaces, and multi-unit properties across Toronto and the GTA with minimal operational disruption.</p>
-        <ul class="service-list">
-          <li>Commercial drain cleaning</li>
-          <li>Preventive maintenance plans</li>
-          <li>Grease trap servicing</li>
-          <li>Backflow prevention</li>
-          <li>Full system inspections</li>
-        </ul>
-        <a href="#contact" class="service-link">Learn More →</a>
+      <div class="menu-card fade-up fade-up-delay-3">
+        <div class="menu-card-img-wrap">
+          <img class="menu-card-img" src="https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80" alt="Premium Italian wine selection at Remezzo" loading="lazy">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-number">03</div>
+          <h3 class="menu-card-title">Premium Wines</h3>
+          <p class="menu-card-desc">Our sommelier-curated wine list features distinguished Italian varietals &mdash; bold Barolos, elegant Brunellos, and crisp Pinot Grigios &mdash; each thoughtfully selected to complement and elevate every dish on our menu.</p>
+          <span class="menu-card-tag">Curated Selection</span>
+        </div>
       </div>
-
+    </div>
+    <div class="menu-cta-wrap fade-up">
+      <a href="#contact" class="btn-gold-outline">&#x2665; Book Your Table to Dine</a>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
+<!-- ─── REVIEWS ─── -->
 <section id="reviews">
-  <div class="reviews-circle1"></div>
-  <div class="reviews-circle2"></div>
-  <div class="reviews-inner">
-    <div class="reviews-header">
-      <div class="section-label">Customer Reviews</div>
-      <h2 class="section-title">Trusted by Hundreds<br>Across the GTA</h2>
-      <p>Real reviews from real customers who experienced the Plumber on Demand difference.</p>
+  <div class="section-inner">
+    <div class="reviews-header fade-up">
+      <span class="section-tag">&#9674; Guest Experiences</span>
+      <h2 class="section-title">What Our Guests <em>Are Saying</em></h2>
+      <div class="section-divider centered"></div>
     </div>
-
-    <div class="rating-hero">
-      <div class="rating-big">
-        <div class="rating-num">4.8</div>
-        <div class="rating-stars">
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star-half">★</span>
-        </div>
-        <div class="rating-count">Based on 150+ reviews</div>
-      </div>
-      <div class="rating-divider"></div>
-      <div class="rating-badges">
-        <div class="rating-badge"><div class="badge-dot"></div> 96% rate our speed as Excellent</div>
-        <div class="rating-badge"><div class="badge-dot"></div> 98% would recommend us</div>
-        <div class="rating-badge"><div class="badge-dot"></div> 4.9★ for professionalism</div>
-        <div class="rating-badge"><div class="badge-dot"></div> Google Verified Reviews</div>
-      </div>
-    </div>
-
     <div class="reviews-grid">
-      <div class="review-card">
+      <div class="review-card fade-up fade-up-delay-1">
+        <span class="review-quote-icon">&ldquo;</span>
+        <span class="review-badge">Verified Guest</span>
         <div class="review-stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
         </div>
-        <p class="review-text">"Absolutely amazing service! I had a burst pipe at 2am and they arrived within 45 minutes. The plumber was professional, friendly, and had everything fixed quickly. Pricing was exactly as quoted — no surprises. Will call them every time!"</p>
+        <p class="review-text">"The flavors here are absolutely exquisite &mdash; I have never tasted pasta this fresh and authentic outside of Italy itself. Remezzo is a true hidden gem in Scarborough. The ambiance is elegant yet warm, and the staff made us feel like family from the moment we walked in."</p>
         <div class="review-author">
-          <div class="author-avatar">MK</div>
+          <div class="review-avatar">S</div>
           <div>
-            <div class="author-name">Michael K.</div>
-            <div class="author-loc">Scarborough, ON</div>
+            <div class="review-name">Sofia Marinelli</div>
+            <div class="review-date">October 2024 &mdash; Google Reviews</div>
           </div>
         </div>
       </div>
-
-      <div class="review-card">
+      <div class="review-card fade-up fade-up-delay-2">
+        <span class="review-quote-icon">&ldquo;</span>
+        <span class="review-badge">Verified Guest</span>
         <div class="review-stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
         </div>
-        <p class="review-text">"I called Plumber on Demand for a water heater replacement and they came the same day. Efficient, clean, and the price was fair and transparent upfront. Best plumbing experience I have ever had in Toronto. Highly recommend!"</p>
+        <p class="review-text">"Remezzo delivered an evening we will remember for years. The stone-oven pizza was divine, the wine pairing was spot-on, and the service was so attentive without ever being intrusive. This is exactly the upscale Italian dining experience Scarborough deserves &mdash; five stars without hesitation."</p>
         <div class="review-author">
-          <div class="author-avatar">SJ</div>
+          <div class="review-avatar">J</div>
           <div>
-            <div class="author-name">Sarah J.</div>
-            <div class="author-loc">North York, ON</div>
+            <div class="review-name">James Thornton</div>
+            <div class="review-date">September 2024 &mdash; TripAdvisor</div>
           </div>
         </div>
       </div>
-
-      <div class="review-card">
+      <div class="review-card fade-up fade-up-delay-3">
+        <span class="review-quote-icon">&ldquo;</span>
+        <span class="review-badge">Verified Guest</span>
         <div class="review-stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
         </div>
-        <p class="review-text">"Used them for our restaurant's commercial drain cleaning and maintenance. Super professional team, very thorough, and they scheduled around our busy hours. We are now on their maintenance plan. Reliable doesn't even begin to describe it."</p>
+        <p class="review-text">"We celebrated our anniversary at Remezzo and it was perfect in every way. The elegant ambiance, the impeccable attention to detail, the deeply flavorful dishes &mdash; everything exceeded our expectations. The staff remembered our dietary preferences and went out of their way to make the evening truly special."</p>
         <div class="review-author">
-          <div class="author-avatar">RP</div>
+          <div class="review-avatar">A</div>
           <div>
-            <div class="author-name">Raj P.</div>
-            <div class="author-loc">Downtown Toronto, ON</div>
+            <div class="review-name">Anya Kowalski</div>
+            <div class="review-date">November 2024 &mdash; Yelp</div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="rating-banner fade-up">
+      <div class="rating-big">4.9</div>
+      <div class="rating-detail">
+        <div class="rating-stars">
+          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+        </div>
+        <div class="rating-label">Exceptional Across Every Visit</div>
+        <div class="rating-sub">Based on 500+ guest reviews across Google, TripAdvisor, and Yelp &mdash; guests consistently praise our exquisite flavor, elegant ambiance, and truly attentive service.</div>
+      </div>
+      <div class="rating-cta">
+        <a href="#contact">Reserve Your Experience</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ─── CONTACT / RESERVE ─── -->
 <section id="contact">
-  <div class="contact-swoop"></div>
-  <div class="contact-inner">
-    <div class="contact-info">
-      <div class="section-label">Contact Us</div>
-      <h2 class="section-title">Get Fast Plumbing Help Now</h2>
-      <p>Fill out the form and we will get back to you immediately — or call us directly for the fastest emergency response across Scarborough and the GTA.</p>
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <span class="section-tag">&#9674; Reservations</span>
+        <h2 class="section-title">Reserve Your <em>Table</em></h2>
+        <div class="section-divider"></div>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--warm-gray); line-height:1.75; margin-bottom:2.5rem;">
+          We warmly invite you to join us for an unforgettable Italian dining experience. Whether you are celebrating a special occasion or simply craving authentic flavors, your table awaits.
+        </p>
 
-      <div class="contact-details">
-        <div class="contact-detail">
-          <div class="detail-icon">📞</div>
-          <div class="detail-text">
-            <strong>Phone (24/7)</strong>
-            <a href="tel:+16476697444">+1 647-669-7444</a>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <h4>Location</h4>
+            <p>Scarborough, Toronto<br>Ontario, Canada</p>
           </div>
         </div>
-        <div class="contact-detail">
-          <div class="detail-icon">📍</div>
-          <div class="detail-text">
-            <strong>Location</strong>
-            <span>Scarborough, ON — Serving the GTA</span>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <h4>Phone</h4>
+            <a href="tel:4162990011">416-299-0011</a>
           </div>
         </div>
-        <div class="contact-detail">
-          <div class="detail-icon">🕐</div>
-          <div class="detail-text">
-            <strong>Hours</strong>
-            <span>Open 24/7 — 365 Days a Year</span>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <h4>Hours</h4>
+            <p>Mon&ndash;Thu: 11:00 AM &ndash; 10:00 PM<br>Fri&ndash;Sat: 11:00 AM &ndash; 11:30 PM<br>Sunday: 12:00 PM &ndash; 9:30 PM</p>
           </div>
         </div>
-        <div class="contact-detail">
-          <div class="detail-icon">⚡</div>
-          <div class="detail-text">
-            <strong>Emergency Response</strong>
-            <span>Average 60-minute arrival time</span>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <h4>Email</h4>
+            <a href="mailto:info@remezzoristorante.ca">info@remezzoristorante.ca</a>
           </div>
         </div>
       </div>
 
-      <a href="tel:+16476697444" class="btn-primary" style="align-self:flex-start; display:inline-flex;">📞 Call Now: 647-669-7444</a>
-    </div>
-
-    <div class="contact-form">
-      <h3>Request Service</h3>
-      <p>Tell us about your plumbing issue and we will respond right away.</p>
-
-      <form id="serviceForm" onsubmit="submitForm(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fullname">Full Name *</label>
-            <input type="text" id="fullname" name="fullname" placeholder="John Smith" required>
+      <div class="fade-up fade-up-delay-2">
+        <div class="contact-form" id="contactForm">
+          <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--charcoal); margin-bottom:1.8rem;">Complete Your Reservation</h3>
+          <div id="formFields">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Your phone number" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Your email address" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resDate">Reservation Date</label>
+                <input type="date" id="resDate" required>
+              </div>
+              <div class="form-group">
+                <label for="resTime">Preferred Time</label>
+                <input type="time" id="resTime" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="partySize">Party Size</label>
+              <select id="partySize" required>
+                <option value="" disabled selected>Select party size</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6 Guests</option>
+                <option value="7-10">7&ndash;10 Guests</option>
+                <option value="10+">10+ Guests (Private Event)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="specialReq">Special Requests (Optional)</label>
+              <textarea id="specialReq" placeholder="Dietary needs, special occasions, seating preferences..."></textarea>
+            </div>
+            <button class="btn-submit" onclick="submitForm()"><span>&#x2665; Request My Table</span></button>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" placeholder="647-555-0100" required>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon">&#127869;</div>
+            <h3>Grazie &mdash; Thank You!</h3>
+            <p>Your reservation request has been received. We will confirm your table within 24 hours. We look forward to welcoming you to Remezzo Italian Bistro.</p>
+            <br>
+            <a href="tel:4162990011" style="display:inline-flex;align-items:center;gap:.4rem;font-family:'Lato',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);text-decoration:none;border:1px solid var(--burgundy);padding:.7rem 1.5rem;border-radius:2px;margin-top:.5rem;">&#9990; Call 416-299-0011</a>
           </div>
         </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="john@example.com">
-        </div>
-        <div class="form-group">
-          <label for="service">Service Type *</label>
-          <select id="service" name="service" required>
-            <option value="" disabled selected>Select a service...</option>
-            <option value="emergency">🚨 Emergency Plumbing Repair</option>
-            <option value="residential">🏠 Residential Plumbing</option>
-            <option value="commercial">🏢 Commercial Plumbing</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Describe Your Issue</label>
-          <textarea id="message" name="message" placeholder="Please describe your plumbing problem, address, and best time to call..."></textarea>
-        </div>
-        <button type="submit" class="form-submit">🔧 Request Service Now</button>
-        <p class="form-note">🔒 Your information is private and secure. We respond within minutes.</p>
-        <div class="success-msg" id="successMsg">✅ Thank you! We received your request and will call you back shortly. For urgent issues, call us directly at 647-669-7444.</div>
-      </form>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ─── FOOTER ─── -->
 <footer>
-  <div class="footer-top-bar"></div>
-  <div class="footer-inner">
-    <div class="footer-grid">
-
-      <div class="footer-brand">
-        <a href="#hero" class="nav-logo">
-          <div class="nav-logo-icon">🔧</div>
-          <div class="nav-logo-text">Plumber on <span>Demand</span></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Remezzo</div>
+      <div class="footer-logo-sub">Italian Bistro &mdash; Scarborough</div>
+      <p class="footer-tagline">"Where every meal is a journey to the heart of Italy &mdash; crafted with love, served with warmth."</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook" title="Follow us on Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
         </a>
-        <p>Scarborough's trusted 24/7 emergency plumbing company, serving homeowners and businesses across Toronto and the Greater Toronto Area with speed, integrity, and expert workmanship.</p>
-        <div class="footer-social">
-          <a href="https://facebook.com" target="_blank" class="social-btn" title="Facebook">f</a>
-          <a href="https://instagram.com" target="_blank" class="social-btn" title="Instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a href="https://google.com" target="_blank" class="social-btn" title="Google">G</a>
-        </div>
+        <a href="#" aria-label="Instagram" title="Follow us on Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="white" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter/X" title="Follow us on Twitter">
+          <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        </a>
+        <a href="#" aria-label="TripAdvisor" title="See us on TripAdvisor">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 4a2 2 0 110 4 2 2 0 010-4zm0 11c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"/></svg>
+        </a>
       </div>
-
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul class="footer-links">
-          <li><a href="#services">Emergency Repairs</a></li>
-          <li><a href="#services">Residential Plumbing</a></li>
-          <li><a href="#services">Commercial Plumbing</a></li>
-          <li><a href="#services">Drain Cleaning</a></li>
-          <li><a href="#services">Water Heaters</a></li>
-          <li><a href="#services">Pipe Replacement</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Hours</h4>
-        <div class="footer-hours-item">
-          <span>Monday</span><span>24/7</span>
-        </div>
-        <div class="footer-hours-item">
-          <span>Tuesday</span><span>24/7</span>
-        </div>
-        <div class="footer-hours-item">
-          <span>Wednesday</span><span>24/7</span>
-        </div>
-        <div class="footer-hours-item">
-          <span>Thursday</span><span>24/7</span>
-        </div>
-        <div class="footer-hours-item">
-          <span>Friday</span><span>24/7</span>
-        </div>
-        <div class="footer-hours-item">
-          <span>Weekends</span><span>24/7</span>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <div class="footer-contact-item">
-          <span class="fi">📞</span>
-          <a href="tel:+16476697444">+1 647-669-7444</a>
-        </div>
-        <div class="footer-contact-item">
-          <span class="fi">📍</span>
-          <span>Scarborough, ON<br>Serving GTA &amp; Toronto</span>
-        </div>
-        <div class="footer-contact-item">
-          <span class="fi">🕐</span>
-          <span>Open 24/7<br>365 Days a Year</span>
-        </div>
-        <div style="margin-top: 16px;">
-          <a href="tel:+16476697444" class="btn-primary" style="font-size:0.82rem; padding:12px 18px;">📞 Call Now</a>
-        </div>
-      </div>
-
     </div>
 
-    <div class="footer-bottom">
-      <p>© 2024 Plumber on Demand. All rights reserved. Licensed &amp; Insured in Ontario.</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#contact">Contact</a>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#menu">Menu &amp; Offerings</a></li>
+        <li><a href="#reviews">Guest Reviews</a></li>
+        <li><a href="#contact">Reserve a Table</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Hours of Operation</h5>
+      <div class="footer-hours-row"><span>Mon &ndash; Thu</span><span>11:00 AM &ndash; 10:00 PM</span></div>
+      <div class="footer-hours-row"><span>Friday</span><span>11:00 AM &ndash; 11:30 PM</span></div>
+      <div class="footer-hours-row"><span>Saturday</span><span>11:00 AM &ndash; 11:30 PM</span></div>
+      <div class="footer-hours-row"><span>Sunday</span><span>12:00 PM &ndash; 9:30 PM</span></div>
+      <div style="margin-top:1rem; padding-top:0.8rem; border-top:1px solid rgba(255,255,255,0.08);">
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(201,168,76,0.8); margin-bottom:0.4rem;">Hours may vary on holidays</div>
+        <div style="font-size:0.82rem; color:rgba(255,255,255,0.4);">Call ahead to confirm</div>
       </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Contact Us</h5>
+      <div class="footer-contact-row">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+        <span>Scarborough, Toronto<br>Ontario, Canada</span>
+      </div>
+      <div class="footer-contact-row">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <a href="tel:4162990011">416-299-0011</a>
+      </div>
+      <div class="footer-contact-row">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <a href="mailto:info@remezzoristorante.ca">info@remezzoristorante.ca</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copyright">&copy; 2024 Remezzo Italian Bistro. All rights reserved. Scarborough, Toronto, Ontario.</div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Accessibility</a>
     </div>
   </div>
 </footer>
 
-<!-- STICKY CTA -->
-<div class="sticky-cta">
-  <a href="tel:+16476697444" class="sticky-phone">
-    <div class="sticky-pulse"></div>
-    <span>📞</span>
-    <span class="phone-text">647-669-7444</span>
+<!-- ─── FLOATING CTA ─── -->
+<div class="floating-cta" id="floatingCta">
+  <a href="tel:4162990011" class="floating-btn floating-btn-call">
+    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    <span>Call Now</span>
+  </a>
+  <a href="#contact" class="floating-btn floating-btn-reserve">
+    <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+    <span>Reserve</span>
   </a>
 </div>
 
 <script>
-  // Hamburger Menu
-  function toggleMenu() {
-    var menu = document.getElementById("mobileMenu");
-    menu.classList.toggle("open");
-  }
-
-  function closeMenu() {
-    var menu = document.getElementById("mobileMenu");
-    menu.classList.remove("open");
-  }
-
-  // Form submission
-  function submitForm(e) {
-    e.preventDefault();
-    var form = document.getElementById("serviceForm");
-    var successMsg = document.getElementById("successMsg");
-    var submitBtn = form.querySelector(".form-submit");
-
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
-
-    setTimeout(function() {
-      successMsg.style.display = "block";
-      submitBtn.textContent = "✅ Request Sent!";
-      submitBtn.style.background = "#4CAF50";
-      form.reset();
-
-      setTimeout(function() {
-        submitBtn.textContent = "🔧 Request Service Now";
-        submitBtn.style.background = "";
-        submitBtn.disabled = false;
-        successMsg.style.display = "none";
-      }, 6000);
-    }, 1200);
-  }
-
-  // Smooth scroll for all anchor links
-  document.querySelectorAll("a[href^=\"#\"]").forEach(function(anchor) {
-    anchor.addEventListener("click", function(e) {
-      var target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
+  // ─── NAVBAR SCROLL ───
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 60) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+    // Floating CTA
+    const floatingCta = document.getElementById("floatingCta");
+    if (window.scrollY > 500) {
+      floatingCta.classList.add("visible");
+    } else {
+      floatingCta.classList.remove("visible");
+    }
   });
 
-  // Scroll animations
-  var observer = new IntersectionObserver(function(entries) {
+  // ─── HAMBURGER ───
+  function toggleMenu() {
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    hamburger.classList.toggle("open");
+    mobileMenu.classList.toggle("open");
+  }
+
+  // ─── SCROLL ANIMATIONS ───
+  const fadeElements = document.querySelectorAll(".fade-up");
+  const observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 
-  document.querySelectorAll(".service-card, .feature-item, .review-card, .stat-card").forEach(function(el) {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+  fadeElements.forEach(function(el) {
     observer.observe(el);
   });
 
-  // Close mobile menu when clicking outside
-  document.addEventListener("click", function(e) {
-    var menu = document.getElementById("mobileMenu");
-    var hamburger = document.getElementById("hamburger");
-    if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-      menu.classList.remove("open");
+  // ─── FORM SUBMISSION ───
+  function submitForm() {
+    const fullName = document.getElementById("fullName").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const resDate = document.getElementById("resDate").value;
+    const resTime = document.getElementById("resTime").value;
+    const partySize = document.getElementById("partySize").value;
+
+    if (!fullName || !phone || !email || !resDate || !resTime || !partySize) {
+      const missing = [];
+      if (!fullName) missing.push("Full Name");
+      if (!phone) missing.push("Phone Number");
+      if (!email) missing.push("Email Address");
+      if (!resDate) missing.push("Reservation Date");
+      if (!resTime) missing.push("Reservation Time");
+      if (!partySize) missing.push("Party Size");
+      alert("Please complete the following required fields:\n\n" + missing.join("\n"));
+      return;
     }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    document.getElementById("formFields").style.display = "none";
+    document.getElementById("formSuccess").classList.add("show");
+  }
+
+  // ─── SET MIN DATE TO TODAY ───
+  const dateInput = document.getElementById("resDate");
+  if (dateInput) {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    dateInput.setAttribute("min", year + "-" + month + "-" + day);
+  }
+
+  // ─── SMOOTH SCROLL FOR ANCHOR LINKS ───
+  document.querySelectorAll("a[href^='#']").forEach(function(anchor) {
+    anchor.addEventListener("click", function(e) {
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        e.preventDefault();
+        const navHeight = document.getElementById("navbar").offsetHeight;
+        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: targetPos, behavior: "smooth" });
+      }
+    });
   });
 </script>
 </body>
