@@ -3,193 +3,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Remezzo Italian Bistro | Authentic Italian Restaurant in Scarborough, Toronto</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<title>Turtle Jack's Etobicoke | Casual Dining & Bar</title>
+<meta name="description" content="Turtle Jack's Etobicoke - Premium casual dining and bar in Etobicoke, Toronto. Great food, drinks, and atmosphere.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --burgundy: #6B1A2A;
-    --burgundy-light: #8B2535;
-    --burgundy-dark: #4A0F1C;
-    --olive: #4A5C2A;
-    --olive-light: #5E7335;
-    --olive-dark: #2E3A18;
-    --cream: #F8F3E8;
-    --cream-dark: #EDE4CE;
-    --charcoal: #1C1C1C;
-    --warm-gray: #6B6057;
-    --gold: #C9A84C;
-    --gold-light: #E2C87A;
-    --white: #FDFAF5;
+    --black: #0a0a0a;
+    --charcoal: #1a1a1a;
+    --charcoal2: #222222;
+    --dark: #2a2a2a;
+    --red: #e63329;
+    --red-dark: #c0271e;
+    --orange: #f07030;
+    --gold: #d4a843;
+    --white: #ffffff;
+    --light-gray: #f0ece6;
+    --mid-gray: #888888;
+    --text-muted: #aaaaaa;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: "Lato", sans-serif;
-    background-color: var(--cream);
-    color: var(--charcoal);
+    font-family: "Montserrat", sans-serif;
+    background: var(--black);
+    color: var(--white);
     overflow-x: hidden;
+    line-height: 1.6;
   }
 
-  /* ─── SCROLLBAR ─── */
+  /* SCROLLBAR */
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--cream-dark); }
-  ::-webkit-scrollbar-thumb { background: var(--burgundy); border-radius: 3px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
 
-  /* ─── NAVBAR ─── */
+  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
-    background: rgba(28, 28, 28, 0.97);
-    backdrop-filter: blur(10px);
-    padding: 0 2rem;
-    height: 72px;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(230,51,41,0.2);
+    padding: 0 20px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
-    transition: all 0.3s ease;
+    transition: all 0.3s;
   }
 
   nav.scrolled {
-    height: 62px;
-    background: rgba(28, 28, 28, 0.99);
-    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    background: rgba(10,10,10,0.99);
+    box-shadow: 0 4px 30px rgba(230,51,41,0.15);
   }
 
   .nav-logo {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-
-  .nav-logo-main {
     font-family: "Playfair Display", serif;
-    font-size: 1.45rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.5px;
   }
 
-  .nav-logo-sub {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 0.75rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.55);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
+  .nav-logo span { color: var(--red); }
 
-  .nav-links {
+  .nav-actions {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    list-style: none;
+    gap: 10px;
   }
 
-  .nav-links a {
-    font-family: "Lato", sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease;
-  }
-
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    bottom: -4px; left: 0;
-    width: 0; height: 1px;
-    background: var(--gold);
-    transition: width 0.3s ease;
-  }
-
-  .nav-links a:hover { color: var(--gold); }
-  .nav-links a:hover::after { width: 100%; }
-
-  .nav-phone {
-    font-family: "Lato", sans-serif;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--gold) !important;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    display: flex;
+  .btn {
+    display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    border: 1px solid rgba(201, 168, 76, 0.4);
-    padding: 0.4rem 0.9rem;
-    border-radius: 2px;
-    transition: all 0.3s ease;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    white-space: nowrap;
   }
 
-  .nav-phone:hover {
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    background: var(--red-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(230,51,41,0.4);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.3);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--red);
+    color: var(--red);
+  }
+
+  .btn-gold {
     background: var(--gold);
-    color: var(--charcoal) !important;
-    border-color: var(--gold);
+    color: var(--black);
   }
 
-  .nav-phone::after { display: none !important; }
+  .btn-gold:hover {
+    background: #c4952e;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(212,168,67,0.4);
+  }
+
+  .btn-large {
+    padding: 16px 36px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+  }
 
   .hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-    padding: 4px;
+    padding: 5px;
+    background: none;
+    border: none;
   }
 
   .hamburger span {
     display: block;
-    width: 24px; height: 2px;
-    background: var(--gold);
-    transition: all 0.3s ease;
-    border-radius: 1px;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: all 0.3s;
   }
-
-  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .mobile-menu {
     display: none;
     position: fixed;
-    top: 72px; left: 0; right: 0;
-    background: rgba(20, 20, 20, 0.98);
+    top: 70px;
+    left: 0; right: 0;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(20px);
     z-index: 999;
-    padding: 2rem;
+    padding: 20px;
+    border-bottom: 1px solid rgba(230,51,41,0.2);
     flex-direction: column;
-    gap: 1.5rem;
-    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+    gap: 10px;
   }
 
   .mobile-menu.open { display: flex; }
 
   .mobile-menu a {
-    font-family: "Lato", sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
+    color: var(--white);
     text-decoration: none;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    transition: color 0.3s;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
   }
 
-  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu a:hover { color: var(--red); }
 
-  /* ─── HERO ─── */
-  #hero {
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  /* HERO */
+  .hero {
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -201,310 +214,105 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-image:
-      radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.75) 100%),
-      linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.65) 100%),
-      url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&q=80");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    transform: scale(1.05);
-    animation: heroZoom 20s ease-out forwards;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%);
   }
 
-  @keyframes heroZoom {
-    from { transform: scale(1.08); }
-    to { transform: scale(1.0); }
-  }
-
-  .hero-vignette {
+  .hero-bg::before {
+    content: "";
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 70% 70% at center, transparent 40%, rgba(10,5,0,0.8) 100%);
-    pointer-events: none;
+      radial-gradient(ellipse at 20% 50%, rgba(230,51,41,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(240,112,48,0.08) 0%, transparent 50%);
+  }
+
+  .hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80&auto=format&fit=crop") center/cover no-repeat;
+    opacity: 0.18;
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 860px;
-    padding: 2rem;
-    animation: heroFadeUp 1.2s ease-out 0.3s both;
+    padding: 100px 20px 60px;
+    max-width: 800px;
+    width: 100%;
   }
 
-  @keyframes heroFadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-eyebrow {
-    display: inline-block;
-    font-family: "Lato", sans-serif;
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(230,51,41,0.15);
+    border: 1px solid rgba(230,51,41,0.3);
+    color: var(--red);
+    padding: 6px 16px;
+    border-radius: 20px;
     font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.35em;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.8rem;
-    position: relative;
+    margin-bottom: 24px;
   }
 
-  .hero-eyebrow::before,
-  .hero-eyebrow::after {
+  .hero-badge::before {
     content: "";
-    position: absolute;
-    bottom: 0;
-    width: 40px; height: 1px;
-    background: var(--gold);
-    opacity: 0.7;
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
   }
 
-  .hero-eyebrow::before { right: calc(100% + 12px); }
-  .hero-eyebrow::after { left: calc(100% + 12px); }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
 
-  .hero-title {
+  .hero h1 {
     font-family: "Playfair Display", serif;
-    font-size: clamp(2.6rem, 6vw, 5.2rem);
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
     font-weight: 700;
-    color: var(--white);
-    line-height: 1.12;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    line-height: 1.1;
+    margin-bottom: 10px;
   }
 
-  .hero-title em {
+  .hero h1 span { color: var(--red); }
+
+  .hero-sub {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: var(--text-muted);
     font-style: italic;
-    color: var(--gold-light);
+    margin-bottom: 20px;
   }
 
-  .hero-subtitle {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-    font-weight: 300;
-    color: rgba(255,255,255,0.88);
-    line-height: 1.6;
-    margin-bottom: 2.8rem;
-    max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
-    letter-spacing: 0.02em;
+  .hero-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin: 0 auto 36px;
+    line-height: 1.8;
   }
 
-  .hero-ctas {
+  .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 48px;
   }
 
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: "Lato", sans-serif;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--charcoal);
-    background: var(--gold);
-    padding: 1rem 2.2rem;
-    border: 2px solid var(--gold);
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.35s ease;
-    border-radius: 2px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-primary::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--white);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.35s ease;
-    z-index: 0;
-  }
-
-  .btn-primary span { position: relative; z-index: 1; }
-
-  .btn-primary:hover { color: var(--burgundy); border-color: var(--white); }
-  .btn-primary:hover::before { transform: scaleX(1); transform-origin: left; }
-
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: "Lato", sans-serif;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: transparent;
-    padding: 1rem 2.2rem;
-    border: 2px solid rgba(255,255,255,0.6);
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.35s ease;
-    border-radius: 2px;
-  }
-
-  .btn-outline:hover {
-    background: rgba(255,255,255,0.12);
-    border-color: var(--white);
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
+  .hero-stats {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: rgba(255,255,255,0.5);
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    animation: bounce 2.5s infinite;
-  }
-
-  .hero-scroll svg { width: 20px; opacity: 0.6; }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-  }
-
-  /* ─── SECTION SHARED ─── */
-  section { padding: 7rem 2rem; }
-
-  .section-inner { max-width: 1180px; margin: 0 auto; }
-
-  .section-tag {
-    display: inline-block;
-    font-family: "Lato", sans-serif;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 700;
-    color: var(--charcoal);
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-  }
-
-  .section-title em { font-style: italic; color: var(--burgundy); }
-
-  .section-divider {
-    width: 60px; height: 2px;
-    background: linear-gradient(90deg, var(--gold), transparent);
-    margin: 1.2rem 0 1.8rem;
-  }
-
-  .section-divider.centered { margin: 1.2rem auto 1.8rem; }
-
-  /* ─── ABOUT ─── */
-  #about { background: var(--white); }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about-image-wrap {
-    position: relative;
-  }
-
-  .about-img-frame {
-    position: relative;
-    overflow: hidden;
-    border-radius: 3px;
-    aspect-ratio: 4/5;
-  }
-
-  .about-img-frame::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, transparent 50%, rgba(10,5,0,0.55) 100%);
-    pointer-events: none;
-  }
-
-  .about-img-frame img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.8s ease;
-  }
-
-  .about-img-frame:hover img { transform: scale(1.04); }
-
-  .about-accent-box {
-    position: absolute;
-    bottom: -1.5rem;
-    right: -1.5rem;
-    width: 120px; height: 120px;
-    background: var(--burgundy);
-    z-index: -1;
-    border-radius: 2px;
-  }
-
-  .about-accent-top {
-    position: absolute;
-    top: -1rem;
-    left: -1rem;
-    width: 70px; height: 70px;
-    border: 2px solid var(--gold);
-    opacity: 0.5;
-    z-index: -1;
-    border-radius: 2px;
-  }
-
-  .about-text { }
-
-  .about-lead {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(1.3rem, 2vw, 1.65rem);
-    font-weight: 400;
-    color: var(--charcoal);
-    line-height: 1.55;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .about-body {
-    font-size: 1rem;
-    line-height: 1.85;
-    color: var(--warm-gray);
-    margin-bottom: 2rem;
-  }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(0,0,0,0.08);
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.08);
   }
 
   .stat {
@@ -513,737 +321,853 @@
 
   .stat-number {
     font-family: "Playfair Display", serif;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: var(--burgundy);
+    color: var(--red);
     line-height: 1;
-    margin-bottom: 0.3rem;
+    display: block;
   }
 
   .stat-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .scroll-indicator svg { color: var(--red); }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 20px; }
+
+  .section-label {
+    display: inline-block;
+    color: var(--red);
     font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--warm-gray);
+    margin-bottom: 12px;
   }
 
-  /* ─── MENU ─── */
-  #menu {
-    background: linear-gradient(135deg, #1A0A0F 0%, #0F1308 60%, #1A0A0F 100%);
-    position: relative;
-    overflow: hidden;
+  .section-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
   }
 
-  #menu::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(107, 26, 42, 0.2) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(74, 92, 42, 0.15) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  #menu .section-title { color: var(--white); }
-  #menu .section-tag { color: var(--gold); }
-
-  .menu-header { text-align: center; margin-bottom: 4rem; }
-
-  .menu-header .section-divider {
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    width: 100px;
-    margin: 1.2rem auto 1.8rem;
-  }
-
-  .menu-subtitle {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.15rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 300;
-    letter-spacing: 0.03em;
+  .section-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
     max-width: 500px;
+  }
+
+  .container {
+    max-width: 1100px;
     margin: 0 auto;
   }
 
+  /* QUICK INFO BAR */
+  .info-bar {
+    background: var(--charcoal2);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 0;
+  }
+
+  .info-bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 24px;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    flex: 1;
+    min-width: 180px;
+    justify-content: center;
+  }
+
+  .info-item:last-child { border-right: none; }
+
+  .info-item svg { color: var(--red); flex-shrink: 0; }
+
+  .info-item strong {
+    color: var(--white);
+    display: block;
+    font-size: 0.85rem;
+  }
+
+  /* FOOD GALLERY */
+  .gallery-section { background: var(--charcoal); }
+
+  .gallery-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .food-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .food-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    group: true;
+  }
+
+  .food-card.large {
+    grid-column: span 2;
+    aspect-ratio: 16/7;
+  }
+
+  .food-card:not(.large) { aspect-ratio: 4/3; }
+
+  .food-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    filter: brightness(0.85);
+  }
+
+  .food-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(1);
+  }
+
+  .food-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .food-card:hover .food-card-overlay { opacity: 1; }
+
+  .food-card-name {
+    font-family: "Playfair Display", serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  /* MENU HIGHLIGHTS */
+  .menu-section { background: var(--black); }
+
   .menu-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 48px;
   }
 
   .menu-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 4px;
+    background: var(--charcoal);
+    border-radius: 10px;
     overflow: hidden;
-    transition: all 0.4s ease;
-    position: relative;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s ease;
   }
 
-  .menu-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
+  .menu-card:hover {
+    border-color: rgba(230,51,41,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   }
-
-  .menu-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.35); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-  .menu-card:hover::before { opacity: 1; }
 
   .menu-card-img {
     width: 100%;
-    aspect-ratio: 4/3;
+    height: 200px;
     object-fit: cover;
     display: block;
-    filter: brightness(0.88) saturate(1.1);
-    transition: filter 0.4s ease, transform 0.6s ease;
+    filter: brightness(0.9);
+    transition: filter 0.3s;
   }
 
-  .menu-card:hover .menu-card-img { filter: brightness(1) saturate(1.15); transform: scale(1.03); }
+  .menu-card:hover .menu-card-img { filter: brightness(1.05); }
 
-  .menu-card-img-wrap {
-    overflow: hidden;
-    position: relative;
+  .menu-card-body {
+    padding: 20px;
   }
 
-  .menu-card-img-wrap::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);
-    pointer-events: none;
-  }
-
-  .menu-card-body { padding: 2rem; }
-
-  .menu-card-number {
-    font-family: "Playfair Display", serif;
-    font-size: 3rem;
+  .menu-tag {
+    font-size: 0.65rem;
     font-weight: 700;
-    color: rgba(201,168,76,0.12);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-    font-style: italic;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
   }
 
   .menu-card-title {
     font-family: "Playfair Display", serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 0.8rem;
-    line-height: 1.3;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 8px;
   }
 
   .menu-card-desc {
-    font-size: 0.88rem;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 1.5rem;
-  }
-
-  .menu-card-tag {
-    display: inline-block;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(201,168,76,0.4);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-  }
-
-  .menu-cta-wrap { text-align: center; margin-top: 3.5rem; }
-
-  .btn-gold-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: "Lato", sans-serif;
     font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    background: transparent;
-    padding: 1rem 2.5rem;
-    border: 2px solid rgba(201,168,76,0.6);
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.35s ease;
-    border-radius: 2px;
-  }
-
-  .btn-gold-outline:hover {
-    background: var(--gold);
-    color: var(--charcoal);
-    border-color: var(--gold);
-  }
-
-  /* ─── REVIEWS ─── */
-  #reviews { background: var(--cream); }
-
-  .reviews-header { text-align: center; margin-bottom: 4rem; }
-
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 4rem;
-  }
-
-  .review-card {
-    background: var(--white);
-    border-radius: 4px;
-    padding: 2.5rem;
-    border: 1px solid rgba(0,0,0,0.06);
-    position: relative;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  }
-
-  .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
-
-  .review-quote-icon {
-    font-family: "Playfair Display", serif;
-    font-size: 4.5rem;
-    color: var(--burgundy);
-    opacity: 0.15;
-    line-height: 0.8;
-    margin-bottom: 0.8rem;
-    display: block;
-  }
-
-  .review-stars {
-    display: flex;
-    gap: 3px;
-    margin-bottom: 1.2rem;
-  }
-
-  .review-stars span {
-    color: var(--gold);
-    font-size: 1rem;
-  }
-
-  .review-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.1rem;
-    font-style: italic;
+    color: var(--text-muted);
     line-height: 1.7;
-    color: var(--charcoal);
-    margin-bottom: 1.5rem;
+    margin-bottom: 16px;
   }
 
-  .review-author {
-    display: flex;
+  .menu-card-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* ABOUT */
+  .about-section { background: var(--charcoal); }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
     align-items: center;
-    gap: 0.8rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid rgba(0,0,0,0.07);
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
-  .review-avatar {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: var(--burgundy);
+  .about-image-wrap {
+    position: relative;
+  }
+
+  .about-image-wrap img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    filter: brightness(0.9);
+  }
+
+  .about-image-wrap::after {
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: -16px;
+    bottom: -16px;
+    border: 2px solid rgba(230,51,41,0.3);
+    border-radius: 10px;
+    z-index: -1;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .about-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .about-feature-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(230,51,41,0.12);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Playfair Display", serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--white);
     flex-shrink: 0;
+    color: var(--red);
   }
 
-  .review-name {
-    font-weight: 700;
-    font-size: 0.88rem;
-    color: var(--charcoal);
+  .about-feature-text { font-size: 0.8rem; color: var(--text-muted); }
+  .about-feature-text strong { display: block; color: var(--white); font-size: 0.85rem; margin-bottom: 2px; }
+
+  /* REVIEWS */
+  .reviews-section { background: var(--black); }
+
+  .reviews-header { text-align: center; margin-bottom: 48px; }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+    color: var(--gold);
+    font-size: 1rem;
+    margin-bottom: 8px;
   }
 
-  .review-date {
-    font-size: 0.75rem;
-    color: var(--warm-gray);
-    margin-top: 0.15rem;
-  }
-
-  .review-badge {
-    position: absolute;
-    top: 1.5rem; right: 1.5rem;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--olive);
-    background: rgba(74,92,42,0.1);
-    padding: 0.25rem 0.6rem;
-    border-radius: 20px;
-    border: 1px solid rgba(74,92,42,0.25);
-  }
-
-  .rating-banner {
-    background: var(--burgundy);
-    border-radius: 4px;
-    padding: 3rem;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+  .overall-rating {
+    display: flex;
     align-items: center;
-    gap: 3rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .rating-banner::before {
-    content: "";
-    position: absolute;
-    top: -50%; right: -10%;
-    width: 400px; height: 400px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.04);
-    pointer-events: none;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 12px;
   }
 
   .rating-big {
     font-family: "Playfair Display", serif;
-    font-size: 5.5rem;
+    font-size: 4rem;
     font-weight: 700;
     color: var(--white);
     line-height: 1;
-    font-style: italic;
   }
 
-  .rating-detail { }
+  .rating-detail { text-align: left; }
+  .rating-detail .stars { justify-content: flex-start; }
+  .rating-count { font-size: 0.8rem; color: var(--text-muted); }
 
-  .rating-stars {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 0.8rem;
-  }
-
-  .rating-stars span { color: var(--gold); font-size: 1.3rem; }
-
-  .rating-label {
-    font-family: "Playfair Display", serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 0.4rem;
-  }
-
-  .rating-sub {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.5;
-  }
-
-  .rating-cta a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: "Lato", sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--burgundy);
-    background: var(--gold);
-    padding: 1rem 2rem;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .rating-cta a:hover { background: var(--white); }
-
-  /* ─── RESERVE / CONTACT ─── */
-  #contact {
-    background: var(--white);
-    position: relative;
-    overflow: hidden;
-  }
-
-  #contact::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 50%; height: 100%;
-    background: url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80") center/cover no-repeat;
-    opacity: 0.08;
-    pointer-events: none;
-  }
-
-  .contact-grid {
+  .reviews-grid {
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 5rem;
-    align-items: start;
-    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
-  .contact-info { }
+  .review-card {
+    background: var(--charcoal);
+    border-radius: 10px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: border-color 0.3s;
+  }
 
-  .contact-info-item {
+  .review-card:hover { border-color: rgba(212,168,67,0.3); }
+
+  .reviewer {
     display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    margin-bottom: 2rem;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
-  .contact-icon {
-    width: 44px; height: 44px;
-    border-radius: 2px;
-    background: var(--burgundy);
+  .reviewer-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(230,51,41,0.3);
+    background: var(--dark);
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--red);
     flex-shrink: 0;
   }
 
-  .contact-icon svg { width: 18px; fill: var(--white); }
+  .reviewer-name { font-weight: 700; font-size: 0.9rem; }
+  .reviewer-meta { font-size: 0.72rem; color: var(--text-muted); }
 
-  .contact-info-text h4 {
-    font-family: "Lato", sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    margin-bottom: 0.3rem;
+  .review-text {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    font-style: italic;
   }
 
-  .contact-info-text p, .contact-info-text a {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.1rem;
-    color: var(--charcoal);
-    text-decoration: none;
-    line-height: 1.5;
-    transition: color 0.3s;
-  }
+  .review-text::before { content: "\201C"; }
+  .review-text::after { content: "\201D"; }
 
-  .contact-info-text a:hover { color: var(--burgundy); }
+  /* HOURS & LOCATION */
+  .location-section { background: var(--charcoal); }
 
-  .contact-form {
-    background: var(--cream);
-    border-radius: 4px;
-    padding: 3rem;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 8px 40px rgba(0,0,0,0.07);
-  }
-
-  .form-row {
+  .location-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
   }
 
-  .form-group {
-    margin-bottom: 1.4rem;
+  .hours-table { width: 100%; margin-top: 24px; }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.85rem;
   }
+
+  .hours-row:last-child { border-bottom: none; }
+
+  .hours-day { color: var(--text-muted); }
+
+  .hours-time {
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .hours-time.today { color: var(--red); }
+
+  .today-badge {
+    font-size: 0.6rem;
+    background: rgba(230,51,41,0.15);
+    border: 1px solid rgba(230,51,41,0.3);
+    color: var(--red);
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 8px;
+  }
+
+  .map-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    height: 300px;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  .map-wrap:hover { border-color: rgba(230,51,41,0.4); }
+
+  .map-placeholder-icon { color: var(--red); }
+
+  .map-address { font-size: 0.85rem; color: var(--text-muted); text-align: center; line-height: 1.6; }
+
+  .contact-grid {
+    display: grid;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--dark);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .contact-item:hover {
+    background: rgba(230,51,41,0.1);
+    border-color: rgba(230,51,41,0.2);
+    color: var(--white);
+  }
+
+  .contact-item svg { color: var(--red); flex-shrink: 0; }
+
+  /* CTA STRIP */
+  .cta-strip {
+    background: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 50%, var(--orange) 100%);
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .cta-strip h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    margin-bottom: 12px;
+  }
+
+  .cta-strip p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 32px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-white {
+    background: var(--white);
+    color: var(--red-dark);
+    border: none;
+  }
+
+  .btn-white:hover {
+    background: var(--light-gray);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+
+  .btn-transparent {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.6);
+  }
+
+  .btn-transparent:hover {
+    border-color: var(--white);
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 48px 20px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand-name {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .footer-brand-name span { color: var(--red); }
+
+  .footer-brand-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 280px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    background: var(--charcoal);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.85rem;
+  }
+
+  .social-link:hover {
+    background: var(--red);
+    color: var(--white);
+    border-color: var(--red);
+  }
+
+  .footer-col h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--red); }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .footer-bottom a { color: var(--red); text-decoration: none; }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--charcoal);
+    border-radius: 12px;
+    padding: 36px;
+    max-width: 480px;
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    animation: modalIn 0.3s ease;
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .modal-close:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+
+  .modal h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .modal-subtitle { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 28px; }
+
+  .form-group { margin-bottom: 16px; }
 
   .form-group label {
     display: block;
-    font-family: "Lato", sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
-    color: var(--warm-gray);
-    margin-bottom: 0.55rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
   }
 
   .form-group input,
   .form-group select,
   .form-group textarea {
     width: 100%;
-    padding: 0.85rem 1rem;
-    background: var(--white);
-    border: 1px solid rgba(0,0,0,0.12);
-    border-radius: 2px;
-    font-family: "Lato", sans-serif;
+    background: var(--dark);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 12px 14px;
+    color: var(--white);
+    font-family: "Montserrat", sans-serif;
     font-size: 0.9rem;
-    color: var(--charcoal);
-    transition: all 0.3s ease;
+    transition: border-color 0.2s;
     outline: none;
-    appearance: none;
-  }
-
-  .form-group select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6057' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    padding-right: 2.5rem;
-    cursor: pointer;
   }
 
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus {
-    border-color: var(--burgundy);
-    box-shadow: 0 0 0 3px rgba(107,26,42,0.08);
+    border-color: var(--red);
   }
 
-  .form-group input::placeholder,
-  .form-group textarea::placeholder { color: rgba(107,96,87,0.45); }
+  .form-group select option { background: var(--dark); }
+  .form-group textarea { height: 80px; resize: vertical; }
 
-  .form-group textarea { height: 100px; resize: vertical; }
-
-  .btn-submit {
-    width: 100%;
-    padding: 1.1rem 2rem;
-    background: var(--burgundy);
-    color: var(--white);
-    border: none;
-    font-family: "Lato", sans-serif;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.35s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-submit::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--burgundy-dark);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.35s ease;
-  }
-
-  .btn-submit span { position: relative; z-index: 1; }
-  .btn-submit:hover::before { transform: scaleX(1); transform-origin: left; }
-
-  .form-success {
-    display: none;
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .form-success.show { display: block; }
-
-  .form-success-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-success h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 1.6rem;
-    color: var(--charcoal);
-    margin-bottom: 0.5rem;
-  }
-
-  .form-success p { color: var(--warm-gray); }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--charcoal);
-    color: rgba(255,255,255,0.7);
-    padding: 5rem 2rem 2rem;
-  }
-
-  .footer-grid {
-    max-width: 1180px;
-    margin: 0 auto;
+  .form-row {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
-  .footer-brand { }
-
-  .footer-logo {
-    font-family: "Playfair Display", serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.3rem;
+  /* TOAST */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--charcoal2);
+    border: 1px solid rgba(230,51,41,0.3);
+    color: var(--white);
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 3000;
+    transition: transform 0.4s ease;
+    white-space: nowrap;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   }
 
-  .footer-logo-sub {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 1.2rem;
-  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast .toast-icon { color: var(--red); margin-right: 8px; }
 
-  .footer-tagline {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1rem;
-    font-style: italic;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  .footer-social {
+  /* PHONE FLOAT */
+  .phone-float {
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    z-index: 999;
     display: flex;
-    gap: 0.8rem;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
   }
 
-  .footer-social a {
-    width: 38px; height: 38px;
-    border-radius: 2px;
-    border: 1px solid rgba(255,255,255,0.15);
+  .phone-btn {
+    width: 52px;
+    height: 52px;
+    background: var(--red);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    color: var(--white);
     text-decoration: none;
+    box-shadow: 0 4px 20px rgba(230,51,41,0.5);
+    transition: all 0.2s;
+    animation: phoneFloat 3s ease-in-out infinite;
   }
 
-  .footer-social a:hover { background: var(--gold); border-color: var(--gold); }
-  .footer-social a:hover svg { fill: var(--charcoal); }
-  .footer-social svg { width: 16px; fill: rgba(255,255,255,0.6); transition: fill 0.3s; }
-
-  .footer-col h5 {
-    font-family: "Lato", sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.3rem;
+  .phone-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(230,51,41,0.7);
   }
 
-  .footer-col ul { list-style: none; }
-
-  .footer-col ul li {
-    margin-bottom: 0.7rem;
+  @keyframes phoneFloat {
+    0%, 100% { box-shadow: 0 4px 20px rgba(230,51,41,0.5); }
+    50% { box-shadow: 0 4px 30px rgba(230,51,41,0.8); }
   }
 
-  .footer-col ul li a {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.55);
-    text-decoration: none;
-    transition: color 0.3s;
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-actions .btn { display: none; }
+    .nav-actions .btn:last-child { display: inline-flex; }
+    .hamburger { display: flex; }
+
+    .food-grid { grid-template-columns: 1fr; }
+    .food-card.large { grid-column: span 1; aspect-ratio: 16/9; }
+
+    .about-inner { grid-template-columns: 1fr; }
+    .about-image-wrap::after { display: none; }
+    .about-features { grid-template-columns: 1fr; }
+
+    .location-inner { grid-template-columns: 1fr; }
+
+    .footer-top { grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    .reviews-grid { grid-template-columns: 1fr; }
+
+    .hero-stats { gap: 24px; }
+
+    .info-item { min-width: 150px; }
   }
 
-  .footer-col ul li a:hover { color: var(--white); }
-
-  .footer-hours-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.83rem;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
+  @media (max-width: 480px) {
+    nav { padding: 0 16px; }
+    .nav-logo { font-size: 1.1rem; }
+    .btn.btn-primary { padding: 9px 16px; font-size: 0.75rem; }
+    section { padding: 60px 16px; }
+    .modal { padding: 24px 20px; }
+    .info-bar-inner { flex-direction: column; }
+    .info-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
   }
 
-  .footer-hours-row span:first-child { color: rgba(255,255,255,0.75); font-weight: 600; }
-
-  .footer-contact-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    margin-bottom: 0.8rem;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.5;
-  }
-
-  .footer-contact-row svg { width: 14px; fill: var(--gold); flex-shrink: 0; margin-top: 3px; }
-
-  .footer-contact-row a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.3s; }
-  .footer-contact-row a:hover { color: var(--white); }
-
-  .footer-bottom {
-    max-width: 1180px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-copyright {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.35);
-  }
-
-  .footer-legal {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .footer-legal a {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.35);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .footer-legal a:hover { color: rgba(255,255,255,0.7); }
-
-  /* ─── FLOATING CTA ─── */
-  .floating-cta {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 500;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    align-items: flex-end;
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-    transition: all 0.4s ease;
-  }
-
-  .floating-cta.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: all;
-  }
-
-  .floating-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.75rem 1.2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-family: "Lato", sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    transition: all 0.3s ease;
-    white-space: nowrap;
-  }
-
-  .floating-btn-call { background: var(--olive); color: var(--white); }
-  .floating-btn-reserve { background: var(--burgundy); color: var(--white); }
-
-  .floating-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
-
-  .floating-btn svg { width: 16px; fill: var(--white); }
-
-  /* ─── ANIMATIONS ─── */
+  /* ANIMATIONS */
   .fade-up {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
   .fade-up.visible {
@@ -1255,552 +1179,682 @@
   .fade-up-delay-2 { transition-delay: 0.2s; }
   .fade-up-delay-3 { transition-delay: 0.3s; }
   .fade-up-delay-4 { transition-delay: 0.4s; }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 1024px) {
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .about-image-wrap { max-width: 500px; margin: 0 auto; }
-    .about-accent-box { display: none; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .rating-banner { grid-template-columns: auto 1fr; }
-    .rating-cta { display: none; }
-  }
-
-  @media (max-width: 768px) {
-    nav { padding: 0 1.2rem; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    section { padding: 5rem 1.2rem; }
-    .menu-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-    .reviews-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto 3rem; }
-    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .contact-form { padding: 2rem; }
-    .form-row { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-    .rating-banner { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
-    .rating-stars { justify-content: center; }
-    .about-stats { grid-template-columns: repeat(3, 1fr); }
-    .hero-ctas { flex-direction: column; align-items: center; }
-    .floating-btn span { display: none; }
-    .floating-btn { padding: 0.9rem; border-radius: 50%; }
-    .floating-btn svg { margin: 0; }
-  }
-
-  @media (max-width: 480px) {
-    .section-title { font-size: 1.8rem; }
-    .about-stats { grid-template-columns: 1fr; text-align: left; }
-    .stat { text-align: left; display: flex; gap: 1rem; align-items: center; }
-    .stat-number { font-size: 1.8rem; margin-bottom: 0; }
-  }
 </style>
 </head>
 <body>
 
-<!-- ─── NAVBAR ─── -->
-<nav id="navbar">
-  <a class="nav-logo" href="#hero" style="text-decoration:none;">
-    <span class="nav-logo-main">Remezzo</span>
-    <span class="nav-logo-sub">Italian Bistro</span>
-  </a>
+<!-- NAVIGATION -->
+<nav id="mainNav">
+  <a href="#home" class="nav-logo">Turtle <span>Jack's</span></a>
   <ul class="nav-links">
-    <li><a href="#about">Our Story</a></li>
     <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact">Reserve</a></li>
-    <li><a href="tel:4162990011" class="nav-phone">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      416-299-0011
-    </a></li>
+    <li><a href="#location">Location</a></li>
   </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+  <div class="nav-actions">
+    <a href="tel:4162131111" class="btn btn-outline">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Call Us
+    </a>
+    <button class="btn btn-primary" onclick="openModal('reservation')">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Reserve
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="toggleMenu()">Our Story</a>
-  <a href="#menu" onclick="toggleMenu()">Menu</a>
-  <a href="#reviews" onclick="toggleMenu()">Reviews</a>
-  <a href="#contact" onclick="toggleMenu()">Reserve a Table</a>
-  <a href="tel:4162990011" style="color: #C9A84C !important;">&#9990; 416-299-0011</a>
+  <a href="#menu" onclick="toggleMobileMenu()">Menu</a>
+  <a href="#about" onclick="toggleMobileMenu()">About</a>
+  <a href="#reviews" onclick="toggleMobileMenu()">Reviews</a>
+  <a href="#location" onclick="toggleMobileMenu()">Location</a>
+  <a href="tel:4162131111">&#128222; 416-213-1111</a>
+  <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="openModal('reservation');toggleMobileMenu()">Reserve a Table</button>
 </div>
 
-<!-- ─── HERO ─── -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-vignette"></div>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-image-overlay"></div>
+  </div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Scarborough, Toronto &mdash; Since 2004</span>
-    <h1 class="hero-title">Savor Authentic<br><em>Italian Traditions</em></h1>
-    <p class="hero-subtitle">
-      Experience timeless Italian hospitality in the heart of Scarborough &mdash; where every dish tells a story of passion, heritage, and the finest ingredients.
-    </p>
-    <div class="hero-ctas">
-      <a href="#contact" class="btn-primary"><span>&#x2665; Reserve a Table</span></a>
-      <a href="tel:4162990011" class="btn-outline">&#9990; 416-299-0011</a>
+    <div class="hero-badge">Now Open in Etobicoke</div>
+    <h1>Turtle <span>Jack's</span></h1>
+    <p class="hero-sub">Casual Dining &amp; Bar &mdash; Etobicoke, Toronto</p>
+    <p class="hero-desc">Where great food meets great company. Bold flavors, cold drinks, and a vibe that keeps you coming back.</p>
+    <div class="hero-buttons">
+      <button class="btn btn-primary btn-large" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        View Menu
+      </button>
+      <button class="btn btn-gold btn-large" onclick="openModal('reservation')">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Reserve Table
+      </button>
+      <a href="tel:4162131111" class="btn btn-outline btn-large">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        416-213-1111
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">4.5★</span>
+        <span class="stat-label">Google Rating</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Happy Guests</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">15+</span>
+        <span class="stat-label">Craft Drinks</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">Daily</span>
+        <span class="stat-label">Kitchen Open</span>
+      </div>
     </div>
   </div>
-  <div class="hero-scroll">
-    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  <div class="scroll-indicator" onclick="document.getElementById('infobar').scrollIntoView({behavior:'smooth'})">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     Scroll
   </div>
 </section>
 
-<!-- ─── ABOUT ─── -->
-<section id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-image-wrap fade-up">
-        <div class="about-img-frame">
-          <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800&q=80" alt="Remezzo Italian Bistro interior and authentic Italian dining atmosphere" loading="lazy">
-        </div>
-        <div class="about-accent-box"></div>
-        <div class="about-accent-top"></div>
+<!-- INFO BAR -->
+<div class="info-bar" id="infobar">
+  <div class="info-bar-inner">
+    <div class="info-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div>
+        <strong>Etobicoke, Toronto ON</strong>
+        Get Directions
       </div>
-      <div class="about-text fade-up fade-up-delay-2">
-        <span class="section-tag">&#9674; Our Story</span>
-        <h2 class="section-title">A Family Tradition of <em>True Italian</em> Craft</h2>
-        <div class="section-divider"></div>
-        <p class="about-lead">
-          "Rooted in the soul of Italy, crafted with the heart of Scarborough."
-        </p>
-        <p class="about-body">
-          At Remezzo Italian Bistro, we are passionately devoted to honoring the time-honored recipes of traditional Italian cooking, bringing together the freshest local ingredients and the warmth of an authentic family-friendly dining experience under one welcoming roof. Every plate that leaves our kitchen carries the unmistakable love of generations of Italian culinary heritage &mdash; crafted to nourish the body, delight the palate, and create memories that last a lifetime.
-        </p>
-        <p class="about-body">
-          From hand-rolled pastas to stone-oven pizzas and curated wines, we invite you to gather, celebrate, and truly taste the difference that genuine passion makes. Benvenuti &mdash; welcome to the family.
-        </p>
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-number">20+</div>
-            <div class="stat-label">Years Serving</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">4.9</div>
-            <div class="stat-label">Guest Rating</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Fresh Daily</div>
-          </div>
-        </div>
+    </div>
+    <div class="info-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <div>
+        <strong>416-213-1111</strong>
+        Call for Reservations
       </div>
+    </div>
+    <div class="info-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div>
+        <strong>Daily Hours</strong>
+        Hours Vary by Day
+      </div>
+    </div>
+    <div class="info-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      <div>
+        <strong>Casual Dining &amp; Bar</strong>
+        Dine In &amp; Drinks
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOD GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header fade-up">
+    <span class="section-label">Fresh &amp; Flavorful</span>
+    <h2 class="section-title">Crafted with Passion</h2>
+  </div>
+  <div class="food-grid container">
+    <div class="food-card large fade-up">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80&auto=format&fit=crop" alt="Restaurant ambiance" loading="lazy">
+      <div class="food-card-overlay"><span class="food-card-name">The Full Experience</span></div>
+    </div>
+    <div class="food-card fade-up fade-up-delay-1">
+      <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=80&auto=format&fit=crop" alt="Juicy burger" loading="lazy">
+      <div class="food-card-overlay"><span class="food-card-name">Signature Burgers</span></div>
+    </div>
+    <div class="food-card fade-up fade-up-delay-2">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80&auto=format&fit=crop" alt="Pizza" loading="lazy">
+      <div class="food-card-overlay"><span class="food-card-name">Stone-Baked Flatbreads</span></div>
+    </div>
+    <div class="food-card fade-up fade-up-delay-3">
+      <img src="https://images.unsplash.com/photo-1546039907-7fa05f864c02?w=700&q=80&auto=format&fit=crop" alt="Cocktails" loading="lazy">
+      <div class="food-card-overlay"><span class="food-card-name">Craft Cocktails</span></div>
+    </div>
+    <div class="food-card fade-up fade-up-delay-4">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=80&auto=format&fit=crop" alt="Food platter" loading="lazy">
+      <div class="food-card-overlay"><span class="food-card-name">Shareable Platters</span></div>
     </div>
   </div>
 </section>
 
-<!-- ─── MENU ─── -->
-<section id="menu">
-  <div class="section-inner">
-    <div class="menu-header fade-up">
-      <span class="section-tag">&#9674; Signature Offerings</span>
-      <h2 class="section-title" style="color:var(--white);">A Menu Crafted with <em style="color:var(--gold-light);">Soul</em></h2>
-      <div class="section-divider" style="background: linear-gradient(90deg, transparent, var(--gold), transparent); width:100px; margin: 1.2rem auto 1.8rem;"></div>
-      <p class="menu-subtitle">Each dish is a love letter to Italy, prepared with seasonal ingredients and the finest artisanal techniques.</p>
+<!-- MENU HIGHLIGHTS -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <div class="fade-up" style="margin-bottom:0">
+      <span class="section-label">What We Serve</span>
+      <h2 class="section-title">Fan Favourites</h2>
+      <p class="section-desc">Bold flavors, fresh ingredients, and comfort food done right. There is something for everyone.</p>
     </div>
     <div class="menu-grid">
       <div class="menu-card fade-up fade-up-delay-1">
-        <div class="menu-card-img-wrap">
-          <img class="menu-card-img" src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=600&q=80" alt="Artisanal fresh pasta dishes at Remezzo" loading="lazy">
-        </div>
+        <img class="menu-card-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80&auto=format&fit=crop" alt="Signature Burger" loading="lazy">
         <div class="menu-card-body">
-          <div class="menu-card-number">01</div>
-          <h3 class="menu-card-title">Artisanal Pastas</h3>
-          <p class="menu-card-desc">Lovingly crafted fresh each morning in our kitchen, our hand-rolled pastas feature time-honored recipes &mdash; from silky tagliatelle al ragu to pillowy gnocchi in housemade sauces bursting with Italian flavor.</p>
-          <span class="menu-card-tag">Handmade Daily</span>
+          <div class="menu-tag">&#128293; Most Popular</div>
+          <div class="menu-card-title">The Turtle Burger</div>
+          <div class="menu-card-desc">Double smash patty, aged cheddar, house sauce, crispy onions on a brioche bun. Served with seasoned fries.</div>
+          <div class="menu-card-price">$18.99</div>
         </div>
       </div>
       <div class="menu-card fade-up fade-up-delay-2">
-        <div class="menu-card-img-wrap">
-          <img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80" alt="Stone oven pizza at Remezzo Italian Bistro" loading="lazy">
-        </div>
+        <img class="menu-card-img" src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=80&auto=format&fit=crop" alt="Chicken Wings" loading="lazy">
         <div class="menu-card-body">
-          <div class="menu-card-number">02</div>
-          <h3 class="menu-card-title">Stone-Oven Pizzas</h3>
-          <p class="menu-card-desc">Fired in our authentic wood-burning stone oven, our pizzas arrive with classic Neapolitan toppings &mdash; San Marzano tomatoes, hand-stretched dough, fresh buffalo mozzarella, and a perfectly blistered cornicione.</p>
-          <span class="menu-card-tag">Wood-Fired Perfection</span>
+          <div class="menu-tag">&#127857; Bar Classic</div>
+          <div class="menu-card-title">Crispy Wings</div>
+          <div class="menu-card-desc">1 lb of fresh wings tossed in your choice of sauce: Honey Garlic, Buffalo, BBQ, or Dry Rub. With celery and dip.</div>
+          <div class="menu-card-price">$16.99</div>
         </div>
       </div>
       <div class="menu-card fade-up fade-up-delay-3">
-        <div class="menu-card-img-wrap">
-          <img class="menu-card-img" src="https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80" alt="Premium Italian wine selection at Remezzo" loading="lazy">
-        </div>
+        <img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80&auto=format&fit=crop" alt="Flatbread" loading="lazy">
         <div class="menu-card-body">
-          <div class="menu-card-number">03</div>
-          <h3 class="menu-card-title">Premium Wines</h3>
-          <p class="menu-card-desc">Our sommelier-curated wine list features distinguished Italian varietals &mdash; bold Barolos, elegant Brunellos, and crisp Pinot Grigios &mdash; each thoughtfully selected to complement and elevate every dish on our menu.</p>
-          <span class="menu-card-tag">Curated Selection</span>
+          <div class="menu-tag">&#127829; Chef Special</div>
+          <div class="menu-card-title">Loaded Flatbread</div>
+          <div class="menu-card-desc">Stone-baked flatbread with roasted garlic aioli, smoked chicken, red onion, peppers, and three-cheese blend.</div>
+          <div class="menu-card-price">$17.49</div>
+        </div>
+      </div>
+      <div class="menu-card fade-up fade-up-delay-1">
+        <img class="menu-card-img" src="https://images.unsplash.com/photo-1546039907-7fa05f864c02?w=600&q=80&auto=format&fit=crop" alt="Cocktails" loading="lazy">
+        <div class="menu-card-body">
+          <div class="menu-tag">&#127864; Drinks Menu</div>
+          <div class="menu-card-title">Craft Cocktails</div>
+          <div class="menu-card-desc">From classics to house originals. Try our signature Turtle Sunset or choose from 15+ cocktails and local drafts.</div>
+          <div class="menu-card-price">From $10.99</div>
+        </div>
+      </div>
+      <div class="menu-card fade-up fade-up-delay-2">
+        <img class="menu-card-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80&auto=format&fit=crop" alt="Salad" loading="lazy">
+        <div class="menu-card-body">
+          <div class="menu-tag">&#127807; Fresh &amp; Light</div>
+          <div class="menu-card-title">House Harvest Salad</div>
+          <div class="menu-card-desc">Mixed greens, candied pecans, dried cranberries, goat cheese, and balsamic vinaigrette. Add grilled chicken for $4.</div>
+          <div class="menu-card-price">$14.49</div>
+        </div>
+      </div>
+      <div class="menu-card fade-up fade-up-delay-3">
+        <img class="menu-card-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80&auto=format&fit=crop" alt="Ribs" loading="lazy">
+        <div class="menu-card-body">
+          <div class="menu-tag">&#127830; Weekend Special</div>
+          <div class="menu-card-title">Slow-Smoked Ribs</div>
+          <div class="menu-card-desc">Fall-off-the-bone back ribs slow-smoked for 8 hours in our signature dry rub, finished with house BBQ glaze. Full rack.</div>
+          <div class="menu-card-price">$34.99</div>
         </div>
       </div>
     </div>
-    <div class="menu-cta-wrap fade-up">
-      <a href="#contact" class="btn-gold-outline">&#x2665; Book Your Table to Dine</a>
+    <div style="text-align:center;margin-top:36px">
+      <a href="https://www.turtlejacks.com/" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+        View Full Menu
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ─── REVIEWS ─── -->
-<section id="reviews">
-  <div class="section-inner">
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-image-wrap fade-up">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop" alt="Turtle Jacks restaurant interior" loading="lazy">
+    </div>
+    <div class="fade-up fade-up-delay-2">
+      <span class="section-label">Our Story</span>
+      <h2 class="section-title">More Than Just a Meal</h2>
+      <p class="section-desc">Turtle Jack's Etobicoke is your neighborhood spot for great food, cold drinks, and good times. Whether you are catching up with friends, celebrating a win, or just need a solid bite after work &mdash; we have got you.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div class="about-feature-text"><strong>Full Bar Service</strong>Craft cocktails, local draft beers, and wine</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="about-feature-text"><strong>Private Events</strong>Book the space for your next gathering</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="about-feature-text"><strong>Top Rated</strong>4.5 stars across Google and Yelp</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="about-feature-text"><strong>Open Daily</strong>Kitchen open every day for lunch and dinner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="container">
     <div class="reviews-header fade-up">
-      <span class="section-tag">&#9674; Guest Experiences</span>
-      <h2 class="section-title">What Our Guests <em>Are Saying</em></h2>
-      <div class="section-divider centered"></div>
+      <span class="section-label">What People Are Saying</span>
+      <div class="overall-rating">
+        <span class="rating-big">4.5</span>
+        <div class="rating-detail">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+          <div class="rating-count">Based on 200+ reviews</div>
+          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px">Google &bull; Yelp &bull; TripAdvisor</div>
+        </div>
+      </div>
     </div>
     <div class="reviews-grid">
       <div class="review-card fade-up fade-up-delay-1">
-        <span class="review-quote-icon">&ldquo;</span>
-        <span class="review-badge">Verified Guest</span>
-        <div class="review-stars">
-          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-        </div>
-        <p class="review-text">"The flavors here are absolutely exquisite &mdash; I have never tasted pasta this fresh and authentic outside of Italy itself. Remezzo is a true hidden gem in Scarborough. The ambiance is elegant yet warm, and the staff made us feel like family from the moment we walked in."</p>
-        <div class="review-author">
-          <div class="review-avatar">S</div>
+        <div class="reviewer">
+          <div class="reviewer-avatar">S</div>
           <div>
-            <div class="review-name">Sofia Marinelli</div>
-            <div class="review-date">October 2024 &mdash; Google Reviews</div>
+            <div class="reviewer-name">Sarah M.</div>
+            <div class="reviewer-meta">Etobicoke, Toronto &bull; Google Review</div>
           </div>
         </div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">Absolutely love this place. The wings are some of the best in the city and the staff always make you feel welcome. Our go-to spot for Friday nights without question!</p>
       </div>
       <div class="review-card fade-up fade-up-delay-2">
-        <span class="review-quote-icon">&ldquo;</span>
-        <span class="review-badge">Verified Guest</span>
-        <div class="review-stars">
-          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-        </div>
-        <p class="review-text">"Remezzo delivered an evening we will remember for years. The stone-oven pizza was divine, the wine pairing was spot-on, and the service was so attentive without ever being intrusive. This is exactly the upscale Italian dining experience Scarborough deserves &mdash; five stars without hesitation."</p>
-        <div class="review-author">
-          <div class="review-avatar">J</div>
+        <div class="reviewer">
+          <div class="reviewer-avatar">J</div>
           <div>
-            <div class="review-name">James Thornton</div>
-            <div class="review-date">September 2024 &mdash; TripAdvisor</div>
+            <div class="reviewer-name">James K.</div>
+            <div class="reviewer-meta">Toronto, ON &bull; Yelp Review</div>
           </div>
         </div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">Great atmosphere, great food, great drinks. The Turtle Burger is genuinely one of the best burgers I have had. And the craft cocktail menu is seriously impressive. Will keep coming back!</p>
       </div>
       <div class="review-card fade-up fade-up-delay-3">
-        <span class="review-quote-icon">&ldquo;</span>
-        <span class="review-badge">Verified Guest</span>
-        <div class="review-stars">
-          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-        </div>
-        <p class="review-text">"We celebrated our anniversary at Remezzo and it was perfect in every way. The elegant ambiance, the impeccable attention to detail, the deeply flavorful dishes &mdash; everything exceeded our expectations. The staff remembered our dietary preferences and went out of their way to make the evening truly special."</p>
-        <div class="review-author">
-          <div class="review-avatar">A</div>
+        <div class="reviewer">
+          <div class="reviewer-avatar">A</div>
           <div>
-            <div class="review-name">Anya Kowalski</div>
-            <div class="review-date">November 2024 &mdash; Yelp</div>
+            <div class="reviewer-name">Amanda T.</div>
+            <div class="reviewer-meta">Etobicoke &bull; Google Review</div>
           </div>
         </div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p class="review-text">We booked Turtle Jack's for a birthday dinner and it was perfect. The staff went above and beyond. Food was delicious and the vibe was exactly what we wanted. Highly recommended!</p>
       </div>
-    </div>
-    <div class="rating-banner fade-up">
-      <div class="rating-big">4.9</div>
-      <div class="rating-detail">
-        <div class="rating-stars">
-          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+      <div class="review-card fade-up fade-up-delay-1">
+        <div class="reviewer">
+          <div class="reviewer-avatar">M</div>
+          <div>
+            <div class="reviewer-name">Mike D.</div>
+            <div class="reviewer-meta">Toronto, ON &bull; TripAdvisor</div>
+          </div>
         </div>
-        <div class="rating-label">Exceptional Across Every Visit</div>
-        <div class="rating-sub">Based on 500+ guest reviews across Google, TripAdvisor, and Yelp &mdash; guests consistently praise our exquisite flavor, elegant ambiance, and truly attentive service.</div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">Best ribs I have had in Etobicoke. Slow smoked, fall off the bone, and that BBQ sauce is next level. Paired with a cold draft beer &mdash; life does not get much better. Already planning my next visit!</p>
       </div>
-      <div class="rating-cta">
-        <a href="#contact">Reserve Your Experience</a>
+      <div class="review-card fade-up fade-up-delay-2">
+        <div class="reviewer">
+          <div class="reviewer-avatar">R</div>
+          <div>
+            <div class="reviewer-name">Rachel B.</div>
+            <div class="reviewer-meta">Etobicoke &bull; Google Review</div>
+          </div>
+        </div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">Love that there is finally a great casual dining spot this close to home. The flatbread is incredible and the service is always fast and friendly. This place deserves more recognition!</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CONTACT / RESERVE ─── -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="contact-grid">
-      <div class="contact-info fade-up">
-        <span class="section-tag">&#9674; Reservations</span>
-        <h2 class="section-title">Reserve Your <em>Table</em></h2>
-        <div class="section-divider"></div>
-        <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--warm-gray); line-height:1.75; margin-bottom:2.5rem;">
-          We warmly invite you to join us for an unforgettable Italian dining experience. Whether you are celebrating a special occasion or simply craving authentic flavors, your table awaits.
-        </p>
-
-        <div class="contact-info-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <h4>Location</h4>
-            <p>Scarborough, Toronto<br>Ontario, Canada</p>
+      <div class="review-card fade-up fade-up-delay-3">
+        <div class="reviewer">
+          <div class="reviewer-avatar">D</div>
+          <div>
+            <div class="reviewer-name">David L.</div>
+            <div class="reviewer-meta">Toronto, ON &bull; Yelp Review</div>
           </div>
         </div>
-
-        <div class="contact-info-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <h4>Phone</h4>
-            <a href="tel:4162990011">416-299-0011</a>
-          </div>
-        </div>
-
-        <div class="contact-info-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <h4>Hours</h4>
-            <p>Mon&ndash;Thu: 11:00 AM &ndash; 10:00 PM<br>Fri&ndash;Sat: 11:00 AM &ndash; 11:30 PM<br>Sunday: 12:00 PM &ndash; 9:30 PM</p>
-          </div>
-        </div>
-
-        <div class="contact-info-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <h4>Email</h4>
-            <a href="mailto:info@remezzoristorante.ca">info@remezzoristorante.ca</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="fade-up fade-up-delay-2">
-        <div class="contact-form" id="contactForm">
-          <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--charcoal); margin-bottom:1.8rem;">Complete Your Reservation</h3>
-          <div id="formFields">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" placeholder="Your full name" required>
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="Your phone number" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" placeholder="Your email address" required>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="resDate">Reservation Date</label>
-                <input type="date" id="resDate" required>
-              </div>
-              <div class="form-group">
-                <label for="resTime">Preferred Time</label>
-                <input type="time" id="resTime" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="partySize">Party Size</label>
-              <select id="partySize" required>
-                <option value="" disabled selected>Select party size</option>
-                <option value="1">1 Guest</option>
-                <option value="2">2 Guests</option>
-                <option value="3">3 Guests</option>
-                <option value="4">4 Guests</option>
-                <option value="5">5 Guests</option>
-                <option value="6">6 Guests</option>
-                <option value="7-10">7&ndash;10 Guests</option>
-                <option value="10+">10+ Guests (Private Event)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="specialReq">Special Requests (Optional)</label>
-              <textarea id="specialReq" placeholder="Dietary needs, special occasions, seating preferences..."></textarea>
-            </div>
-            <button class="btn-submit" onclick="submitForm()"><span>&#x2665; Request My Table</span></button>
-          </div>
-          <div class="form-success" id="formSuccess">
-            <div class="form-success-icon">&#127869;</div>
-            <h3>Grazie &mdash; Thank You!</h3>
-            <p>Your reservation request has been received. We will confirm your table within 24 hours. We look forward to welcoming you to Remezzo Italian Bistro.</p>
-            <br>
-            <a href="tel:4162990011" style="display:inline-flex;align-items:center;gap:.4rem;font-family:'Lato',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);text-decoration:none;border:1px solid var(--burgundy);padding:.7rem 1.5rem;border-radius:2px;margin-top:.5rem;">&#9990; Call 416-299-0011</a>
-          </div>
-        </div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p class="review-text">Solid sports bar with excellent food. We watched the game here and the energy was electric. Good prices, fast service, and genuinely tasty food. Exactly what a local bar should be!</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
+<!-- HOURS & LOCATION -->
+<section class="location-section" id="location">
+  <div class="location-inner">
+    <div class="fade-up">
+      <span class="section-label">Find Us</span>
+      <h2 class="section-title">Hours &amp; Location</h2>
+      <table class="hours-table">
+        <tbody id="hoursTable"></tbody>
+      </table>
+      <div class="contact-grid" style="margin-top:28px">
+        <a href="tel:4162131111" class="contact-item">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span><strong style="display:block;color:#fff">416-213-1111</strong>Call to reserve or inquire</span>
+        </a>
+        <a href="https://www.turtlejacks.com/" target="_blank" rel="noopener" class="contact-item">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          <span><strong style="display:block;color:#fff">turtlejacks.com</strong>View online menu &amp; specials</span>
+        </a>
+      </div>
+    </div>
+    <div class="fade-up fade-up-delay-2">
+      <a href="https://www.google.com/maps/search/Turtle+Jacks+Etobicoke+Toronto" target="_blank" rel="noopener" class="map-wrap">
+        <svg class="map-placeholder-icon" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="map-address">
+          <strong style="color:#fff;font-size:1rem;display:block;margin-bottom:4px">Turtle Jack's Etobicoke</strong>
+          Etobicoke, Toronto, Ontario<br>
+          Click to open in Google Maps
+        </div>
+        <span class="btn btn-primary" style="pointer-events:none">Get Directions</span>
+      </a>
+      <div style="margin-top:24px;text-align:center">
+        <button class="btn btn-primary btn-large" style="width:100%" onclick="openModal('reservation')">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Reserve Your Table Now
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="container" style="text-align:center">
+    <h2>Ready for a Great Night Out?</h2>
+    <p>Join us for amazing food, cold drinks, and a vibe you will love. Tables fill up fast &mdash; reserve yours today.</p>
+    <div class="cta-buttons">
+      <button class="btn btn-white btn-large" onclick="openModal('reservation')">
+        Reserve a Table
+      </button>
+      <a href="tel:4162131111" class="btn btn-transparent btn-large">
+        Call 416-213-1111
+      </a>
+      <a href="https://www.turtlejacks.com/" target="_blank" rel="noopener" class="btn btn-transparent btn-large">
+        Full Menu &#8599;
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="footer-logo">Remezzo</div>
-      <div class="footer-logo-sub">Italian Bistro &mdash; Scarborough</div>
-      <p class="footer-tagline">"Where every meal is a journey to the heart of Italy &mdash; crafted with love, served with warmth."</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook" title="Follow us on Facebook">
-          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-        </a>
-        <a href="#" aria-label="Instagram" title="Follow us on Instagram">
-          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="white" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
-        </a>
-        <a href="#" aria-label="Twitter/X" title="Follow us on Twitter">
-          <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
-        </a>
-        <a href="#" aria-label="TripAdvisor" title="See us on TripAdvisor">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 4a2 2 0 110 4 2 2 0 010-4zm0 11c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"/></svg>
-        </a>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Turtle <span>Jack's</span></div>
+        <p class="footer-brand-desc">Your favourite casual dining and bar in Etobicoke. Great food, great drinks, and an atmosphere that keeps you coming back.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/turtlejacks" target="_blank" rel="noopener" class="social-link" title="Facebook">f</a>
+          <a href="https://www.instagram.com/turtlejacks" target="_blank" rel="noopener" class="social-link" title="Instagram">&#9313;</a>
+          <a href="https://twitter.com/turtlejacks" target="_blank" rel="noopener" class="social-link" title="Twitter">&#120143;</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="https://www.turtlejacks.com/" target="_blank" rel="noopener">Official Website</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:4162131111">416-213-1111</a></li>
+          <li><a href="https://www.turtlejacks.com/" target="_blank" rel="noopener">turtlejacks.com</a></li>
+          <li><a href="#location">Etobicoke, Toronto ON</a></li>
+          <li><a href="#" onclick="openModal('reservation');return false">Make Reservation</a></li>
+        </ul>
       </div>
     </div>
-
-    <div class="footer-col">
-      <h5>Navigate</h5>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">Our Story</a></li>
-        <li><a href="#menu">Menu &amp; Offerings</a></li>
-        <li><a href="#reviews">Guest Reviews</a></li>
-        <li><a href="#contact">Reserve a Table</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5>Hours of Operation</h5>
-      <div class="footer-hours-row"><span>Mon &ndash; Thu</span><span>11:00 AM &ndash; 10:00 PM</span></div>
-      <div class="footer-hours-row"><span>Friday</span><span>11:00 AM &ndash; 11:30 PM</span></div>
-      <div class="footer-hours-row"><span>Saturday</span><span>11:00 AM &ndash; 11:30 PM</span></div>
-      <div class="footer-hours-row"><span>Sunday</span><span>12:00 PM &ndash; 9:30 PM</span></div>
-      <div style="margin-top:1rem; padding-top:0.8rem; border-top:1px solid rgba(255,255,255,0.08);">
-        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(201,168,76,0.8); margin-bottom:0.4rem;">Hours may vary on holidays</div>
-        <div style="font-size:0.82rem; color:rgba(255,255,255,0.4);">Call ahead to confirm</div>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h5>Contact Us</h5>
-      <div class="footer-contact-row">
-        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
-        <span>Scarborough, Toronto<br>Ontario, Canada</span>
-      </div>
-      <div class="footer-contact-row">
-        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        <a href="tel:4162990011">416-299-0011</a>
-      </div>
-      <div class="footer-contact-row">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        <a href="mailto:info@remezzoristorante.ca">info@remezzoristorante.ca</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copyright">&copy; 2024 Remezzo Italian Bistro. All rights reserved. Scarborough, Toronto, Ontario.</div>
-    <div class="footer-legal">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Accessibility</a>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Turtle Jack's Etobicoke. All rights reserved. | <a href="https://www.turtlejacks.com/" target="_blank" rel="noopener">turtlejacks.com</a></p>
+      <p style="font-size:0.7rem">Etobicoke, Toronto, Ontario</p>
     </div>
   </div>
 </footer>
 
-<!-- ─── FLOATING CTA ─── -->
-<div class="floating-cta" id="floatingCta">
-  <a href="tel:4162990011" class="floating-btn floating-btn-call">
-    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-    <span>Call Now</span>
-  </a>
-  <a href="#contact" class="floating-btn floating-btn-reserve">
-    <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
-    <span>Reserve</span>
+<!-- PHONE FLOAT -->
+<div class="phone-float">
+  <a href="tel:4162131111" class="phone-btn" title="Call Turtle Jacks">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
   </a>
 </div>
 
+<!-- RESERVATION MODAL -->
+<div class="modal-overlay" id="reservationModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('reservation')" aria-label="Close">&#10005;</button>
+    <h3>Reserve a Table</h3>
+    <p class="modal-subtitle">Fill in your details and we will confirm your reservation at Turtle Jack's Etobicoke.</p>
+    <form id="reservationForm" onsubmit="submitReservation(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="416-555-0000" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" required id="resDate">
+        </div>
+        <div class="form-group">
+          <label>Time</label>
+          <select required>
+            <option value="">Select time</option>
+            <option>11:30 AM</option>
+            <option>12:00 PM</option>
+            <option>12:30 PM</option>
+            <option>1:00 PM</option>
+            <option>5:00 PM</option>
+            <option>5:30 PM</option>
+            <option>6:00 PM</option>
+            <option>6:30 PM</option>
+            <option>7:00 PM</option>
+            <option>7:30 PM</option>
+            <option>8:00 PM</option>
+            <option>8:30 PM</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Party Size</label>
+        <select required>
+          <option value="">Select guests</option>
+          <option>1 Guest</option>
+          <option>2 Guests</option>
+          <option>3 Guests</option>
+          <option>4 Guests</option>
+          <option>5 Guests</option>
+          <option>6 Guests</option>
+          <option>7-10 Guests</option>
+          <option>10+ Guests (call us)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Special Requests (optional)</label>
+        <textarea placeholder="Birthdays, allergies, seating preferences..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;padding:14px;font-size:0.85rem">
+        Confirm Reservation
+      </button>
+      <p style="text-align:center;font-size:0.72rem;color:var(--text-muted);margin-top:12px">
+        Or call us directly: <a href="tel:4162131111" style="color:var(--red);font-weight:600">416-213-1111</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon">&#10003;</span>
+  <span id="toastMessage">Reservation request sent!</span>
+</div>
+
 <script>
-  // ─── NAVBAR SCROLL ───
-  const navbar = document.getElementById("navbar");
+  // NAV SCROLL
   window.addEventListener("scroll", function() {
-    if (window.scrollY > 60) {
-      navbar.classList.add("scrolled");
+    var nav = document.getElementById("mainNav");
+    if (window.scrollY > 50) {
+      nav.classList.add("scrolled");
     } else {
-      navbar.classList.remove("scrolled");
-    }
-    // Floating CTA
-    const floatingCta = document.getElementById("floatingCta");
-    if (window.scrollY > 500) {
-      floatingCta.classList.add("visible");
-    } else {
-      floatingCta.classList.remove("visible");
+      nav.classList.remove("scrolled");
     }
   });
 
-  // ─── HAMBURGER ───
-  function toggleMenu() {
-    const hamburger = document.getElementById("hamburger");
-    const mobileMenu = document.getElementById("mobileMenu");
-    hamburger.classList.toggle("open");
-    mobileMenu.classList.toggle("open");
+  // MOBILE MENU
+  function toggleMobileMenu() {
+    var menu = document.getElementById("mobileMenu");
+    var burger = document.getElementById("hamburger");
+    menu.classList.toggle("open");
+    var spans = burger.querySelectorAll("span");
+    if (menu.classList.contains("open")) {
+      spans[0].style.transform = "rotate(45deg) translate(5px, 5px)";
+      spans[1].style.opacity = "0";
+      spans[2].style.transform = "rotate(-45deg) translate(5px, -5px)";
+    } else {
+      spans[0].style.transform = "";
+      spans[1].style.opacity = "";
+      spans[2].style.transform = "";
+    }
   }
 
-  // ─── SCROLL ANIMATIONS ───
-  const fadeElements = document.querySelectorAll(".fade-up");
-  const observer = new IntersectionObserver(function(entries) {
+  // CLOSE MOBILE MENU ON OUTSIDE CLICK
+  document.addEventListener("click", function(e) {
+    var menu = document.getElementById("mobileMenu");
+    var burger = document.getElementById("hamburger");
+    if (menu.classList.contains("open") && !menu.contains(e.target) && !burger.contains(e.target)) {
+      toggleMobileMenu();
+    }
+  });
+
+  // MODAL
+  function openModal(type) {
+    if (type === "reservation") {
+      document.getElementById("reservationModal").classList.add("open");
+      document.body.style.overflow = "hidden";
+      var today = new Date().toISOString().split("T")[0];
+      document.getElementById("resDate").min = today;
+      document.getElementById("resDate").value = today;
+    }
+  }
+
+  function closeModal(type) {
+    if (type === "reservation") {
+      document.getElementById("reservationModal").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  }
+
+  document.getElementById("reservationModal").addEventListener("click", function(e) {
+    if (e.target === this) closeModal("reservation");
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeModal("reservation");
+  });
+
+  // SUBMIT RESERVATION
+  function submitReservation(e) {
+    e.preventDefault();
+    closeModal("reservation");
+    showToast("Reservation request sent! We will call to confirm shortly.");
+    e.target.reset();
+  }
+
+  // TOAST
+  function showToast(msg) {
+    var toast = document.getElementById("toast");
+    document.getElementById("toastMessage").textContent = msg;
+    toast.classList.add("show");
+    setTimeout(function() {
+      toast.classList.remove("show");
+    }, 4000);
+  }
+
+  // HOURS TABLE
+  var hoursData = [
+    { day: "Monday", time: "11:30 AM - 12:00 AM" },
+    { day: "Tuesday", time: "11:30 AM - 12:00 AM" },
+    { day: "Wednesday", time: "11:30 AM - 12:00 AM" },
+    { day: "Thursday", time: "11:30 AM - 1:00 AM" },
+    { day: "Friday", time: "11:30 AM - 2:00 AM" },
+    { day: "Saturday", time: "11:00 AM - 2:00 AM" },
+    { day: "Sunday", time: "11:00 AM - 12:00 AM" }
+  ];
+
+  var todayIndex = new Date().getDay();
+  var jsToIndex = [6, 0, 1, 2, 3, 4, 5];
+  var todayHoursIdx = jsToIndex[todayIndex];
+
+  var tbody = document.getElementById("hoursTable");
+  hoursData.forEach(function(row, i) {
+    var tr = document.createElement("tr");
+    var isToday = (i === todayHoursIdx);
+    tr.innerHTML = "<td class=\"hours-row\" style=\"display:flex;justify-content:space-between;align-items:center\">" +
+      "<span class=\"hours-day\"" + (isToday ? " style=\"color:#fff;font-weight:600\"" : "") + ">" + row.day + (isToday ? "<span class=\"today-badge\">Today</span>" : "") + "</span>" +
+      "<span class=\"hours-time" + (isToday ? " today" : "") + "\">" + row.time + "</span>" +
+      "</td>";
+    tbody.appendChild(tr);
+  });
+
+  // INTERSECTION OBSERVER FOR FADE-UP
+  var fadeEls = document.querySelectorAll(".fade-up");
+  var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
 
-  fadeElements.forEach(function(el) {
-    observer.observe(el);
-  });
+  fadeEls.forEach(function(el) { observer.observe(el); });
 
-  // ─── FORM SUBMISSION ───
-  function submitForm() {
-    const fullName = document.getElementById("fullName").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const resDate = document.getElementById("resDate").value;
-    const resTime = document.getElementById("resTime").value;
-    const partySize = document.getElementById("partySize").value;
-
-    if (!fullName || !phone || !email || !resDate || !resTime || !partySize) {
-      const missing = [];
-      if (!fullName) missing.push("Full Name");
-      if (!phone) missing.push("Phone Number");
-      if (!email) missing.push("Email Address");
-      if (!resDate) missing.push("Reservation Date");
-      if (!resTime) missing.push("Reservation Time");
-      if (!partySize) missing.push("Party Size");
-      alert("Please complete the following required fields:\n\n" + missing.join("\n"));
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    document.getElementById("formFields").style.display = "none";
-    document.getElementById("formSuccess").classList.add("show");
+  // HERO STATS COUNTER ANIMATION
+  function animateCounter(el, target, duration) {
+    var start = 0;
+    var step = target / (duration / 16);
+    var timer = setInterval(function() {
+      start += step;
+      if (start >= target) {
+        start = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(start) + (el.dataset.suffix || "");
+    }, 16);
   }
 
-  // ─── SET MIN DATE TO TODAY ───
-  const dateInput = document.getElementById("resDate");
-  if (dateInput) {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
-    dateInput.setAttribute("min", year + "-" + month + "-" + day);
-  }
-
-  // ─── SMOOTH SCROLL FOR ANCHOR LINKS ───
-  document.querySelectorAll("a[href^='#']").forEach(function(anchor) {
+  // SMOOTH ANCHOR LINKS
+  document.querySelectorAll("a[href^=\"#\"]").forEach(function(anchor) {
     anchor.addEventListener("click", function(e) {
-      const target = document.querySelector(this.getAttribute("href"));
+      var target = document.querySelector(this.getAttribute("href"));
       if (target) {
         e.preventDefault();
-        const navHeight = document.getElementById("navbar").offsetHeight;
-        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-        window.scrollTo({ top: targetPos, behavior: "smooth" });
+        var offset = 70;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: "smooth" });
       }
     });
   });
